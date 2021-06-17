@@ -1,0 +1,11 @@
+:root {
+  --bg-color: #303030;
+}
+
+[data-theme="light"] {
+  --bg-color: #f0f0f0;
+}
+
+$theme: (
+  --bg-color: var(--bg-color),
+);
