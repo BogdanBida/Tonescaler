@@ -8,6 +8,7 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { CookieService } from 'ngx-cookie-service';
 import { appInitializerFactory } from './app-initializer-factory';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -34,6 +35,7 @@ import { AppComponent } from './app.component';
       deps: [TranslateService, Injector],
       multi: true,
     },
+    CookieService,
   ],
   bootstrap: [AppComponent],
 })
