@@ -20,6 +20,8 @@
     "@angular/platform-browser-dynamic": "~12.0.4",
     "@angular/router": "~12.0.4",
     "@ddlab/tuner": "^0.1.0",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.6.0",
     "soundfont-player": "^0.12.0",
