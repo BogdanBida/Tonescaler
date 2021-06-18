@@ -13,6 +13,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'settings',
+        loadChildren: (): any =>
+          import('./features/settings/settings.module').then(
+            (module) => module.SettingsModule
+          ),
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full',

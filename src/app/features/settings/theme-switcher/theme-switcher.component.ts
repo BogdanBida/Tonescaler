@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { environment } from './../../../../environments/environment';
 import { Theme } from './../../../core/enums/themes.enum';
 import { ThemeService } from './../../../core/services/theme.service';
 
@@ -15,7 +14,7 @@ export class ThemeSwitcherComponent implements OnInit {
   constructor(private readonly _themeService: ThemeService) {}
 
   public form = new FormGroup({
-    theme: new FormControl(environment.defaultTheme),
+    theme: new FormControl(this._themeService.selectedTheme),
   });
 
   public themes = [Theme.Dark, Theme.Light];

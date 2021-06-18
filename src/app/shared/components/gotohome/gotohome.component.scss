@@ -1,0 +1,21 @@
+$size: 76px;
+
+:host {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  width: $size;
+  height: $size;
+  z-index: 2;
+  button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    width: $size * 2;
+    height: $size * 2;
+    border-radius: 999px;
+    padding-top: $size / 2;
+  }
+}
