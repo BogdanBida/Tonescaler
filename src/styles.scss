@@ -2,8 +2,18 @@
 @import "./scss/themes";
 @import "./scss/functions";
 
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  height: -webkit-fill-available;
+}
+
 body {
   background-color: var(--bg-color);
+  box-sizing: border-box;
 }
 
 button {
