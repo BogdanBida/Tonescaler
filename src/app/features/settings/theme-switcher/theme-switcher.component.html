@@ -1,4 +1,5 @@
-<form [formGroup]="form">
+<form class="container" [formGroup]="form">
+  <span>{{ "settings.theme" | translate }}</span>
   <select name="" id="" formControlName="theme">
     <option *ngFor="let theme of themes" [value]="theme">{{ theme }}</option>
   </select>

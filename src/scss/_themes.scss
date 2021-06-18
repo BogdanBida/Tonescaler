@@ -1,9 +1,15 @@
-:root {
-  --bg-color: #303030;
+[data-theme="dark"] {
+  --bg-color: #303038;
+  --bg-color1: #303040;
+  --bg-color2: #403030;
+  --text-color-primary: #f0f0f0;
 }
 
 [data-theme="light"] {
-  --bg-color: #f0f0f0;
+  --bg-color: #f0f0f8;
+  --bg-color1: #c0c0f8;
+  --bg-color2: #f8d8d8;
+  --text-color-primary: #303030;
 
   .monochrome-icon {
     filter: invert(1);
@@ -12,4 +18,7 @@
 
 $theme: (
   --bg-color: var(--bg-color),
+  --bg-color1: var(--bg-color1),
+  --bg-color2: var(--bg-color2),
+  --text-color-primary: var(--text-color-primary),
 );

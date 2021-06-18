@@ -1,5 +1,9 @@
 {
   "common": {
     "welcome": "Select instrument"
+  },
+  "settings": {
+    "theme": "Select theme",
+    "language": "Select language"
   }
 }
