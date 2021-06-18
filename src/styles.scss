@@ -1,8 +1,7 @@
-@import "assets/css/normalize";
-@import "./scss/themes";
-@import "./scss/functions";
-@import "./scss//variables";
-@import "assets/fonts/fonts";
+@import "normalize";
+@import "themes";
+@import "variables";
+@import "fonts";
 
 * {
   box-sizing: border-box;

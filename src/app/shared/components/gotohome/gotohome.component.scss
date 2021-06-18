@@ -1,3 +1,5 @@
+@import "themes";
+
 $size: 76px;
 
 :host {
@@ -13,9 +15,15 @@ $size: 76px;
     left: 0;
     top: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: $size * 2;
     height: $size * 2;
     border-radius: 999px;
-    padding-top: $size / 2;
+    background-color: var(--bg-color);
+    .icon {
+      width: $size / 2;
+      transform: translateX(-75%) translateY(-75%);
+    }
   }
 }

@@ -22,3 +22,7 @@ $theme: (
   --bg-color2: var(--bg-color2),
   --text-color-primary: var(--text-color-primary),
 );
+
+@function var($variable) {
+  @return map-get($theme, $variable);
+}
