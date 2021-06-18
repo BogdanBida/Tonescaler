@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TunerInfo } from './../../core/models/tuner-info';
+import { AudioPlayerService, TunerService } from './../../core/services';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +8,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public ngOnInit(): void {}
+  constructor(
+    private readonly _audioPlayer: AudioPlayerService,
+    private readonly _tunerService: TunerService
+  ) {}
+
+  public info: TunerInfo | null = null;
+
+  public ngOnInit(): void {
+    this._audioPlayer.initInstrument('acoustic_grand_piano');
+  }
+
+  public play(note: number): void {
+    this._audioPlayer.play('acoustic_grand_piano', note);
+  }
+
+  public initTuner(): void {
+    this._tunerService.initTuner().subscribe((info) => {
+      this.info = info;
+    });
+  }
+
+  public toggleTuner(): void {
+    this._tunerService.toggleTuner();
+  }
 }
