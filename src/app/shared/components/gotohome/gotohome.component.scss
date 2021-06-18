@@ -10,6 +10,17 @@ $size: 76px;
   width: $size;
   height: $size;
   z-index: 2;
+  transition: width 0.2s, height 0.2s;
+
+  &:hover {
+    width: $size * 1.05;
+    height: $size * 1.05;
+    button {
+      width: $size * 2.05;
+      height: $size * 2.05;
+    }
+  }
+
   button {
     position: absolute;
     left: 0;
@@ -21,9 +32,17 @@ $size: 76px;
     height: $size * 2;
     border-radius: 999px;
     background-color: var(--bg-color);
+    transition: width 0.2s, height 0.2s;
+
     .icon {
       width: $size / 2;
       transform: translateX(-75%) translateY(-75%);
     }
+  }
+}
+
+[data-theme="light"] {
+  :host {
+    filter: drop-shadow(2px 3px 6px rgba(black, 0.5));
   }
 }
