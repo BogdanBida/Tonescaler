@@ -37,6 +37,7 @@ export class AudioPlayerService {
       (await this.initInstrument(instrumentName));
 
     const noteName = NoteNumToString(note);
+
     instrument.play(noteName);
   }
 }

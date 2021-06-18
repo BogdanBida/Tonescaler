@@ -11,12 +11,13 @@ export function StringToNoteNum(note: string): number {
   const noteIndex = NOTES.indexOf(noteBase);
 
   if (noteIndex === -1) {
-    throw 'Note index not found';
+    throw new Error('Note index not found');
   }
 
   const octave = Number(note.substr(note.length - 1));
+
   if (!isFinite(octave)) {
-    throw 'Octave is not a number';
+    throw new Error('Octave is not a number');
   }
 
   return noteIndex + octave * 12;
