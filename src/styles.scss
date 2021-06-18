@@ -21,8 +21,12 @@ body {
 
 button {
   cursor: pointer;
-  :active {
-    filter: brightness(0.95);
+  &:active {
+    filter: brightness(1.1);
+  }
+
+  &:focus {
+    outline: 2px dashed var(--main-color);
   }
 }
 

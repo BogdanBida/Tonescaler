@@ -31,12 +31,17 @@ $size: 76px;
     width: $size * 2;
     height: $size * 2;
     border-radius: 999px;
+    border: 2px solid var(--main-color);
     background-color: var(--bg-color);
     transition: width 0.2s, height 0.2s;
 
     .icon {
       width: $size / 2;
       transform: translateX(-75%) translateY(-75%);
+    }
+
+    &:focus {
+      border-width: 3px;
     }
   }
 }

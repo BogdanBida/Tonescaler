@@ -2,5 +2,12 @@
   .icon {
     width: 32px;
     height: 32px;
+    transition: 0.3s;
+  }
+
+  &:active {
+    .icon {
+      transform: rotate(90deg);
+    }
   }
 }
