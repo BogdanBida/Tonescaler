@@ -12,3 +12,5 @@ export const NOTES = [
   'G', //*  10
   'G#', //* 11
 ];
+
+export const OCTAVE_OFFSET = 3;

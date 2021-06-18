@@ -1,6 +1,4 @@
-import { NOTES } from '../constants/notes';
-
-const OCTAVE_OFFSET = 3;
+import { NOTES, OCTAVE_OFFSET } from '../constants/notes';
 
 export function NoteNumToString(note: number): string {
   return NOTES[note % 12] + Math.trunc((note - OCTAVE_OFFSET) / 12) + 1;

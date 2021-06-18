@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { environment } from './../environments/environment';
-import { AppCookieService } from './core/services/app-cookie.service';
+import { AppService } from './core/services/app.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +7,8 @@ import { AppCookieService } from './core/services/app-cookie.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(
-    private readonly _translateService: TranslateService,
-    private readonly _cookieService: AppCookieService
-  ) {
-    const defaultLang =
-      this._cookieService.getPreferredLanguage() ||
-      this._translateService.getBrowserLang() ||
-      environment.defaultLang;
-
-    this._translateService.setDefaultLang(defaultLang);
-    this._translateService.use(defaultLang);
+  constructor(private readonly _appService: AppService) {
+    this._appService.initApp();
   }
 
   public title = 'tonescaler';
