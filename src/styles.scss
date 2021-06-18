@@ -5,3 +5,19 @@
 body {
   background-color: var(--bg-color);
 }
+
+button {
+  cursor: pointer;
+  :active {
+    filter: brightness(0.95);
+  }
+}
+
+.btn-icon {
+  background-color: transparent;
+  border: none;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
