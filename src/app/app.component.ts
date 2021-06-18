@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Data, RouterOutlet } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { routeAnimations } from './core/constants/animations';
 import { AppService } from './core/services/app.service';
 
@@ -15,6 +16,10 @@ export class AppComponent {
   }
 
   public title = 'tonescaler';
+
+  public isNotHomepage = this._appService.isHomepage.pipe(
+    map((value) => !value)
+  );
 
   public getAnimationData(outlet: RouterOutlet): RouterOutlet | Data | string {
     return (

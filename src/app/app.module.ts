@@ -12,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { appInitializerFactory } from './app-initializer-factory';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { AppComponent } from './app.component';
         deps: [HttpClient],
       },
     }),
+    SharedModule,
   ],
   providers: [
     {
