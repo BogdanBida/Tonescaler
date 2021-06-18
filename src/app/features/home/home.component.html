@@ -1,17 +1,3 @@
-<p>
-  home works!
-  {{ "common.welcome" | translate }}
-</p>
-<button (click)="play(3 + 48)">C4</button>
-<button (click)="play(4 + 48)">C4#</button>
-<button (click)="play(5 + 48)">D4</button>
-<button (click)="play(6 + 48)">D4#</button>
-<button (click)="play(7 + 48)">E4</button>
-<button (click)="play(8 + 48)">F4</button>
-<button (click)="play(8 + 48)">F4#</button>
-<button (click)="play(10 + 48)">G4</button>
-<button (click)="play(11 + 48)">G4#</button>
-<button (click)="initTuner()">Init tuner</button>
 <button (click)="toggleTuner()">toggle tuner</button>
 <ul *ngIf="info">
   <li>note: {{ info.noteStr }}</li>

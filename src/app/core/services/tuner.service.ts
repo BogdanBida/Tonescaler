@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { getTuningInfo, initAudio } from '@ddlab/tuner';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { BehaviorSubject, from } from 'rxjs';
+import { UntilDestroy } from '@ngneat/until-destroy';
+import { BehaviorSubject } from 'rxjs';
 import { TunerInfo } from '../models';
 
 const initialTunerInfo = {
@@ -19,11 +19,12 @@ export class TunerService {
     initialTunerInfo
   );
 
-  private _getFreqData: any;
-
-  private _deltaFreq: any;
-
   private _isEnabled = false;
+
+  private _audioCtx: {
+    getFreqData: any;
+    deltaFreq: any;
+  } | null = null;
 
   public toggleTuner(): void {
     this._isEnabled = !this._isEnabled;
@@ -36,25 +37,21 @@ export class TunerService {
   }
 
   public initTuner(): BehaviorSubject<TunerInfo> {
-    from(initAudio)
-      .pipe(untilDestroyed(this))
-      .subscribe((data: any) => {
-        this._getFreqData = data.getFreqData;
-        this._deltaFreq = data.deltaFreq;
-        console.log(data);
-      });
+    // eslint-disable-next-line @typescript-eslint/space-before-function-paren
+    document.addEventListener('keypress', async () => {
+      this._audioCtx = await initAudio();
+    });
 
     return this.info;
   }
 
   private _tunerLoop(): void {
-    if (!this._getFreqData && !this._deltaFreq) {
-      return;
+    if (this._audioCtx) {
+      this.info.next(
+        getTuningInfo(this._audioCtx.getFreqData(), this._audioCtx.deltaFreq)
+      );
+
+      this._isEnabled && requestAnimationFrame(() => this._tunerLoop());
     }
-
-    const info = getTuningInfo(this._getFreqData(), this._deltaFreq);
-
-    this.info.next(info);
-    this._isEnabled && requestAnimationFrame(this._tunerLoop);
   }
 }
