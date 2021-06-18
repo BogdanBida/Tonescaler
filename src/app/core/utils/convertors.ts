@@ -1,7 +1,9 @@
 import { NOTES } from '../constants/notes';
 
+const OCTAVE_OFFSET = 3;
+
 export function NoteNumToString(note: number): string {
-  return NOTES[note % 12] + Math.floor(note / 12);
+  return NOTES[note % 12] + Math.trunc((note - OCTAVE_OFFSET) / 12) + 1;
 }
 
 export function StringToNoteNum(note: string): number {
@@ -20,5 +22,5 @@ export function StringToNoteNum(note: string): number {
     throw new Error('Octave is not a number');
   }
 
-  return noteIndex + octave * 12;
+  return noteIndex + octave * 12 + 1;
 }
