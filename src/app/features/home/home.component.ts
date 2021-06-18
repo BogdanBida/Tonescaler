@@ -17,16 +17,12 @@ export class HomeComponent implements OnInit {
 
   public ngOnInit(): void {
     this._audioPlayer.initInstrument('acoustic_grand_piano');
-    this._tunerService.initTuner().subscribe((info) => {
-      this.info = info;
-    });
+    // this._tunerService.initTuner().subscribe((info) => {
+    // this.info = info;
+    // });
   }
 
   public play(note: number): void {
     this._audioPlayer.play('acoustic_grand_piano', note);
-  }
-
-  public toggleTuner(): void {
-    this._tunerService.toggleTuner();
   }
 }

@@ -12,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { appInitializerFactory } from './app-initializer-factory';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AppCookieService } from './core/services';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -34,7 +35,7 @@ import { SharedModule } from './shared/shared.module';
     {
       provide: APP_INITIALIZER,
       useFactory: appInitializerFactory,
-      deps: [TranslateService, Injector],
+      deps: [TranslateService, AppCookieService, Injector],
       multi: true,
     },
     CookieService,

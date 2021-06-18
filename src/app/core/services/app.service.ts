@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { filter, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Theme } from '../enums';
@@ -12,7 +11,6 @@ import { ThemeService } from './theme.service';
 })
 export class AppService {
   constructor(
-    private readonly _translateService: TranslateService,
     private readonly _cookieService: AppCookieService,
     private readonly _themeService: ThemeService,
     private readonly _router: Router
@@ -27,7 +25,6 @@ export class AppService {
 
   public initApp(): void {
     this._initTheme();
-    this._initLang();
   }
 
   private _initTheme(): void {
@@ -36,15 +33,5 @@ export class AppService {
       (environment.defaultTheme as Theme);
 
     this._themeService.setTheme(defaultTheme);
-  }
-
-  private _initLang(): void {
-    const defaultLang =
-      this._cookieService.getPreferredLanguage() ||
-      this._translateService.getBrowserLang() ||
-      environment.defaultLang;
-
-    this._translateService.setDefaultLang(defaultLang);
-    this._translateService.use(defaultLang);
   }
 }

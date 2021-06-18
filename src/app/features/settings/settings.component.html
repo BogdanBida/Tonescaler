@@ -1,3 +1,20 @@
 <div>
-  <app-theme-switcher></app-theme-switcher>
+  <form class="form" [formGroup]="form">
+    <div class="form-item">
+      <span>{{ "settings.theme" | translate }}</span>
+      <select name="" id="" formControlName="theme">
+        <option *ngFor="let theme of themes" [value]="theme">
+          {{ theme }}
+        </option>
+      </select>
+    </div>
+    <div class="form-item">
+      <span>{{ "settings.language" | translate }}</span>
+      <select name="" id="" formControlName="lang">
+        <option *ngFor="let lang of langs" [value]="lang">
+          {{ lang }}
+        </option>
+      </select>
+    </div>
+  </form>
 </div>

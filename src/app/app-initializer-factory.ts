@@ -2,9 +2,11 @@ import { LOCATION_INITIALIZED } from '@angular/common';
 import { Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
+import { AppCookieService } from './core/services';
 
 export function appInitializerFactory(
   translate: TranslateService,
+  cookieService: AppCookieService,
   injector: Injector
 ): () => Promise<any> {
   return (): Promise<any> =>
@@ -15,9 +17,13 @@ export function appInitializerFactory(
       );
 
       locationInitialized.then(() => {
-        const langToSet = environment.defaultLang;
+        const langToSet =
+          cookieService.getPreferredLanguage() ||
+          translate.getBrowserLang() ||
+          environment.defaultLang;
 
-        translate.setDefaultLang(environment.defaultLang);
+        translate.setDefaultLang(langToSet);
+
         translate.use(langToSet).subscribe({
           next: () => null,
           error: () => {

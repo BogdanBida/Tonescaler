@@ -5,7 +5,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from './../../shared/shared.module';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './settings.component';
-import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.component';
 
 @NgModule({
   imports: [
@@ -16,6 +15,6 @@ import { ThemeSwitcherComponent } from './theme-switcher/theme-switcher.componen
     SettingsRoutingModule,
     TranslateModule.forChild(),
   ],
-  declarations: [SettingsComponent, ThemeSwitcherComponent],
+  declarations: [SettingsComponent],
 })
 export class SettingsModule {}
