@@ -1,0 +1,63 @@
+:host {
+  pointer-events: none;
+  .wrapper {
+    pointer-events: all;
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateY(50%) translateX(50%);
+    width: calc(66.66% - 8px);
+    height: calc(66.66% - 8px);
+    border-radius: 999px;
+    border: none;
+    background-color: var(--bg-color);
+    .icon {
+      position: absolute;
+      top: 45%;
+      left: 45%;
+      transform: translateX(-100%) translateY(-100%);
+      width: 30%;
+    }
+
+    .instruments {
+      transition: 0.5s;
+    }
+
+    .musicbox {
+      .frontside {
+        transform: translateY(0);
+        transition: 0.5s;
+      }
+      .legs {
+        transition: 1s;
+        .leftleg,
+        .rightleg {
+          transform-origin: center;
+          transition: 0.5s;
+        }
+      }
+    }
+
+    &.opened {
+      .instruments {
+        opacity: 0;
+        transform: translateX(-100%) translateY(0%);
+      }
+      .musicbox {
+        .frontside {
+          transform: translateY(-90%) scaleY(1.5);
+        }
+        .legs {
+          .leftleg {
+            transform: rotate(15deg) translateX(72%) translateY(20%) scale(0.66);
+          }
+          .rightleg {
+            transform: rotate(-15deg) translateX(-72%) translateY(20%)
+              scale(0.66);
+          }
+        }
+      }
+    }
+  }
+}

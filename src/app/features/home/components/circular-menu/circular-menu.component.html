@@ -1,2 +1,2 @@
-<nav [class.closed]="!isOpen"></nav>
-<button class="toggle-btn" (click)="toggleClick()"></button>
+<nav [class.closed]="isClosed | async"></nav>
+<app-musicbox-button></app-musicbox-button>

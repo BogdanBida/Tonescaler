@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { Theme } from '../enums';
@@ -23,8 +24,16 @@ export class AppService {
     })
   );
 
+  public circularMenuIsOpened = new BehaviorSubject<boolean>(false);
+
   public initApp(): void {
     this._initTheme();
+  }
+
+  public toggleCircularMenu(value?: boolean): void {
+    this.circularMenuIsOpened.next(
+      value !== undefined ? value : !this.circularMenuIsOpened.value
+    );
   }
 
   private _initTheme(): void {

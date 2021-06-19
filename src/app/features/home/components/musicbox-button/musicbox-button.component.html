@@ -1,0 +1,37 @@
+<button
+  class="wrapper"
+  (click)="toggleMenu()"
+  [class.opened]="menuIsOpened | async"
+>
+  <!-- <img class="monochrome-icon icon" src="assets/icons/musicbox.svg" alt="" /> -->
+  <img
+    class="monochrome-icon icon instruments"
+    src="assets/icons/instruments.svg"
+    alt=""
+  />
+  <svg
+    version="1.1"
+    class="monochrome-icon icon musicbox"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    viewBox="0 0 512 512"
+    style="enable-background: new 0 0 512 512"
+    xml:space="preserve"
+  >
+    <g id="box" fill="#e8e8e8">
+      <g class="frontside">
+        <rect x="32" y="320" class="st0" width="448" height="192" />
+      </g>
+      <g class="legs">
+        <rect class="leftleg" y="128" width="24" height="384" />
+        <rect class="rightleg" x="488" y="128" width="24" height="384" />
+      </g>
+      <rect x="40" y="192" width="34" height="16" />
+      <rect x="132" y="192" width="30" height="16" />
+      <rect x="284" y="192" width="53" height="16" />
+      <rect x="398" y="192" width="74" height="16" />
+    </g>
+  </svg>
+</button>
