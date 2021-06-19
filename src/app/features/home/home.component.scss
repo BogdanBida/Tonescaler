@@ -1,5 +1,20 @@
+:host {
+  width: 100%;
+}
+
 .settings-btn {
   position: absolute;
-  left: 32px;
-  bottom: 32px;
+  left: 2rem;
+  bottom: 2rem;
+}
+
+.info-link {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  .btn-icon {
+    width: 100%;
+  }
 }
