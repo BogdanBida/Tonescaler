@@ -9,8 +9,8 @@ export const routeAnimations = trigger('routeAnimation', [
     animate(easingFn, style({ opacity: 1, transform: 'translateY(0)' })),
   ]),
   transition('bottom => center', [
-    style({ opacity: 0, transform: `translateY(-${translateOffset}%)` }),
-    animate(easingFn, style({ opacity: 1, transform: 'translateY(0)' })),
+    style({ opacity: 0 }),
+    animate(easingFn, style({ opacity: 1 })),
   ]),
   transition('center => left', [
     style({ opacity: 0, transform: `translateX(-${translateOffset}%)` }),

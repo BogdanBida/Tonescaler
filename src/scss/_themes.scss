@@ -4,6 +4,7 @@
   --bg-color2: #403030;
   --text-color-primary: #f0f0f0;
   --main-color: #92e2ff;
+  --glass: #20202020;
 }
 
 [data-theme="light"] {
@@ -12,6 +13,7 @@
   --bg-color2: #f8d8d8;
   --text-color-primary: #303030;
   --main-color: #6da2b6;
+  --glass: #ffffff20;
 
   .monochrome-icon {
     filter: invert(0.75);
@@ -24,6 +26,7 @@ $theme: (
   --bg-color2: var(--bg-color2),
   --text-color-primary: var(--text-color-primary),
   --main-color: var(--main-color),
+  --glass: var(--glass),
 );
 
 @function var($variable) {
