@@ -7,6 +7,7 @@
     right: 0;
     bottom: 0;
     transform: translateY(50%) translateX(50%);
+    will-change: transform;
     width: calc(66.66% - 8px);
     height: calc(66.66% - 8px);
     border-radius: 999px;
@@ -17,6 +18,7 @@
       top: 45%;
       left: 45%;
       transform: translateX(-100%) translateY(-100%);
+      will-change: transform;
       width: 30%;
     }
 
@@ -28,13 +30,16 @@
       .frontside {
         transform: translateY(0);
         transition: 0.5s;
+        will-change: transform;
       }
       .legs {
         transition: 1s;
+        will-change: transform;
         .leftleg,
         .rightleg {
           transform-origin: center;
           transition: 0.5s;
+          will-change: transform;
         }
       }
     }
