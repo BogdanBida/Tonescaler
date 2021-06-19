@@ -3,20 +3,33 @@
 :host {
   .wrapper {
     .list {
-      padding: 0;
+      padding: 10px 0;
+      width: min-content;
+      background-color: var(--glass);
+      box-shadow: 0 0 3px black;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      width: 96px;
       .menu-item {
+        width: 100%;
         list-style: none;
-        margin: 32px 0;
+        border-right: 2px solid transparent;
+        transition: 0.1s;
+        border-top: 1px solid rgba(black, 0.15);
+        border-bottom: 1px solid rgba(black, 0.15);
         .btn-icon {
-          width: 96px;
-          padding: 8px;
-          background-color: var(--glass);
-          box-shadow: 0 0 3px black;
+          width: 100%;
+          padding: 16px 8px;
           font-size: 0.75rem;
           .icon {
             width: calc(100% - 32px);
             margin-bottom: 4px;
           }
+        }
+        &:hover {
+          width: calc(100% + 4px);
+          padding-left: 4px;
+          border-right: 2px solid var(--main-color);
         }
       }
     }

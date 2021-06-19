@@ -28,7 +28,7 @@ button {
   }
 
   &:focus {
-    outline: 1px solid var(--main-color);
+    outline: 1px solid rgba(white, 0.25);
   }
 }
 
