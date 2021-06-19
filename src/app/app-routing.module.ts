@@ -20,6 +20,20 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'tuner',
+        loadChildren: (): any =>
+          import('./features/tuner/tuner.module').then(
+            (module) => module.TunerModule
+          ),
+      },
+      {
+        path: 'chord-finder',
+        loadChildren: (): any =>
+          import('./features/chord-finder/chord-finder.module').then(
+            (module) => module.ChordFinderModule
+          ),
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full',
