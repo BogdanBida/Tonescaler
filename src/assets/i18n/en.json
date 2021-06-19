@@ -5,5 +5,12 @@
   "settings": {
     "theme": "Select theme",
     "language": "Select language"
+  },
+  "routes": {
+    "settings": "Settings",
+    "tuner": "Tuner",
+    "chord_finder": "Chord finder",
+    "keyboards": "Keyboards",
+    "stringed": "Stringed"
   }
 }

@@ -1,0 +1,28 @@
+<nav class="wrapper">
+  <ul class="list">
+    <li class="menu-item">
+      <button class="btn-icon tuner-btn" [routerLink]="['/tuner']">
+        <div class="icon-wrapper">
+          <img
+            class="icon monochrome-icon"
+            src="assets/icons/tuner.svg"
+            alt=""
+          />
+        </div>
+        <span>{{ "routes.tuner" | translate }}</span>
+      </button>
+    </li>
+    <li class="menu-item">
+      <button class="btn-icon chord-btn" [routerLink]="['/tuner']">
+        <div class="icon-wrapper">
+          <img
+            class="icon monochrome-icon"
+            src="assets/icons/chord.svg"
+            alt=""
+          />
+        </div>
+        <span>{{ "routes.chord_finder" | translate }}</span>
+      </button>
+    </li>
+  </ul>
+</nav>

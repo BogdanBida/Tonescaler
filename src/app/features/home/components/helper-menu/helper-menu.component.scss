@@ -1,0 +1,24 @@
+@import "themes";
+
+:host {
+  .wrapper {
+    .list {
+      padding: 0;
+      .menu-item {
+        list-style: none;
+        margin: 32px 0;
+        .btn-icon {
+          width: 96px;
+          padding: 8px;
+          background-color: var(--glass);
+          box-shadow: 0 0 3px black;
+          font-size: 0.75rem;
+          .icon {
+            width: calc(100% - 32px);
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
+  }
+}
