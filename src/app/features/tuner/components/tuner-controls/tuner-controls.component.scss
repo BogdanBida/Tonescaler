@@ -1,0 +1,15 @@
+@import "themes";
+
+:host {
+  .btn {
+    padding: 10px 40px;
+    border: none;
+    box-shadow: inset 0 -8px 8px rgba(gray, 0.1);
+    background-color: var(--bg-color);
+    border-bottom: 2px solid gray;
+    &.isActive {
+      box-shadow: inset 0 -8px 8px rgba(red, 0.1);
+      border-bottom: 2px solid red;
+    }
+  }
+}

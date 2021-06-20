@@ -6,6 +6,10 @@
     "theme": "Select theme",
     "language": "Select language"
   },
+  "tuner": {
+    "upper": "Upper",
+    "lower": "Lower"
+  },
   "routes": {
     "settings": "Settings",
     "tuner": "Tuner",
