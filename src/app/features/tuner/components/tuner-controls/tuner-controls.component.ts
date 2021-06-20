@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { TunerService } from './../../../../core/services/tuner.service';
 
 @Component({
@@ -9,7 +9,9 @@ import { TunerService } from './../../../../core/services/tuner.service';
 export class TunerControlsComponent {
   constructor(private readonly _tunerService: TunerService) {}
 
-  public isActive = this._tunerService.isEnabled;
+  @HostBinding('class.isActive') public get isActive(): boolean {
+    return this._tunerService.isEnabled.value;
+  }
 
   public toggle = this._tunerService.toggleTuner.bind(this._tunerService);
 }

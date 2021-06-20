@@ -1,15 +1,19 @@
 :host {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   text-align: center;
 
   .notename {
-    font-size: 7vw;
+    font-size: 15vh;
+    margin: 0.25em 0;
   }
 
   .cents {
+    h3 {
+      margin: 0;
+    }
   }
 
   .status {

@@ -1,15 +1,60 @@
 @import "themes";
 
+$sides-height: 12px;
+
 :host {
+  filter: drop-shadow(0 0 3px var(--main-color));
   .btn {
-    padding: 10px 40px;
+    padding: 0 40px;
     border: none;
-    box-shadow: inset 0 -8px 8px rgba(gray, 0.1);
     background-color: var(--bg-color);
-    border-bottom: 2px solid gray;
-    &.isActive {
-      box-shadow: inset 0 -8px 8px rgba(red, 0.1);
-      border-bottom: 2px solid red;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    transition: 0.1s;
+
+    // &.isActive {
+    //   border-left: 4px solid rgba(red, 0.75);
+    //   border-right: 4px solid rgba(red, 0.75);
+    // }
+
+    &:active {
+      filter: none;
+    }
+
+    &:focus {
+      outline: 2px solid var(--main-color);
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      display: block;
+      content: "";
+      width: 100%;
+      height: $sides-height;
+      background-color: var(--bg-color);
+    }
+
+    &::before {
+      top: -$sides-height;
+      border-top-left-radius: 50%;
+      border-top-right-radius: 50%;
+    }
+
+    &::after {
+      bottom: -$sides-height;
+      border-bottom-left-radius: 50%;
+      border-bottom-right-radius: 50%;
+    }
+  }
+
+  &.isActive {
+    filter: drop-shadow(0 3px 3px rgba(red, 0.5));
+    // drop-shadow(0  3px var(--main-color));
+    .btn {
+      border-left: 4px solid rgba(red, 0.75);
+      border-right: 4px solid rgba(red, 0.75);
     }
   }
 }
