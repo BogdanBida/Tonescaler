@@ -1,4 +1,4 @@
-@import "themes";
+@import "variables";
 
 :host {
   display: flex;
@@ -25,7 +25,7 @@
   }
 }
 
-@media (max-height: 412px) {
+@media (max-height: $sm-height) {
   :host {
     flex-direction: row;
     justify-content: space-around;
