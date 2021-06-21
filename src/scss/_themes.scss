@@ -3,6 +3,7 @@
   --bg-color1: #302840;
   --bg-color2: #451830;
   --text-color-primary: #f0f0f0;
+  --text-color-secondary: #d0d0d0;
   --main-color: #92e2ff;
   --successful-color: greenyellow;
   --glass: #2b2b3b;
@@ -14,6 +15,7 @@
   --bg-color1: #c0c0f8;
   --bg-color2: #f8d8d8;
   --text-color-primary: #303030;
+  --text-color-secondary: #404040;
   --main-color: #7db2c6;
   --successful-color: rgb(0, 190, 64);
   --glass: #e2e2e2;
@@ -29,6 +31,7 @@ $theme: (
   --bg-color1: var(--bg-color1),
   --bg-color2: var(--bg-color2),
   --text-color-primary: var(--text-color-primary),
+  --text-color-secondary: var(--text-color-secondary),
   --main-color: var(--main-color),
   --successful-color: var(--successful-color),
   --glass: var(--glass),
