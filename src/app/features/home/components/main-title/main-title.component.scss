@@ -13,21 +13,19 @@
     text-align: center;
 
     animation-name: text-flow;
-    animation-duration: 20s;
+    animation-duration: 25s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 
-    background-size: 300%;
+    background-size: 400%;
     background-image: linear-gradient(
-      20deg,
+      10deg,
       white,
-      white 2em,
-      var(--main-color) 2em,
-      var(--main-color) 4em,
-      transparent 4em,
-      transparent 4em,
-      var(--main-color) 4em,
-      gray 5em
+      white 40%,
+      var(--main-color) 60%,
+      gray 68%,
+      gray 92.5%,
+      var(--main-color)
     );
 
     background-clip: text;
@@ -57,7 +55,10 @@
   0% {
     background-position: 0 50%;
   }
-  50% {
+  25% {
+    background-position: 100% 50%;
+  }
+  75% {
     background-position: 100% 50%;
   }
   100% {
