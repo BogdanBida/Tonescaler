@@ -1,17 +1,23 @@
 :host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   .main-text {
-    position: absolute;
-    top: calc(50% - 0.5em);
-    left: 50%;
-    margin: 0;
-    margin-bottom: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 1em;
+    height: 100vh;
+
+    color: var(--text-color-secondary);
     font-size: calc(1.5rem + 6vw);
+    text-align: center;
     font-weight: 500;
     user-select: none;
+
     will-change: transform;
-
-    text-align: center;
-
     animation-name: text-flow;
     animation-duration: 25s;
     animation-timing-function: ease-in-out;
@@ -27,14 +33,9 @@
       gray 92.5%,
       var(--main-color)
     );
-
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    color: var(--text-color-secondary);
-
-    transform: translateX(-50%) translateY(-50%);
 
     filter: drop-shadow(2px 4px 32px rgba(black, 0.15));
 

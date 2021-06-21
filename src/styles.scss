@@ -15,8 +15,8 @@ html {
 }
 
 body {
+  height: 100vh;
   background-image: linear-gradient(40deg, var(--bg-color1), var(--bg-color2));
-  box-sizing: border-box;
 }
 
 button {
