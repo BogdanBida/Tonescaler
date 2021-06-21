@@ -24,3 +24,15 @@
     }
   }
 }
+
+@media (max-height: 412px) {
+  :host {
+    flex-direction: row;
+    justify-content: space-around;
+    .notename,
+    .cents,
+    .status {
+      width: 33.33%;
+    }
+  }
+}
