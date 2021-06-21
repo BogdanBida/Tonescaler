@@ -4,7 +4,9 @@
   --bg-color2: #451830;
   --text-color-primary: #f0f0f0;
   --main-color: #92e2ff;
+  --successful-color: greenyellow;
   --glass: #2b2b3b;
+  --tuner-bg: #22274f;
 }
 
 [data-theme="light"] {
@@ -13,7 +15,9 @@
   --bg-color2: #f8d8d8;
   --text-color-primary: #303030;
   --main-color: #7db2c6;
+  --successful-color: rgb(0, 190, 64);
   --glass: #e2e2e2;
+  --tuner-bg: #d8daf8;
 
   .monochrome-icon {
     filter: invert(0.75);
@@ -26,7 +30,9 @@ $theme: (
   --bg-color2: var(--bg-color2),
   --text-color-primary: var(--text-color-primary),
   --main-color: var(--main-color),
+  --successful-color: var(--successful-color),
   --glass: var(--glass),
+  --tuner-bg: var(--tuner-bg),
 );
 
 @function var($variable) {

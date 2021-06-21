@@ -3,7 +3,8 @@
 $sides-height: 12px;
 
 :host {
-  filter: drop-shadow(0 0 3px var(--main-color));
+  filter: drop-shadow(0 2px 3px black) drop-shadow(0 0 3px var(--main-color));
+  transition: 0.1s;
   .btn {
     padding: 0 40px;
     border: none;
@@ -12,17 +13,14 @@ $sides-height: 12px;
     border-right: 4px solid transparent;
     transition: 0.1s;
 
-    // &.isActive {
-    //   border-left: 4px solid rgba(red, 0.75);
-    //   border-right: 4px solid rgba(red, 0.75);
-    // }
-
     &:active {
       filter: none;
     }
 
     &:focus {
-      outline: 2px solid var(--main-color);
+      // outline: 2px solid var(--main-color);
+      outline: none;
+      text-decoration: underline;
     }
 
     &::before,
@@ -50,11 +48,27 @@ $sides-height: 12px;
   }
 
   &.isActive {
-    filter: drop-shadow(0 3px 3px rgba(red, 0.5));
-    // drop-shadow(0  3px var(--main-color));
+    animation-name: rec_anim;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
     .btn {
       border-left: 4px solid rgba(red, 0.75);
       border-right: 4px solid rgba(red, 0.75);
     }
+  }
+}
+
+@keyframes rec_anim {
+  from {
+    filter: drop-shadow(0 1px 2px rgba(black, 0.5))
+      drop-shadow(0 -1px 3px rgba(red, 0.75))
+      drop-shadow(0 1px 3px rgba(red, 0.75));
+  }
+  to {
+    filter: drop-shadow(0 1px 2px rgba(black, 0.5))
+      drop-shadow(0 -1px 2px rgba(red, 0.25))
+      drop-shadow(0 1px 2px rgba(red, 0.25));
   }
 }
