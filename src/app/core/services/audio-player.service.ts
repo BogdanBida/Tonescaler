@@ -5,7 +5,7 @@ import {
   Player,
 } from 'soundfont-player';
 import { InstrumentCollection } from '../models/instrument-collection';
-import { NoteNumToString } from '../utils/convertors';
+import { NoteToString } from '../utils/convertors';
 
 @Injectable({
   providedIn: 'root',
@@ -36,7 +36,7 @@ export class AudioPlayerService {
       this._instruments[instrumentName] ||
       (await this.initInstrument(instrumentName));
 
-    const noteName = NoteNumToString(note);
+    const noteName = NoteToString(note);
 
     instrument.play(noteName);
   }
