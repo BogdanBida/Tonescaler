@@ -1,0 +1,66 @@
+:host {
+  .main-text {
+    position: absolute;
+    top: calc(50% - 0.5em);
+    left: 50%;
+    margin: 0;
+    margin-bottom: 0.5em;
+    font-size: calc(1.5rem + 6vw);
+    font-weight: 500;
+    user-select: none;
+    will-change: transform;
+
+    text-align: center;
+
+    animation-name: text-flow;
+    animation-duration: 20s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+
+    background-size: 300%;
+    background-image: linear-gradient(
+      20deg,
+      white,
+      white 2em,
+      var(--main-color) 2em,
+      var(--main-color) 4em,
+      transparent 4em,
+      transparent 4em,
+      var(--main-color) 4em,
+      gray 5em
+    );
+
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    color: var(--text-color-secondary);
+
+    transform: translateX(-50%) translateY(-50%);
+
+    filter: drop-shadow(2px 4px 32px rgba(black, 0.15));
+
+    .title {
+      font-size: 1em;
+      margin: 0;
+    }
+    .subtitle {
+      font-size: 0.1em;
+      letter-spacing: 1.5em;
+      margin: 0;
+      transform: translateX(1.5em);
+    }
+  }
+}
+
+@keyframes text-flow {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
