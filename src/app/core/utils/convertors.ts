@@ -5,11 +5,11 @@ import {
   FQ_STANDART_A4,
 } from './../constants/musictheory';
 
-export function NoteToString(note: number): string {
+export function noteToString(note: number): string {
   return NOTES[note % 12] + Math.trunc((note - OCTAVE_OFFSET) / 12) + 1;
 }
 
-export function StringToNote(note: string): number {
+export function stringToNote(note: string): number {
   // TODO: try regex to validate note param
   const noteBase = note.slice(0, note.length - 1);
 
