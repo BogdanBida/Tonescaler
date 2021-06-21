@@ -1,0 +1,36 @@
+$height: 1rem;
+
+:host {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: flex;
+  align-items: center;
+  height: $height;
+  .icon {
+    height: 100%;
+  }
+  .wrapper {
+    opacity: 0;
+    transition: 0.1s;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: min-content;
+    margin-left: 8px;
+    a {
+      color: var(--text-color-primary);
+      font-size: calc(#{$height} - 0.25rem);
+      padding: 0 0.25em;
+      &.active {
+        color: var(--successful-color);
+      }
+    }
+  }
+
+  &:hover {
+    .wrapper {
+      opacity: 1;
+    }
+  }
+}

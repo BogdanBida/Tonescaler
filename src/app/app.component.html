@@ -1,4 +1,5 @@
 <div class="router-wrapper" [@routeAnimation]="getAnimationData(routerOutlet)">
   <router-outlet #routerOutlet="outlet"></router-outlet>
 </div>
+<app-mininav></app-mininav>
 <app-gotohome *ngIf="isNotHomepage | async"></app-gotohome>
