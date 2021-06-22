@@ -26,6 +26,7 @@
     "hammerjs": "^2.0.8",
     "lodash-es": "^4.17.21",
     "ngx-cookie-service": "^12.0.0",
+    "@ng-web-apis/common": "latest",
     "rxjs": "~6.6.0",
     "soundfont-player": "^0.12.0",
     "tslib": "^2.1.0",
