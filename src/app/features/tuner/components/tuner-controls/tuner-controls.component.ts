@@ -1,5 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
-import { AppTunerService } from 'src/app/core/services/app-tuner.service';
+import { TunerService } from 'src/app/core/services/tuner.service';
 
 @Component({
   selector: 'app-tuner-controls',
@@ -7,7 +7,7 @@ import { AppTunerService } from 'src/app/core/services/app-tuner.service';
   styleUrls: ['./tuner-controls.component.scss'],
 })
 export class TunerControlsComponent {
-  constructor(private readonly _tunerService: AppTunerService) {}
+  constructor(private readonly _tunerService: TunerService) {}
 
   @HostBinding('class.isActive') public get isActive(): boolean {
     return this._tunerService.isEnabled.value;

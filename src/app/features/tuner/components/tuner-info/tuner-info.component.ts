@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppTunerService } from 'src/app/core/services';
+import { TunerService } from 'src/app/core/services';
 import { TunerInfo } from './../../../../core/models/tuner-info';
 
 @Component({
@@ -8,7 +8,7 @@ import { TunerInfo } from './../../../../core/models/tuner-info';
   styleUrls: ['./tuner-info.component.scss'],
 })
 export class TunerInfoComponent implements OnInit {
-  constructor(private readonly _appTunerService: AppTunerService) {}
+  constructor(private readonly _appTunerService: TunerService) {}
 
   public info: TunerInfo | null = null;
 

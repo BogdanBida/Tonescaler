@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { AppTunerService } from './app-tuner.service';
+import { inject, TestBed } from '@angular/core/testing';
+import { TunerService } from './tuner.service';
 
-describe('Service: AppTuner', () => {
+describe('Service: Tuner', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AppTunerService]
+      providers: [TunerService],
     });
   });
 
-  it('should ...', inject([AppTunerService], (service: AppTunerService) => {
+  it('should ...', inject([TunerService], (service: TunerService) => {
     expect(service).toBeTruthy();
   }));
 });

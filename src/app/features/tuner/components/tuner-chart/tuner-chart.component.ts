@@ -5,7 +5,7 @@ import {
   HostListener,
   ViewChild,
 } from '@angular/core';
-import { AppTunerService } from 'src/app/core/services';
+import { TunerService } from 'src/app/core/services';
 
 const NOTE_SIZE = 8;
 
@@ -19,7 +19,7 @@ const BOTTOM_OFFSET = 32;
 export class TunerChartComponent implements AfterViewInit {
   constructor(
     private readonly _self: ElementRef,
-    private readonly _tunerService: AppTunerService
+    private readonly _tunerService: TunerService
   ) {}
 
   @ViewChild('canv') public canv!: ElementRef;

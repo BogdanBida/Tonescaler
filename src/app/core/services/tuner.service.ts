@@ -1,16 +1,16 @@
 import { Inject, Injectable } from '@angular/core';
 import { NAVIGATOR, WINDOW } from '@ng-web-apis/common';
 import { BehaviorSubject } from 'rxjs';
+import { BUFFER_LENGTH, MEDIA_STREAM_CONSTRAINTS } from '../constants';
+import { OCTAVE_OFFSET } from '../constants/notes';
+import { TunerInfo } from '../models/tuner-info';
 import { autoCorrelate } from '../utils';
 import { centsOffFromPitch, nearestNoteByFrequency } from '../utils/convertors';
-import { BUFFER_LENGTH, MEDIA_STREAM_CONSTRAINTS } from './../constants';
-import { OCTAVE_OFFSET } from './../constants/notes';
-import { TunerInfo } from './../models/tuner-info';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AppTunerService {
+export class TunerService {
   constructor(
     @Inject(NAVIGATOR) private readonly _navigator: Navigator,
     @Inject(WINDOW) private readonly _window: Window
