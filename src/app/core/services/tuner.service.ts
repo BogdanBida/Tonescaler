@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { getTuningInfo } from '@ddlab/tuner';
+import { getTuningInfo, initAudio } from '@ddlab/tuner';
 import { UntilDestroy } from '@ngneat/until-destroy';
+import { isNil } from 'lodash-es';
 import { BehaviorSubject, interval } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { NOTES } from '../constants/notes';
 import { TunerInfo } from '../models';
+import { frequencyFromNote, stringToNote } from '../utils/convertors';
 
 @UntilDestroy()
 @Injectable({
@@ -14,6 +18,17 @@ export class TunerService {
     cents: 0,
     isInTune: true,
   });
+
+  public currentFrequency = this.info.pipe(
+    filter((info) => !isNil(info)),
+    map((info) => {
+      if (info) {
+        return frequencyFromNote(stringToNote(info.noteStr + '4'));
+      }
+
+      return null;
+    })
+  );
 
   public readonly isEnabled = new BehaviorSubject<boolean>(false);
 
@@ -34,28 +49,21 @@ export class TunerService {
   }
 
   public async initTuner(): Promise<void> {
-    // this._audioCtx = await initAudio();
-    const fakeData = [
-      {
-        noteStr: 'A4',
-        cents: 0,
-        isInTune: true,
-      },
-      {
-        noteStr: 'A4',
-        cents: 20,
-        isInTune: false,
-      },
-      {
-        noteStr: 'A#4',
-        cents: -20,
-        isInTune: false,
-      },
-    ];
+    this._audioCtx = await initAudio();
 
-    interval(1000).subscribe((i) => {
-      this.info.next(fakeData[i % fakeData.length]);
-    });
+    interval(100)
+      .pipe()
+      .subscribe((i) => {
+        // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+        const cents = Math.round(Math.random() * 100 - 50);
+
+        this.info.next({
+          noteStr: NOTES[i % 12],
+          cents,
+          // eslint-disable-next-line @typescript-eslint/no-magic-numbers
+          isInTune: Math.abs(cents) < 10,
+        });
+      });
   }
 
   private _tunerLoop(): void {
@@ -63,8 +71,9 @@ export class TunerService {
       this.info.next(
         getTuningInfo(this._audioCtx.getFreqData(), this._audioCtx.deltaFreq)
       );
-      console.log(this.info.value);
-      this.isEnabled && requestAnimationFrame(() => this._tunerLoop());
+      this.info.value?.noteStr !== '-' && console.log(this.info.value);
+
+      this.isEnabled.value && requestAnimationFrame(() => this._tunerLoop());
     }
   }
 }
