@@ -8,29 +8,38 @@
   text-align: center;
 
   .notename {
-    font-size: 15vh;
-    margin: 0.25em 0;
+    font-size: 14vh;
+    margin: 0.25em 0 0;
   }
 
-  .cents {
-    h3 {
-      margin: 0;
+  .numbers {
+    display: flex;
+    flex-direction: column;
+    .frequency,
+    .cents {
+      font-size: 1.25rem;
+      margin: 0.25em 0;
+      .title {
+        color: var(--text-color-secondary);
+      }
     }
   }
 
   .status {
+    font-size: 1.25rem;
     .ok {
       color: var(--successful-color);
     }
   }
 }
 
-@media (max-height: $sm-height) {
+// @media (max-height: $sm-height) {
+@media (orientation: landscape) {
   :host {
     flex-direction: row;
     justify-content: space-around;
     .notename,
-    .cents,
+    .numbers,
     .status {
       width: 33.33%;
     }

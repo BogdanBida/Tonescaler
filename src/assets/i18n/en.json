@@ -7,6 +7,9 @@
     "language": "Select language"
   },
   "tuner": {
+    "frequency": "Frequency",
+    "cents": "Cents",
+    "silence": "Silence",
     "upper": "Upper",
     "lower": "Lower"
   },

@@ -2,24 +2,27 @@
   <span *ngIf="info; else notePlaceholder">{{ info.note | notename }}</span>
   <ng-template #notePlaceholder>?</ng-template>
 </h2>
-<span class="cents">
-  <span>Cents: </span>
-  <h3>
-    <span *ngIf="info; else centsPlaceholder">{{ info.detune || "--" }}</span>
-    <ng-template #centsPlaceholder>--</ng-template>
-  </h3>
-</span>
-<h3 class="status">
+<div class="numbers">
+  <span class="frequency">
+    <span class="title">{{ "tuner.frequency" | translate }}:</span><br />
+    <i>{{ info ? info.pitch + " Hz" : "--" }}</i>
+  </span>
+  <span class="cents">
+    <span class="title">{{ "tuner.cents" | translate }}:</span><br />
+    <i>{{ info?.detune || "--" }}</i>
+  </span>
+</div>
+<div class="status">
   <ng-template [ngIf]="info" [ngIfElse]="statusPlaceholder">
     <span *ngIf="isNeedUpper" class="direction"
-      >{{ "tuner.upper" | translate }}🠝</span
+      >{{ "tuner.upper" | translate }} 🠝</span
     >
     <span *ngIf="isNeedLower" class="direction"
-      >{{ "tuner.lower" | translate }}🠟</span
+      >{{ "tuner.lower" | translate }} 🠟</span
     >
     <span *ngIf="info.detune === 0" class="ok">OK</span>
   </ng-template>
   <ng-template #statusPlaceholder>
-    <span>--</span>
+    <span>{{ "tuner.silence" | translate }}</span>
   </ng-template>
-</h3>
+</div>
