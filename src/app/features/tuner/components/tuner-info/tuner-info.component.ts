@@ -13,7 +13,7 @@ export class TunerInfoComponent implements OnInit {
   public info: TunerInfo | null = null;
 
   public ngOnInit(): void {
-    this._tunerService.info.subscribe((info) => {
+    this._tunerService.info$.subscribe((info) => {
       this.info = info;
     });
   }

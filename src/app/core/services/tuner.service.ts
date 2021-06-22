@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { NAVIGATOR, WINDOW } from '@ng-web-apis/common';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { BUFFER_LENGTH, MEDIA_STREAM_CONSTRAINTS } from '../constants';
 import { OCTAVE_OFFSET } from '../constants/notes';
 import { TunerInfo } from '../models/tuner-info';
@@ -16,9 +17,11 @@ export class TunerService {
     @Inject(WINDOW) private readonly _window: Window
   ) {}
 
-  public isEnabled = new BehaviorSubject<boolean>(false);
+  public isEnabled$ = new BehaviorSubject<boolean>(false);
 
-  public info = new BehaviorSubject<TunerInfo | null>(null);
+  public info$ = new BehaviorSubject<TunerInfo | null>(null);
+
+  public currentFrequency$ = this.info$.pipe(map((info) => info?.pitch));
 
   private readonly _audioContext = new AudioContext();
 
@@ -39,9 +42,9 @@ export class TunerService {
   }
 
   public toggleTuner(): void {
-    this.isEnabled.next(!this.isEnabled.value);
+    this.isEnabled$.next(!this.isEnabled$.value);
 
-    if (this.isEnabled.value) {
+    if (this.isEnabled$.value) {
       this._getUserMedia(MEDIA_STREAM_CONSTRAINTS, (stream) =>
         this._gotStream(stream)
       );
@@ -87,14 +90,14 @@ export class TunerService {
     if (pitch !== -1) {
       const note = nearestNoteByFrequency(pitch);
 
-      this.info.next({
+      this.info$.next({
         pitch: Math.round(pitch),
         note: note + OCTAVE_OFFSET,
         detune: centsOffFromPitch(pitch, note),
       });
     }
 
-    if (this.isEnabled.value) {
+    if (this.isEnabled$.value) {
       this._rafID = this._window.requestAnimationFrame(() =>
         this._updatePitch()
       );

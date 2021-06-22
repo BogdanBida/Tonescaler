@@ -10,7 +10,7 @@ export class TunerControlsComponent {
   constructor(private readonly _tunerService: TunerService) {}
 
   @HostBinding('class.isActive') public get isActive(): boolean {
-    return this._tunerService.isEnabled.value;
+    return this._tunerService.isEnabled$.value;
   }
 
   public toggle = this._tunerService.toggleTuner.bind(this._tunerService);
