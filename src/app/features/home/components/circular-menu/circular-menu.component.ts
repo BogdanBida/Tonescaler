@@ -10,5 +10,7 @@ import { AppService } from 'src/app/core/services/app.service';
 export class CircularMenuComponent {
   constructor(private readonly _appService: AppService) {}
 
-  public isClosed = this._appService.circularMenuIsOpened.pipe(map((v) => !v));
+  public isClosed$ = this._appService.circularMenuIsOpened$.pipe(
+    map((v) => !v)
+  );
 }

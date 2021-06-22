@@ -13,5 +13,5 @@ export class MusicboxButtonComponent {
     this._appService
   );
 
-  public menuIsOpened = this._appService.circularMenuIsOpened;
+  public menuIsOpened$ = this._appService.circularMenuIsOpened$;
 }

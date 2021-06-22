@@ -1,7 +1,7 @@
 <button
   class="wrapper"
   (click)="toggleMenu()"
-  [class.opened]="menuIsOpened | async"
+  [class.opened]="menuIsOpened$ | async"
 >
   <!-- <img class="monochrome-icon icon" src="assets/icons/musicbox.svg" alt="" /> -->
   <img

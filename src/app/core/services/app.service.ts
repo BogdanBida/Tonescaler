@@ -19,7 +19,7 @@ export class AppService {
     private readonly _router: Router
   ) {
     this._router.events.pipe(untilDestroyed(this)).subscribe(() => {
-      this.circularMenuIsOpened.next(false);
+      this.circularMenuIsOpened$.next(false);
     });
   }
 
@@ -30,15 +30,15 @@ export class AppService {
     })
   );
 
-  public circularMenuIsOpened = new BehaviorSubject<boolean>(false);
+  public circularMenuIsOpened$ = new BehaviorSubject<boolean>(false);
 
   public initApp(): void {
     this._initTheme();
   }
 
   public toggleCircularMenu(value?: boolean): void {
-    this.circularMenuIsOpened.next(
-      value !== undefined ? value : !this.circularMenuIsOpened.value
+    this.circularMenuIsOpened$.next(
+      value !== undefined ? value : !this.circularMenuIsOpened$.value
     );
   }
 
