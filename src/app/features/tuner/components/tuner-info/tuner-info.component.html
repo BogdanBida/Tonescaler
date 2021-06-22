@@ -1,11 +1,11 @@
 <h2 class="notename">
-  <span *ngIf="info; else notePlaceholder">{{ info.noteStr }}</span>
+  <span *ngIf="info; else notePlaceholder">{{ info.note | notename }}</span>
   <ng-template #notePlaceholder>?</ng-template>
 </h2>
 <span class="cents">
   <span>Cents: </span>
   <h3>
-    <span *ngIf="info; else centsPlaceholder">{{ info.cents || "--" }}</span>
+    <span *ngIf="info; else centsPlaceholder">{{ info.detune || "--" }}</span>
     <ng-template #centsPlaceholder>--</ng-template>
   </h3>
 </span>
@@ -17,7 +17,7 @@
     <span *ngIf="isNeedLower" class="direction"
       >{{ "tuner.lower" | translate }}🠟</span
     >
-    <span *ngIf="info.isInTune" class="ok">OK</span>
+    <span *ngIf="info.detune === 0" class="ok">OK</span>
   </ng-template>
   <ng-template #statusPlaceholder>
     <span>--</span>

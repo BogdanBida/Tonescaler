@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
-import { TunerService } from './../../core/services/tuner.service';
+import { AppTunerService } from 'src/app/core/services';
 
 @Component({
   selector: 'app-tuner',
@@ -7,7 +7,7 @@ import { TunerService } from './../../core/services/tuner.service';
   styleUrls: ['./tuner.component.scss'],
 })
 export class TunerComponent implements OnInit {
-  constructor(private readonly _tunerService: TunerService) {}
+  constructor(private readonly _tunerService: AppTunerService) {}
 
   @HostListener('keypress')
   public anyKey(): void {
@@ -15,7 +15,6 @@ export class TunerComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this._tunerService.initTuner();
-    // alert('Press any key to activate tuner');
+    // this._tunerService.initTuner();
   }
 }

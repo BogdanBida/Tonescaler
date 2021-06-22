@@ -5,8 +5,7 @@ import {
   HostListener,
   ViewChild,
 } from '@angular/core';
-import { FQ_STANDART_A4 } from './../../../../core/constants/musictheory';
-import { TunerService } from './../../../../core/services/tuner.service';
+import { AppTunerService } from 'src/app/core/services';
 
 const NOTE_SIZE = 8;
 
@@ -20,7 +19,7 @@ const BOTTOM_OFFSET = 32;
 export class TunerChartComponent implements AfterViewInit {
   constructor(
     private readonly _self: ElementRef,
-    private readonly _tunerService: TunerService
+    private readonly _tunerService: AppTunerService
   ) {}
 
   @ViewChild('canv') public canv!: ElementRef;
@@ -56,31 +55,31 @@ export class TunerChartComponent implements AfterViewInit {
     this._ctx = this.canv.nativeElement.getContext('2d');
     this.onResize();
 
-    this._tunerService.currentFrequency.subscribe((freq) => {
-      if (!this._canvWidth && !this._canvHeight) {
-        return;
-      }
+    // this._tunerService.currentFrequency.subscribe((freq) => {
+    //   if (!this._canvWidth && !this._canvHeight) {
+    //     return;
+    //   }
 
-      this.frequency = freq as number;
-      console.log(freq);
+    //   this.frequency = freq as number;
+    //   console.log(freq);
 
-      // todo: group
-      this._lastValues.unshift(freq as number);
-      this._lastValues.length > this._cacheSize && this._lastValues.pop();
+    //   // todo: group
+    //   this._lastValues.unshift(freq as number);
+    //   this._lastValues.length > this._cacheSize && this._lastValues.pop();
 
-      const MAX_FQ = 522;
+    //   const MAX_FQ = 522;
 
-      this._ctx.clearRect(0, 0, this._canvWidth, this._canvHeight);
-      this._lastValues.forEach((value, i) => {
-        this._ctx?.fillRect(
-          ((Number(value) - FQ_STANDART_A4) / MAX_FQ) * this._canvWidth,
-          this._canvHeight -
-            BOTTOM_OFFSET -
-            (i / this._cacheSize) * (this._canvHeight - BOTTOM_OFFSET),
-          NOTE_SIZE,
-          NOTE_SIZE
-        );
-      });
-    });
+    //   this._ctx.clearRect(0, 0, this._canvWidth, this._canvHeight);
+    //   this._lastValues.forEach((value, i) => {
+    //     this._ctx?.fillRect(
+    //       ((Number(value) - FQ_STANDART_A4) / MAX_FQ) * this._canvWidth,
+    //       this._canvHeight -
+    //         BOTTOM_OFFSET -
+    //         (i / this._cacheSize) * (this._canvHeight - BOTTOM_OFFSET),
+    //       NOTE_SIZE,
+    //       NOTE_SIZE
+    //     );
+    //   });
+    // });
   }
 }
