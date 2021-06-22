@@ -1,11 +1,11 @@
 <h2 class="notename">
   <span *ngIf="info; else notePlaceholder">{{ info.noteStr }}</span>
-  <ng-template #notePlaceholder>--</ng-template>
+  <ng-template #notePlaceholder>?</ng-template>
 </h2>
 <span class="cents">
   <span>Cents: </span>
   <h3>
-    <span *ngIf="info; else centsPlaceholder">{{ info.cents }}</span>
+    <span *ngIf="info; else centsPlaceholder">{{ info.cents || "--" }}</span>
     <ng-template #centsPlaceholder>--</ng-template>
   </h3>
 </span>
