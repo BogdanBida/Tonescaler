@@ -8,12 +8,12 @@ import { TunerInfo } from './../../../../core/models/tuner-info';
   styleUrls: ['./tuner-info.component.scss'],
 })
 export class TunerInfoComponent implements OnInit {
-  constructor(private readonly _appTunerService: TunerService) {}
+  constructor(private readonly _tunerService: TunerService) {}
 
   public info: TunerInfo | null = null;
 
   public ngOnInit(): void {
-    this._appTunerService.info.subscribe((info) => {
+    this._tunerService.info.subscribe((info) => {
       this.info = info;
     });
   }
