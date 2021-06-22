@@ -42,7 +42,7 @@ export class TunerChartComponent implements AfterViewInit {
 
   @ViewChild('canv') public canv!: ElementRef;
 
-  public frequency = 0;
+  public currentFrequency = 0;
 
   private _canvWidth!: number;
 
@@ -77,11 +77,10 @@ export class TunerChartComponent implements AfterViewInit {
         return;
       }
 
-      this.frequency = freq as number;
-      console.log(freq);
+      this.currentFrequency = freq as number;
 
       // todo: group
-      this._lastValues.unshift(freq as number);
+      this._lastValues.unshift(this.currentFrequency);
       this._lastValues.length > this._cacheSize && this._lastValues.pop();
 
       const MAX_FQ = 522;
