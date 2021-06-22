@@ -3,16 +3,19 @@ import {
   FOURTH_OCTAVE,
   FQ_OCTAVE,
   FQ_STANDART_A4,
-} from './../constants/musictheory';
+  NOTE_REGEXP,
+} from './../constants/';
 
 export function noteToString(note: number): string {
   return NOTES[note % 12] + Math.trunc((note - OCTAVE_OFFSET) / 12) + 1;
 }
 
 export function stringToNote(note: string): number {
-  // TODO: try regex to validate note param
-  const noteBase = note.slice(0, note.length - 1);
+  if (!NOTE_REGEXP.test(note)) {
+    throw new Error('Invalid note string');
+  }
 
+  const noteBase = note.slice(0, note.includes('#') ? 2 : 1);
   const noteIndex = NOTES.indexOf(noteBase);
 
   if (noteIndex === -1) {
@@ -25,7 +28,8 @@ export function stringToNote(note: string): number {
     throw new Error('Octave is not a number');
   }
 
-  return noteIndex + octave * 12 + 1;
+  // ! hardcode octaves
+  return noteIndex + octave * 12 - OCTAVE_OFFSET + 12 * 2;
 }
 
 export function nearestNoteByFrequency(
