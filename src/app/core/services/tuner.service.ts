@@ -40,25 +40,15 @@ export class TunerService {
   private _rafID = 0;
 
   public setPitchDetector(type: PitchDetectors): void {
-    switch (type) {
-      case PitchDetectors.Yin:
-        this._pitchDetector = Pitchfinder.YIN();
+    const pitchDetectors = [
+      Pitchfinder.YIN(),
+      Pitchfinder.AMDF(),
+      Pitchfinder.DynamicWavelet(),
+      (buffer: Float32Array): number =>
+        autoCorrelate(buffer, this._audioContext.sampleRate),
+    ];
 
-        break;
-      case PitchDetectors.Amdf:
-        this._pitchDetector = Pitchfinder.AMDF();
-
-        break;
-      case PitchDetectors.DynamicWavelet:
-        this._pitchDetector = Pitchfinder.DynamicWavelet();
-
-        break;
-      case PitchDetectors.Simple:
-        this._pitchDetector = (buffer: Float32Array): number =>
-          autoCorrelate(buffer, this._audioContext.sampleRate);
-
-        break;
-    }
+    this._pitchDetector = pitchDetectors[type];
   }
 
   public toggleTuner(value?: boolean): void {
