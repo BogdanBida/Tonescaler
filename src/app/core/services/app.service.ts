@@ -23,6 +23,12 @@ export class AppService {
     });
   }
 
+  public enablePageTransition = true;
+
+  public get isEnabledUiAnimations(): boolean {
+    return this._isEnabledUiAnimations;
+  }
+
   public isHomepage = this._router.events.pipe(
     filter((event) => event instanceof NavigationEnd),
     map((event) => {
@@ -32,6 +38,8 @@ export class AppService {
 
   public circularMenuIsOpened$ = new BehaviorSubject<boolean>(false);
 
+  private _isEnabledUiAnimations = true;
+
   public initApp(): void {
     this._initTheme();
   }
@@ -40,6 +48,16 @@ export class AppService {
     this.circularMenuIsOpened$.next(
       value !== undefined ? value : !this.circularMenuIsOpened$.value
     );
+  }
+
+  public setUiAnimations(value: boolean): void {
+    this._isEnabledUiAnimations = value;
+    value
+      ? document.documentElement.removeAttribute('data-disabled-animations')
+      : document.documentElement.setAttribute(
+          'data-disabled-animations',
+          'true'
+        );
   }
 
   private _initTheme(): void {

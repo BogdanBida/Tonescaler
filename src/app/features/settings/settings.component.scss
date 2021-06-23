@@ -10,8 +10,19 @@
     gap: 10px;
     grid-template-columns: 1fr 1fr;
   }
-  .form-item {
+
+  .group {
     display: flex;
     flex-direction: column;
+    border-radius: 1em;
+    border: 1px solid gray;
+    padding: 1rem;
+    gap: 1em;
+  }
+
+  .title {
+    width: 100%;
+    color: var(--text-color-secondary);
+    margin-bottom: 1em;
   }
 }

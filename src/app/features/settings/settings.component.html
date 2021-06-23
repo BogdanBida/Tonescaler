@@ -16,5 +16,15 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <div class="group">
+      <i class="title">Animations</i>
+      <mat-checkbox formControlName="enablePageTransitions">{{
+        "settings.enable_page_transitions" | translate
+      }}</mat-checkbox>
+
+      <mat-checkbox formControlName="enableUiAnimations">{{
+        "settings.enable_ui_animations" | translate
+      }}</mat-checkbox>
+    </div>
   </form>
 </div>

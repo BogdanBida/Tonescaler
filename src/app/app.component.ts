@@ -21,9 +21,11 @@ export class AppComponent {
     map((value) => !value)
   );
 
-  public getAnimationData(outlet: RouterOutlet): RouterOutlet | Data | string {
-    return (
-      outlet && outlet.activatedRouteData && outlet.activatedRouteData.state
-    );
+  public getAnimationData(
+    outlet: RouterOutlet
+  ): RouterOutlet | Data | string | null {
+    return this._appService.enablePageTransition
+      ? outlet && outlet.activatedRouteData && outlet.activatedRouteData.state
+      : null;
   }
 }

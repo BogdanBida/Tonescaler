@@ -4,7 +4,9 @@
   },
   "settings": {
     "theme": "Select theme",
-    "language": "Select language"
+    "language": "Select language",
+    "enable_page_transitions": "Enable page transitions",
+    "enable_ui_animations": "Enable UI animations"
   },
   "tuner": {
     "frequency": "Frequency",

@@ -26,7 +26,14 @@
   }
 }
 
-$theme: (
+[data-disabled-animations] {
+  * {
+    transition: none !important;
+    animation-duration: 0s !important;
+  }
+}
+
+$env: (
   --bg-color: var(--bg-color),
   --bg-color1: var(--bg-color1),
   --bg-color2: var(--bg-color2),
@@ -39,5 +46,5 @@ $theme: (
 );
 
 @function var($variable) {
-  @return map-get($theme, $variable);
+  @return map-get($env, $variable);
 }

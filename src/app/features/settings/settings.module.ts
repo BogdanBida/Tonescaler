@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from './../../shared/shared.module';
@@ -13,6 +14,7 @@ import { SettingsComponent } from './settings.component';
     SharedModule,
     FormsModule,
     MatSelectModule,
+    MatCheckboxModule,
     ReactiveFormsModule,
     SettingsRoutingModule,
     TranslateModule.forChild(),
