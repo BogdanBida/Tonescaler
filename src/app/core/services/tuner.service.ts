@@ -85,9 +85,10 @@ export class TunerService {
   }
 
   private _detachAudio(): void {
-    this._mediaStreamSource.mediaStream
-      .getAudioTracks()
-      .forEach((track) => (track.enabled = false));
+    this._mediaStreamSource &&
+      this._mediaStreamSource.mediaStream
+        .getAudioTracks()
+        .forEach((track) => (track.enabled = false));
   }
 
   private _gotStream(stream: MediaStream): void {
