@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { NAVIGATOR, WINDOW } from '@ng-web-apis/common';
+import Pitchfinder from 'pitchfinder';
 import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
 import {
   BUFFER_LENGTH,
   FFT_SIZE,
@@ -11,6 +11,7 @@ import { OCTAVE_OFFSET } from '../constants/notes';
 import { TunerInfo } from '../models/tuner-info';
 import { autoCorrelate } from '../utils';
 import { centsOffFromPitch, nearestNoteByFrequency } from '../utils/convertors';
+import { PitchDetectors } from './../enums/pitch-detectors.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +28,7 @@ export class TunerService {
 
   public info$ = new BehaviorSubject<TunerInfo | null>(null);
 
-  public currentFrequency$ = this.info$.pipe(map((info) => info?.pitch));
+  private _pitchDetector!: (stream: Float32Array) => number | null;
 
   private readonly _audioContext = new AudioContext();
 
@@ -39,10 +40,36 @@ export class TunerService {
 
   private _rafID = 0;
 
+  public setPitchDetector(type: PitchDetectors): void {
+    switch (type) {
+      case PitchDetectors.Yin:
+        this._pitchDetector = Pitchfinder.YIN();
+
+        break;
+      case PitchDetectors.Amdf:
+        this._pitchDetector = Pitchfinder.AMDF();
+
+        break;
+      case PitchDetectors.DynamicWavelet:
+        this._pitchDetector = Pitchfinder.DynamicWavelet();
+
+        break;
+      case PitchDetectors.Simple:
+        this._pitchDetector = (buffer: Float32Array): number =>
+          autoCorrelate(buffer, this._audioContext.sampleRate);
+
+        break;
+    }
+  }
+
   public toggleTuner(value?: boolean): void {
     this.isEnabled$.next(value === undefined ? !this.isEnabled$.value : value);
 
     if (this.isEnabled$.value) {
+      if (this._pitchDetector === null) {
+        this.setPitchDetector(PitchDetectors.Yin);
+      }
+
       this._getUserMedia(MEDIA_STREAM_CONSTRAINTS, (stream) =>
         this._gotStream(stream)
       );
@@ -87,9 +114,9 @@ export class TunerService {
   private _updatePitch(): void {
     this._analyser && this._analyser.getFloatTimeDomainData(this._buffer);
 
-    const pitch = autoCorrelate(this._buffer, this._audioContext.sampleRate);
+    const pitch = this._pitchDetector(this._buffer);
 
-    if (pitch !== -1) {
+    if (pitch !== -1 && pitch !== null) {
       const note = nearestNoteByFrequency(pitch);
 
       this.info$.next({
