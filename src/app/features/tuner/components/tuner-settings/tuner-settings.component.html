@@ -1,7 +1,8 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" class="form">
   <select formControlName="algorithm">
     <option *ngFor="let option of options" [value]="option.value">
       {{ option.name }}
     </option>
   </select>
+  <button class="close-btn" mat-dialog-close>OK</button>
 </form>
