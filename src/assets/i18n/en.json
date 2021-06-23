@@ -11,7 +11,8 @@
     "cents": "Cents",
     "silence": "Silence",
     "upper": "Upper",
-    "lower": "Lower"
+    "lower": "Lower",
+    "algorithm": "Algorithm"
   },
   "routes": {
     "settings": "Settings",

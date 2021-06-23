@@ -1,8 +1,12 @@
 <form [formGroup]="formGroup" class="form">
-  <select formControlName="algorithm">
-    <option *ngFor="let option of options" [value]="option.value">
-      {{ option.name }}
-    </option>
-  </select>
+  <mat-form-field appearance="outline">
+    <mat-label>{{ "tuner.algorithm" | translate }}</mat-label>
+    <mat-select formControlName="algorithm">
+      <mat-option *ngFor="let option of options" [value]="option.value">{{
+        option.name
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
   <button class="close-btn" mat-dialog-close>OK</button>
 </form>
