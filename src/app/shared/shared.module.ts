@@ -3,9 +3,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { GotohomeComponent } from './components/gotohome/gotohome.component';
 import { MininavComponent } from './components/mininav/mininav.component';
+import { SettingsButtonComponent } from './components/settings-button/settings-button.component';
 import { NotenamePipe } from './pipes/notename.pipe';
 
-const exports = [GotohomeComponent, MininavComponent, NotenamePipe];
+const exports = [
+  GotohomeComponent,
+  MininavComponent,
+  NotenamePipe,
+  SettingsButtonComponent,
+];
 
 @NgModule({
   imports: [CommonModule, RouterModule],
