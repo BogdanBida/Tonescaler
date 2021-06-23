@@ -15,6 +15,8 @@ const DEFAULT_TOP_NOTE = 78;
 
 const OFFSET_OUTSIDE_NOTE = 5;
 
+const NOTELINE_BOTTOM_OFFSET = 10;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -78,6 +80,14 @@ export class TunerChartService {
     }
   }
 
+  private _setCanvasStyles(): void {
+    if (this._ctx) {
+      this._ctx.fillStyle = '#f0f0f0';
+      this._ctx.textAlign = 'center';
+      this._ctx.font = 'Montseratt';
+    }
+  }
+
   private _updateBuffer(value: TunerInfo): void {
     this._buffer.unshift(value);
     this._buffer.length > this._cacheSize && this._buffer.pop();
@@ -91,8 +101,7 @@ export class TunerChartService {
     this._updateBoundaries();
 
     this._ctx.clearRect(0, 0, this.width, this.height);
-
-    this._ctx.fillStyle = '#f0f0f0';
+    this._setCanvasStyles();
 
     this._buffer.forEach((value, i) => {
       if (!this._ctx) {
@@ -125,7 +134,11 @@ export class TunerChartService {
       const note = value + this._bottomNote;
       const x = (value / (this._topNote - this._bottomNote)) * this.width;
 
-      this._ctx?.fillText(noteToString(note), x, this.height - 10);
+      this._ctx?.fillText(
+        noteToString(note),
+        x,
+        this.height - NOTELINE_BOTTOM_OFFSET
+      );
     });
   }
 
