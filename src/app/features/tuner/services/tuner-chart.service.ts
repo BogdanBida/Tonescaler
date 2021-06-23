@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { isNil } from 'lodash-es';
 import { range } from 'rxjs';
+import { Theme } from 'src/app/core/enums';
 import { TunerService } from 'src/app/core/services';
 import { noteToString } from 'src/app/core/utils/convertors';
 import { TunerInfo } from './../../../core/models/tuner-info';
+import { ThemeService } from './../../../core/services/theme.service';
 
 const NOTE_SIZE = 2;
 
@@ -21,7 +23,10 @@ const NOTELINE_BOTTOM_OFFSET = 10;
   providedIn: 'root',
 })
 export class TunerChartService {
-  constructor(private readonly _tunerService: TunerService) {}
+  constructor(
+    private readonly _tunerService: TunerService,
+    private readonly _themeSerivce: ThemeService
+  ) {}
 
   private _canvas!: HTMLCanvasElement | null;
 
@@ -82,7 +87,8 @@ export class TunerChartService {
 
   private _setCanvasStyles(): void {
     if (this._ctx) {
-      this._ctx.fillStyle = '#f0f0f0';
+      this._ctx.fillStyle =
+        this._themeSerivce.selectedTheme === Theme.Dark ? '#92e2ff' : '#02526f';
       this._ctx.textAlign = 'center';
       this._ctx.font = 'Montseratt';
     }
