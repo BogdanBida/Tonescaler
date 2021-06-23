@@ -7,7 +7,6 @@ import {
   FFT_SIZE,
   MEDIA_STREAM_CONSTRAINTS,
 } from '../constants';
-import { OCTAVE_OFFSET } from '../constants/notes';
 import { TunerInfo } from '../models/tuner-info';
 import { autoCorrelate } from '../utils';
 import { centsOffFromPitch, nearestNoteByFrequency } from '../utils/convertors';
@@ -66,7 +65,7 @@ export class TunerService {
     this.isEnabled$.next(value === undefined ? !this.isEnabled$.value : value);
 
     if (this.isEnabled$.value) {
-      if (this._pitchDetector === null) {
+      if (this._pitchDetector === undefined) {
         this.setPitchDetector(PitchDetectors.Yin);
       }
 
@@ -121,7 +120,7 @@ export class TunerService {
 
       this.info$.next({
         pitch: Math.round(pitch),
-        note: note + OCTAVE_OFFSET,
+        note,
         detune: centsOffFromPitch(pitch, note),
       });
     }
