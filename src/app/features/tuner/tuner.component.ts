@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { TunerService } from 'src/app/core/services';
 
 @Component({
@@ -6,7 +6,7 @@ import { TunerService } from 'src/app/core/services';
   templateUrl: './tuner.component.html',
   styleUrls: ['./tuner.component.scss'],
 })
-export class TunerComponent implements OnInit {
+export class TunerComponent implements OnInit, OnDestroy {
   constructor(private readonly _tunerService: TunerService) {}
 
   @HostListener('keypress')
@@ -16,5 +16,9 @@ export class TunerComponent implements OnInit {
 
   public ngOnInit(): void {
     // this._tunerService.initTuner();
+  }
+
+  public ngOnDestroy(): void {
+    this._tunerService.detachTuner();
   }
 }

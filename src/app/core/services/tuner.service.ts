@@ -38,11 +38,14 @@ export class TunerService {
   }
 
   public detachTuner(): void {
-    this._analyser = null;
+    this.toggleTuner(false);
+    this._mediaStreamSource.mediaStream
+      .getAudioTracks()
+      .forEach((track) => (track.enabled = false));
   }
 
-  public toggleTuner(): void {
-    this.isEnabled$.next(!this.isEnabled$.value);
+  public toggleTuner(value?: boolean): void {
+    this.isEnabled$.next(value === undefined ? !this.isEnabled$.value : value);
 
     if (this.isEnabled$.value) {
       this._getUserMedia(MEDIA_STREAM_CONSTRAINTS, (stream) =>
