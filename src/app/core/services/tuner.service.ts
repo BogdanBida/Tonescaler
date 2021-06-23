@@ -2,7 +2,11 @@ import { Inject, Injectable } from '@angular/core';
 import { NAVIGATOR, WINDOW } from '@ng-web-apis/common';
 import { BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { BUFFER_LENGTH, MEDIA_STREAM_CONSTRAINTS } from '../constants';
+import {
+  BUFFER_LENGTH,
+  FFT_SIZE,
+  MEDIA_STREAM_CONSTRAINTS,
+} from '../constants';
 import { OCTAVE_OFFSET } from '../constants/notes';
 import { TunerInfo } from '../models/tuner-info';
 import { autoCorrelate } from '../utils';
@@ -15,7 +19,9 @@ export class TunerService {
   constructor(
     @Inject(NAVIGATOR) private readonly _navigator: Navigator,
     @Inject(WINDOW) private readonly _window: Window
-  ) {}
+  ) {
+    this._analyser.fftSize = FFT_SIZE;
+  }
 
   public isEnabled$ = new BehaviorSubject<boolean>(false);
 
@@ -25,24 +31,13 @@ export class TunerService {
 
   private readonly _audioContext = new AudioContext();
 
-  private _analyser!: AnalyserNode | null;
+  private readonly _analyser = this._audioContext.createAnalyser();
 
   private _mediaStreamSource!: MediaStreamAudioSourceNode;
 
   private readonly _buffer = new Float32Array(BUFFER_LENGTH);
 
   private _rafID = 0;
-
-  public initTuner(): void {
-    console.log('todo: implement this method');
-  }
-
-  public detachTuner(): void {
-    this.toggleTuner(false);
-    this._mediaStreamSource.mediaStream
-      .getAudioTracks()
-      .forEach((track) => (track.enabled = false));
-  }
 
   public toggleTuner(value?: boolean): void {
     this.isEnabled$.next(value === undefined ? !this.isEnabled$.value : value);
@@ -52,7 +47,7 @@ export class TunerService {
         this._gotStream(stream)
       );
     } else {
-      this._analyser = null;
+      this._detachAudio();
       this._window.cancelAnimationFrame(this._rafID);
     }
   }
@@ -73,14 +68,18 @@ export class TunerService {
     }
   }
 
+  private _detachAudio(): void {
+    this._mediaStreamSource.mediaStream
+      .getAudioTracks()
+      .forEach((track) => (track.enabled = false));
+  }
+
   private _gotStream(stream: MediaStream): void {
     // Create an AudioNode from the stream.
     this._mediaStreamSource =
       this._audioContext.createMediaStreamSource(stream);
 
     // Connect it to the destination.
-    this._analyser = this._audioContext.createAnalyser();
-    this._analyser.fftSize = 2048;
     this._mediaStreamSource.connect(this._analyser);
     this._updatePitch();
   }
