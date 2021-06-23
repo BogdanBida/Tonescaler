@@ -2,20 +2,13 @@ export function autoCorrelate(
   buffer: Float32Array,
   sampleRate: number
 ): number {
-  const SIZE = buffer.length;
-  const MAX_SAMPLES = Math.floor(SIZE / 2);
+  const MAX_SAMPLES = Math.floor(buffer.length / 2);
   const correlations = new Array(MAX_SAMPLES);
   let bestOffset = -1;
   let bestCorrelation = 0;
   let isFoundGoodCorrelation = false;
-  let rms = 0;
 
-  for (let i = 0; i < SIZE; i++) {
-    rms += Math.pow(buffer[i], 2);
-  }
-  rms = Math.sqrt(rms / SIZE);
-
-  if (rms < MIN_RMS_LIMIT) {
+  if (getRMS(buffer) < MIN_RMS_LIMIT) {
     return -1;
   }
 
@@ -57,6 +50,17 @@ export function autoCorrelate(
   }
 
   return -1;
+}
+
+function getRMS(buffer: Float32Array): number {
+  let rms = 0;
+  const bufferSize = buffer.length;
+
+  for (let i = 0; i < bufferSize; i++) {
+    rms += Math.pow(buffer[i], 2);
+  }
+
+  return Math.sqrt(rms / bufferSize);
 }
 
 /**
