@@ -4,20 +4,16 @@ import { range } from 'rxjs';
 import { Theme } from 'src/app/core/enums';
 import { TunerService } from 'src/app/core/services';
 import { noteToString } from 'src/app/core/utils/convertors';
+import {
+  BOTTOM_OFFSET,
+  DEFAULT_BOTTOM_NOTE,
+  DEFAULT_TOP_NOTE,
+  NOTELINE_BOTTOM_OFFSET,
+  NOTE_SIZE,
+  OFFSET_OUTSIDE_NOTE,
+} from '../constants/chart';
 import { TunerInfo } from './../../../core/models/tuner-info';
 import { ThemeService } from './../../../core/services/theme.service';
-
-const NOTE_SIZE = 2;
-
-const BOTTOM_OFFSET = 32;
-
-const DEFAULT_BOTTOM_NOTE = 66;
-
-const DEFAULT_TOP_NOTE = 78;
-
-const OFFSET_OUTSIDE_NOTE = 5;
-
-const NOTELINE_BOTTOM_OFFSET = 10;
 
 @Injectable({
   providedIn: 'root',
@@ -87,8 +83,11 @@ export class TunerChartService {
 
   private _setCanvasStyles(): void {
     if (this._ctx) {
-      this._ctx.fillStyle =
+      const color =
         this._themeSerivce.selectedTheme === Theme.Dark ? '#92e2ff' : '#02526f';
+
+      this._ctx.fillStyle = color;
+      this._ctx.strokeStyle = color;
       this._ctx.textAlign = 'center';
       this._ctx.font = 'Montseratt';
     }
@@ -139,6 +138,17 @@ export class TunerChartService {
     range(0, this._topNote - this._bottomNote).forEach((value) => {
       const note = value + this._bottomNote;
       const x = (value / (this._topNote - this._bottomNote)) * this.width;
+
+      this._ctx?.beginPath();
+      this._ctx?.arc(
+        x,
+        this.height - BOTTOM_OFFSET,
+        NOTE_SIZE * 2,
+        0,
+        Math.PI * 2
+      );
+      this._ctx?.closePath();
+      this._ctx?.stroke();
 
       this._ctx?.fillText(
         noteToString(note),
