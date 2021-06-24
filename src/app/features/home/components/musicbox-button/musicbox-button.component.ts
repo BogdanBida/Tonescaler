@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AppService } from './../../../../core/services/app.service';
+import { CircularMenuService } from '../../services/circular-menu.service';
 
 @Component({
   selector: 'app-musicbox-button',
@@ -7,11 +7,11 @@ import { AppService } from './../../../../core/services/app.service';
   styleUrls: ['./musicbox-button.component.scss'],
 })
 export class MusicboxButtonComponent {
-  constructor(private readonly _appService: AppService) {}
+  constructor(private readonly _menuService: CircularMenuService) {}
 
-  public toggleMenu = this._appService.toggleCircularMenu.bind(
-    this._appService
+  public toggleMenu = this._menuService.toggleCircularMenu.bind(
+    this._menuService
   );
 
-  public menuIsOpened$ = this._appService.circularMenuIsOpened$;
+  public menuIsOpened$ = this._menuService.circularMenuIsOpened$;
 }
