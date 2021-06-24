@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 201 239">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #E8E8E8;
+        stroke-miterlimit: 10;
+        stroke-width: 14px;
+      }
+    </style>
+  </defs>
+  <g fill="#E8E8E8">
+    <rect class="cls-1" x="7" y="7" width="187" height="225" rx="25.08" />
+    <circle class="cls-1" cx="102" cy="162" r="31" />
+    <rect x="7" y="44" width="187" height="12" />
+    <rect x="99" y="23" width="8" height="92" rx="1.58" />
+    <rect x="81" y="24" width="8" height="82" rx="1.58" />
+    <rect x="62" y="31" width="8" height="64" rx="1.58" />
+    <rect x="44" y="28" width="8" height="56" rx="1.58" />
+    <rect x="25" y="29" width="8" height="46" rx="1.58" />
+    <rect x="171" y="29" width="8" height="42" rx="1.58" />
+    <rect x="153" y="26" width="8" height="53" rx="1.58" />
+    <rect x="135" y="28" width="8" height="61" rx="1.58" />
+    <rect x="117" y="24" width="8" height="79" rx="1.58" />
+  </g>
+</svg>

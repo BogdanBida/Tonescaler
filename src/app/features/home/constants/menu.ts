@@ -1,22 +1,22 @@
 export const MENU_ITEMS = [
   {
     name: 'Keyboards',
-    iconUrl: 'assets/icons/saxophone.svg',
+    iconUrl: 'assets/icons/keyboards.svg',
     route: 'tuner',
   },
   {
     name: 'Stringed',
-    iconUrl: 'assets/icons/saxophone.svg',
+    iconUrl: 'assets/icons/stringed.svg',
     route: 'tuner',
   },
   {
     name: 'Woodwinds',
-    iconUrl: 'assets/icons/saxophone.svg',
+    iconUrl: 'assets/icons/block-flute.svg',
     route: 'tuner',
   },
   {
     name: 'Kalimbas',
-    iconUrl: 'assets/icons/saxophone.svg',
+    iconUrl: 'assets/icons/kalimba.svg',
     route: 'tuner',
   },
   {
@@ -26,7 +26,7 @@ export const MENU_ITEMS = [
   },
   {
     name: 'Trumpets',
-    iconUrl: 'assets/icons/saxophone.svg',
+    iconUrl: 'assets/icons/trumpet.svg',
     route: 'tuner',
   },
   {
@@ -34,9 +34,14 @@ export const MENU_ITEMS = [
     iconUrl: 'assets/icons/saxophone.svg',
     route: 'tuner',
   },
+  {
+    name: 'Harmonica',
+    iconUrl: 'assets/icons/harmonica.svg',
+    route: 'tuner',
+  },
 ];
 
-export const OFFSET_FROM_BOUNDARIES = 10;
+export const OFFSET_FROM_BOUNDARIES = 15;
 /**
  * radius in percents of container height.
  *
