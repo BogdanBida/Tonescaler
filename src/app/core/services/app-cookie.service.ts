@@ -4,6 +4,8 @@ import { CookieKeys } from '../enums';
 import { Language } from '../enums/languages.enum';
 import { Theme } from './../enums/themes.enum';
 
+const PREFIX = 'tonescaler-';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -28,5 +30,11 @@ export class AppCookieService {
     return this._cookieService.check(CookieKeys.PreferredTheme)
       ? (this._cookieService.get(CookieKeys.PreferredTheme) as Theme)
       : null;
+  }
+
+  public saveData(data: any): void {
+    Object.entries(data).forEach(([key, value]) => {
+      this._cookieService.set(PREFIX + key, value as string);
+    });
   }
 }
