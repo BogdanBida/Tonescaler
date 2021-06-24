@@ -2,6 +2,7 @@ import { LOCATION_INITIALIZED } from '@angular/common';
 import { Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'src/environments/environment';
+import { SettingTypes } from './core/enums';
 import { AppCookieService } from './core/services';
 
 export function appInitializerFactory(
@@ -18,7 +19,7 @@ export function appInitializerFactory(
 
       locationInitialized.then(() => {
         const langToSet =
-          cookieService.getPreferredLanguage() ||
+          cookieService.getSetting(SettingTypes.PreferredLang) ||
           translate.getBrowserLang() ||
           environment.defaultLang;
 

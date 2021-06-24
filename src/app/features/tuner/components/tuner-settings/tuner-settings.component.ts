@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { TunerService } from 'src/app/core/services';
-import { PitchDetectors } from './../../../../core/enums/pitch-detectors.enum';
+import { PitchDetectors } from './../../../../core/enums';
 
 const OPTIONS = [
   { value: PitchDetectors.Yin, name: 'YIN' },

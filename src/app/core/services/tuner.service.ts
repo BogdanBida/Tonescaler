@@ -10,7 +10,7 @@ import {
 import { TunerInfo } from '../models/tuner-info';
 import { autoCorrelate } from '../utils';
 import { centsOffFromPitch, nearestNoteByFrequency } from '../utils/convertors';
-import { PitchDetectors } from './../enums/pitch-detectors.enum';
+import { PitchDetectors } from './../enums';
 
 @Injectable({
   providedIn: 'root',

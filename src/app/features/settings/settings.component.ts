@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateService } from '@ngx-translate/core';
-import { Theme } from 'src/app/core/enums';
+import { Language, Theme } from 'src/app/core/enums';
 import { ThemeService } from 'src/app/core/services';
 import { AppService } from 'src/app/core/services/app.service';
-import { Language } from './../../core/enums/languages.enum';
 
 @UntilDestroy()
 @Component({

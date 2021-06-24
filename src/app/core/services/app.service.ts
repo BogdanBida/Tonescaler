@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { filter, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { Theme } from '../enums';
+import { SettingTypes, Theme } from '../enums';
 import { AppCookieService } from './app-cookie.service';
 import { ThemeService } from './theme.service';
 
@@ -58,10 +58,10 @@ export class AppService {
 
   private _initTheme(): void {
     const defaultTheme =
-      this._cookieService.getPreferredTheme() ||
-      (environment.defaultTheme as Theme);
+      this._cookieService.getSetting(SettingTypes.PreferredTheme) ||
+      environment.defaultTheme;
 
-    this._themeService.setTheme(defaultTheme);
+    this._themeService.setTheme(defaultTheme as Theme);
   }
 
   private _initAnimations(): void {
