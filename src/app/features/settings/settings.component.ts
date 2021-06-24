@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateService } from '@ngx-translate/core';
-import { Language, Theme } from 'src/app/core/enums';
+import { Languages, Themes } from 'src/app/core/enums';
 import { ThemeService } from 'src/app/core/services';
 import { AppService } from 'src/app/core/services/app.service';
 
@@ -28,9 +28,9 @@ export class SettingsComponent implements OnInit {
     enableUiAnimations: new FormControl(this._appSerivce.isEnabledUiAnimations),
   });
 
-  public themes = [Theme.Dark, Theme.Light];
+  public themes = [Themes.Dark, Themes.Light];
 
-  public langs = [Language.En, Language.Ru];
+  public langs = [Languages.En, Languages.Ru];
 
   public ngOnInit(): void {
     this.form.valueChanges.pipe(untilDestroyed(this)).subscribe((data) => {

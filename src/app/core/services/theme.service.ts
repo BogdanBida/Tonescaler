@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { SettingTypes, Theme } from './../enums';
+import { SettingTypes, Themes } from './../enums';
 import { AppCookieService } from './app-cookie.service';
 
 @Injectable({
@@ -8,9 +8,9 @@ import { AppCookieService } from './app-cookie.service';
 export class ThemeService {
   constructor(private readonly _cookieService: AppCookieService) {}
 
-  public selectedTheme: Theme | null = null;
+  public selectedTheme: Themes | null = null;
 
-  public setTheme(themeName: Theme): void {
+  public setTheme(themeName: Themes): void {
     this.selectedTheme = themeName;
     this._cookieService.setSetting(SettingTypes.PreferredTheme, themeName);
     document.documentElement.setAttribute('data-theme', themeName);

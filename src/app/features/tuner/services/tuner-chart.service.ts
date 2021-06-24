@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { isNil } from 'lodash-es';
 import { range } from 'rxjs';
-import { Theme } from 'src/app/core/enums';
+import { Themes } from 'src/app/core/enums';
 import { TunerService } from 'src/app/core/services';
 import { noteToString } from 'src/app/core/utils/convertors';
 import {
@@ -84,7 +84,9 @@ export class TunerChartService {
   private _setCanvasStyles(): void {
     if (this._ctx) {
       const color =
-        this._themeSerivce.selectedTheme === Theme.Dark ? '#92e2ff' : '#02526f';
+        this._themeSerivce.selectedTheme === Themes.Dark
+          ? '#92e2ff'
+          : '#02526f';
 
       this._ctx.fillStyle = color;
       this._ctx.strokeStyle = color;
