@@ -24,7 +24,7 @@ export class AppComponent {
   public getAnimationData(
     outlet: RouterOutlet
   ): RouterOutlet | Data | string | null {
-    return this._appService.enablePageTransition
+    return this._appService.isEnabledPageTransitions
       ? outlet && outlet.activatedRouteData && outlet.activatedRouteData.state
       : null;
   }

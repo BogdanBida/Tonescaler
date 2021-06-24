@@ -18,10 +18,26 @@ export class AppService {
     private readonly _router: Router
   ) {}
 
-  public enablePageTransition = true;
-
   public get isEnabledUiAnimations(): boolean {
     return this._isEnabledUiAnimations;
+  }
+
+  public set isEnabledUiAnimations(value: boolean) {
+    this._isEnabledUiAnimations = value;
+    value
+      ? document.documentElement.removeAttribute('data-disabled-animations')
+      : document.documentElement.setAttribute(
+          'data-disabled-animations',
+          'true'
+        );
+  }
+
+  public get isEnabledPageTransitions(): boolean {
+    return this._isEnabledPageTransitions;
+  }
+
+  public set isEnabledPageTransitions(value: boolean) {
+    this._isEnabledPageTransitions = value;
   }
 
   public isHomepage = this._router.events.pipe(
@@ -33,18 +49,11 @@ export class AppService {
 
   private _isEnabledUiAnimations = true;
 
+  private _isEnabledPageTransitions = true;
+
   public initApp(): void {
     this._initTheme();
-  }
-
-  public setUiAnimations(value: boolean): void {
-    this._isEnabledUiAnimations = value;
-    value
-      ? document.documentElement.removeAttribute('data-disabled-animations')
-      : document.documentElement.setAttribute(
-          'data-disabled-animations',
-          'true'
-        );
+    this._initAnimations();
   }
 
   private _initTheme(): void {
@@ -53,5 +62,10 @@ export class AppService {
       (environment.defaultTheme as Theme);
 
     this._themeService.setTheme(defaultTheme);
+  }
+
+  private _initAnimations(): void {
+    this._isEnabledPageTransitions = true;
+    this._isEnabledUiAnimations = true;
   }
 }

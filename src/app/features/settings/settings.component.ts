@@ -24,7 +24,7 @@ export class SettingsComponent implements OnInit {
     theme: new FormControl(this._themeService.selectedTheme),
     lang: new FormControl(this._translateService.currentLang),
     enablePageTransitions: new FormControl(
-      this._appSerivce.enablePageTransition
+      this._appSerivce.isEnabledPageTransitions
     ),
     enableUiAnimations: new FormControl(this._appSerivce.isEnabledUiAnimations),
   });
@@ -37,8 +37,8 @@ export class SettingsComponent implements OnInit {
     this.form.valueChanges.pipe(untilDestroyed(this)).subscribe((data) => {
       this._themeService.setTheme(data.theme);
       this._translateService.use(data.lang);
-      this._appSerivce.enablePageTransition = !!data.enablePageTransitions;
-      this._appSerivce.setUiAnimations(data.enableUiAnimations);
+      this._appSerivce.isEnabledPageTransitions = data.enablePageTransitions;
+      this._appSerivce.isEnabledUiAnimations = data.enableUiAnimations;
     });
   }
 }
