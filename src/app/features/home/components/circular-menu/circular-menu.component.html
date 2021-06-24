@@ -1,2 +1,16 @@
-<nav [class.closed]="isClosed$ | async"></nav>
+<nav [class.closed]="isClosed$ | async">
+  <div class="wrapper" [style.transform]="'rotate(' + degree + ')'">
+    <button
+      class="item"
+      *ngFor="let item of items$ | async; index as i"
+      #itemRef
+      [ngStyle]="getStyleFromItemPosition(item.position, itemRef)"
+      [style.transform]="'rotate(' + negativeDegree + ')'"
+      [routerLink]="['/' + item.route]"
+    >
+      <img class="icon" [src]="item.iconUrl" alt="" />
+      <span class="name">{{ item.name }}</span>
+    </button>
+  </div>
+</nav>
 <app-musicbox-button></app-musicbox-button>
