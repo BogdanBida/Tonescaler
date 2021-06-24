@@ -35,12 +35,10 @@ export class SettingsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.form.valueChanges.pipe(untilDestroyed(this)).subscribe((data) => {
-      const { theme, lang, enablePageTransitions, enableUiAnimations } = data;
-
-      this._themeService.setTheme(theme);
-      this._translateService.use(lang);
-      this._appSerivce.enablePageTransition = !!enablePageTransitions;
-      this._appSerivce.setUiAnimations(enableUiAnimations);
+      this._themeService.setTheme(data.theme);
+      this._translateService.use(data.lang);
+      this._appSerivce.enablePageTransition = !!data.enablePageTransitions;
+      this._appSerivce.setUiAnimations(data.enableUiAnimations);
     });
   }
 }
