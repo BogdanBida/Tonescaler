@@ -30,6 +30,10 @@ export class AppService {
           'data-disabled-animations',
           'true'
         );
+    this._cookieService.setSetting(
+      SettingTypes.IsEnabledUiAnimations,
+      String(value)
+    );
   }
 
   public get isEnabledPageTransitions(): boolean {
@@ -38,6 +42,10 @@ export class AppService {
 
   public set isEnabledPageTransitions(value: boolean) {
     this._isEnabledPageTransitions = value;
+    this._cookieService.setSetting(
+      SettingTypes.IsEnabledPageTransitions,
+      String(value)
+    );
   }
 
   public isHomepage = this._router.events.pipe(
@@ -65,7 +73,11 @@ export class AppService {
   }
 
   private _initAnimations(): void {
-    this._isEnabledPageTransitions = true;
-    this._isEnabledUiAnimations = true;
+    this.isEnabledPageTransitions =
+      this._cookieService.getSetting(SettingTypes.IsEnabledPageTransitions) ===
+      'true';
+    this.isEnabledUiAnimations =
+      this._cookieService.getSetting(SettingTypes.IsEnabledUiAnimations) ===
+      'true';
   }
 }
