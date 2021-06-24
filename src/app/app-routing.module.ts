@@ -34,6 +34,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'not-found',
+        loadChildren: (): any =>
+          import('./features/not-found/not-found.module').then(
+            (module) => module.NotFoundModule
+          ),
+      },
+      {
         path: '',
         redirectTo: '/home',
         pathMatch: 'full',
@@ -41,8 +48,7 @@ const routes: Routes = [
       {
         path: '**',
         pathMatch: 'full',
-        redirectTo: '/home',
-        // data: { state: 'notfound' }
+        redirectTo: '/not-found',
       },
     ],
   },
