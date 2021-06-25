@@ -22,5 +22,8 @@
     "chord_finder": "Chord finder",
     "keyboards": "Keyboards",
     "stringed": "Stringed"
+  },
+  "page_not_found": {
+    "description": "Page not found or possibly under construction"
   }
 }

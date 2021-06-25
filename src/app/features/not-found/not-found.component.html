@@ -1,2 +1,15 @@
-<h2>404</h2>
-<h3>not-found</h3>
+<h2 class="code">404</h2>
+<p class="description">{{ "page_not_found.description" | translate }}</p>
+<div
+  *ngFor="let freenote of freenotes; index as i"
+  [ngStyle]="freenote.style"
+  class="free-note"
+  (click)="playNote(i)"
+>
+  <img
+    class="icon"
+    src="assets/icons/note.svg"
+    alt=""
+    [style.transform]="'rotate(' + freenote.initialDegree + 'deg)'"
+  />
+</div>

@@ -4,4 +4,57 @@
   justify-content: center;
   flex-direction: column;
   width: 100%;
+
+  .code {
+    font-size: calc(100vw / 5);
+    margin-top: -0.5em;
+    margin-bottom: 0;
+    line-height: 0.9;
+  }
+
+  .description {
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+    letter-spacing: 0.1em;
+  }
+
+  .free-note {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    transform-origin: center;
+    will-change: transform;
+
+    animation-name: turning;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    .icon {
+      width: 100%;
+      height: 100%;
+
+      animation-name: note_appearance;
+      animation-duration: 1s;
+      animation-timing-function: ease-out;
+    }
+  }
+}
+
+@keyframes turning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes note_appearance {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
