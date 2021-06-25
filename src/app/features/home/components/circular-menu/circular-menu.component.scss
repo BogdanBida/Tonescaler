@@ -1,3 +1,5 @@
+@import "variables";
+
 :host {
   position: fixed;
   right: 0;
@@ -52,8 +54,9 @@
         justify-content: center;
         width: 144px;
         height: 144px;
+
         border: none;
-        border-radius: 99px;
+        border-radius: 999px;
         padding-bottom: 0.5em;
         background-color: rgba(black, 0.15);
         transition: 0.5s;
@@ -66,6 +69,40 @@
         .icon {
           width: 72px;
           height: 72px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  :host {
+    nav {
+      .wrapper {
+        .item {
+          width: 188px;
+          height: 188px;
+          .icon {
+            width: 92px;
+            height: 92px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $xl) {
+  :host {
+    nav {
+      .wrapper {
+        .item {
+          width: 224px;
+          height: 224px;
+          .icon {
+            width: 128px;
+            height: 128px;
+          }
         }
       }
     }
