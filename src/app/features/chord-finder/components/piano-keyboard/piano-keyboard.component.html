@@ -1,0 +1,15 @@
+<form class="form" [formGroup]="form">
+  <label
+    class="key"
+    [class.black]="isBlack(i)"
+    [style.width]="100 / keys.controls.length + '%'"
+    formArrayName="keys"
+    *ngFor="let item of keys.controls; index as i"
+  >
+    <input class="input" type="checkbox" [formControlName]="i" />
+    <div class="face">
+      <span class="note">{{ getNote(i) }}</span>
+      <div class="mask"></div>
+    </div>
+  </label>
+</form>
