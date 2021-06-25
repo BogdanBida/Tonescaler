@@ -7,6 +7,7 @@
       [ngStyle]="getStyleFromItemPosition(item.position, itemRef)"
       [style.transform]="'rotate(' + negativeDegree + ')'"
       [routerLink]="['/' + item.route]"
+      tabindex="-1"
     >
       <img class="icon monochrome-icon" [src]="item.iconUrl" alt="" />
       <span class="name">{{ item.name }}</span>
