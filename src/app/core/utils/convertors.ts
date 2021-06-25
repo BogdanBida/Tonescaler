@@ -7,7 +7,7 @@ import {
 } from './../constants/';
 
 export function noteToString(note: number): string {
-  return NOTES[note % 12] + Math.trunc((note - OCTAVE_OFFSET) / 12) + 1;
+  return NOTES[note % 12] + (1 + Math.trunc((note - OCTAVE_OFFSET) / 12));
 }
 
 export function stringToNote(note: string): number {
