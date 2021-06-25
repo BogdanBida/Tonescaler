@@ -22,14 +22,18 @@ export class CircularMenuComponent implements AfterViewInit {
 
   public items$ = this._menuService.menuItems$;
 
+  public nextItem = this._menuService.nextItem.bind(this._menuService);
+
+  public prevItem = this._menuService.prevItem.bind(this._menuService);
+
   private _degree = 0;
 
   @HostListener('wheel', ['$event'])
   public onWheel(event: WheelEvent): void {
     if (event.deltaY > 0) {
-      this._menuService.nextItem();
+      this.nextItem();
     } else {
-      this._menuService.prevItem();
+      this.prevItem();
     }
   }
 

@@ -1,4 +1,8 @@
-<nav [class.closed]="isClosed$ | async">
+<nav
+  [class.closed]="isClosed$ | async"
+  (swipedown)="prevItem()"
+  (swipeup)="nextItem()"
+>
   <div class="wrapper" [style.transform]="'rotate(' + degree + ')'">
     <button
       class="item"
