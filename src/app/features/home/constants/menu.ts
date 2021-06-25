@@ -10,11 +10,6 @@ export const MENU_ITEMS = [
     route: 'stringed',
   },
   {
-    name: 'Block Flute',
-    iconUrl: 'assets/icons/block-flute.svg',
-    route: 'block-flute',
-  },
-  {
     name: 'Kalimbas',
     iconUrl: 'assets/icons/kalimba.svg',
     route: 'kalimba',
@@ -30,14 +25,19 @@ export const MENU_ITEMS = [
     route: 'trumpets',
   },
   {
-    name: 'Lyra',
-    iconUrl: 'assets/icons/saxophone.svg',
-    route: 'lyra',
-  },
-  {
     name: 'Harmonica',
     iconUrl: 'assets/icons/harmonica.svg',
     route: 'harmonica',
+  },
+  {
+    name: 'Lyre',
+    iconUrl: 'assets/icons/lyre.svg',
+    route: 'lyre',
+  },
+  {
+    name: 'Flutes',
+    iconUrl: 'assets/icons/block-flute.svg',
+    route: 'block-flute',
   },
 ];
 
