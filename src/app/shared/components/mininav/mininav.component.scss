@@ -10,6 +10,7 @@ $height: 1.5rem;
   height: $height;
   opacity: 0.5;
   transition: 0.3s;
+  z-index: 1;
   .icon {
     height: 100%;
   }
