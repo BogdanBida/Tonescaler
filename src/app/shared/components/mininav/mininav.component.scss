@@ -19,7 +19,7 @@ $height: 1.5rem;
     max-width: 0px;
     width: min-content;
     overflow: hidden;
-    transition: 0.5s;
+    transition: 1s;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -39,7 +39,7 @@ $height: 1.5rem;
     opacity: 1;
     .wrapper {
       opacity: 1;
-      max-width: 50vw;
+      max-width: calc(100vw - 1em);
     }
   }
 }
