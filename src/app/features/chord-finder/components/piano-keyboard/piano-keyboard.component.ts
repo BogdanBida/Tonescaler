@@ -3,7 +3,7 @@ import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { range } from 'lodash-es';
 import { NOTES } from 'src/app/core/constants';
 
-const KEYS_AMOUNT = 20;
+const KEYS_AMOUNT = 24;
 
 const DEFAULT_START_NOTE = 3;
 
