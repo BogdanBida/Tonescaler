@@ -33,7 +33,9 @@
     "lower": "Lower",
     "algorithm": "Algorithm"
   },
-  "chord_finder": {},
+  "chord_finder": {
+    "lookslike": "Looks like it's"
+  },
   "camelot_wheel": {},
   "keyboards": {},
   "stringed": {},

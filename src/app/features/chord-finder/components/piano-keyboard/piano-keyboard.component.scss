@@ -39,6 +39,7 @@
           padding: 0.5em;
           background-color: rgba(black, 0.15);
           border-bottom: 2px solid transparent;
+          color: var(--text-color-secondary);
         }
 
         .mask {
@@ -69,6 +70,7 @@
         }
 
         .note {
+          color: var(--text-color-primary);
           border-bottom: 2px solid var(--main-color);
         }
       }
