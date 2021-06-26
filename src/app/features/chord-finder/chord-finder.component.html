@@ -1,3 +1,6 @@
-<app-piano-keyboard class="control"></app-piano-keyboard>
+<app-piano-keyboard
+  class="control"
+  (selectedNotes)="onSelectedNotes($event)"
+></app-piano-keyboard>
 <app-info class="info"></app-info>
 <app-settings-button class="settings-btn"></app-settings-button>

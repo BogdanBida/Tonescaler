@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { range } from 'lodash-es';
 import { NOTES } from 'src/app/core/constants';
 
 const KEYS_AMOUNT = 20;
 
-const START_NOTE = 3;
+const DEFAULT_START_NOTE = 3;
 
 @Component({
   selector: 'app-piano-keyboard',
@@ -13,6 +13,10 @@ const START_NOTE = 3;
   styleUrls: ['./piano-keyboard.component.scss'],
 })
 export class PianoKeyboardComponent implements OnInit {
+  @Input() public startNote = DEFAULT_START_NOTE;
+
+  @Output() public selectedNotes = new EventEmitter<number[]>();
+
   public form = new FormGroup({
     keys: new FormArray([]),
   });
@@ -22,7 +26,7 @@ export class PianoKeyboardComponent implements OnInit {
   }
 
   public getNote(index: number): string {
-    return NOTES[(index + START_NOTE) % 12];
+    return NOTES[(index + this.startNote) % 12];
   }
 
   public isBlack(index: number): boolean {
@@ -36,10 +40,10 @@ export class PianoKeyboardComponent implements OnInit {
 
     this.form.valueChanges.subscribe((formValues) => {
       const data = formValues.keys
-        .map((v, i) => (v ? i + START_NOTE : false))
+        .map((v, i) => (v ? i + this.startNote : false))
         .filter(Boolean);
 
-      console.log(data);
+      this.selectedNotes.emit(data);
     });
   }
 }
