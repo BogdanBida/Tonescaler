@@ -6,8 +6,11 @@ import {
   NOTE_REGEXP,
 } from './../constants/';
 
-export function noteToString(note: number): string {
-  return NOTES[note % 12] + (1 + Math.trunc((note - OCTAVE_OFFSET) / 12));
+export function noteToString(note: number, includeOctave = true): string {
+  return (
+    NOTES[note % 12] +
+    (includeOctave ? String(1 + Math.trunc((note - OCTAVE_OFFSET) / 12)) : '')
+  );
 }
 
 export function stringToNote(note: string): number {
