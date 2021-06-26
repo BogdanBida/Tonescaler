@@ -22,7 +22,13 @@
     "chord_finder": "Chord finder",
     "camelot_wheel": "Camelot Wheel",
     "keyboards": "Keyboards",
-    "stringed": "Stringed"
+    "stringed": "Stringed",
+    "kalimbas": "Kalimba",
+    "saxophone": "Saxophone",
+    "trumpets": "Trumpet",
+    "harmonica": "Harmonica",
+    "lyre": "Lyre",
+    "flutes": "Flutes"
   },
   "page_not_found": {
     "description": "Page not found or possibly under construction"

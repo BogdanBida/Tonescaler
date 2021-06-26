@@ -1,43 +1,43 @@
 export const MENU_ITEMS = [
   {
-    name: 'Keyboards',
+    name: 'keyboards',
     iconUrl: 'assets/icons/keyboards.svg',
     route: 'keyboards',
   },
   {
-    name: 'Stringed',
+    name: 'stringed',
     iconUrl: 'assets/icons/stringed.svg',
     route: 'stringed',
   },
   {
-    name: 'Kalimbas',
+    name: 'kalimbas',
     iconUrl: 'assets/icons/kalimba.svg',
     route: 'kalimba',
   },
   {
-    name: 'Saxophone',
+    name: 'saxophone',
     iconUrl: 'assets/icons/saxophone.svg',
     route: 'saxophone',
   },
   {
-    name: 'Trumpets',
+    name: 'trumpets',
     iconUrl: 'assets/icons/trumpet.svg',
     route: 'trumpets',
   },
   {
-    name: 'Harmonica',
+    name: 'harmonica',
     iconUrl: 'assets/icons/harmonica.svg',
     route: 'harmonica',
   },
   {
-    name: 'Lyre',
+    name: 'lyre',
     iconUrl: 'assets/icons/lyre.svg',
     route: 'lyre',
   },
   {
-    name: 'Flutes',
+    name: 'flutes',
     iconUrl: 'assets/icons/block-flute.svg',
-    route: 'block-flute',
+    route: 'flutes',
   },
 ];
 

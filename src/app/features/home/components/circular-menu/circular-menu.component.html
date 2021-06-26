@@ -14,7 +14,7 @@
       tabindex="-1"
     >
       <img class="icon monochrome-icon" [src]="item.iconUrl" alt="" />
-      <span class="name">{{ item.name }}</span>
+      <span class="name">{{ "routes." + item.name | translate }}</span>
     </button>
   </div>
 </nav>
