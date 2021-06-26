@@ -2,20 +2,6 @@
   "common": {
     "welcome": "Select instrument"
   },
-  "settings": {
-    "theme": "Select theme",
-    "language": "Select language",
-    "enable_page_transitions": "Enable page transitions",
-    "enable_ui_animations": "Enable UI animations"
-  },
-  "tuner": {
-    "frequency": "Frequency",
-    "cents": "Cents",
-    "silence": "Silence",
-    "upper": "Upper",
-    "lower": "Lower",
-    "algorithm": "Algorithm"
-  },
   "routes": {
     "settings": "Settings",
     "tuner": "Tuner",
@@ -32,5 +18,29 @@
   },
   "page_not_found": {
     "description": "Page not found or possibly under construction"
-  }
+  },
+  "settings": {
+    "theme": "Select theme",
+    "language": "Select language",
+    "enable_page_transitions": "Enable page transitions",
+    "enable_ui_animations": "Enable UI animations"
+  },
+  "tuner": {
+    "frequency": "Frequency",
+    "cents": "Cents",
+    "silence": "Silence",
+    "upper": "Upper",
+    "lower": "Lower",
+    "algorithm": "Algorithm"
+  },
+  "chord_finder": {},
+  "camelot_wheel": {},
+  "keyboards": {},
+  "stringed": {},
+  "kalimbas": {},
+  "saxophone": {},
+  "trumpets": {},
+  "harmonica": {},
+  "lyre": {},
+  "flutes": {}
 }
