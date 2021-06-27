@@ -16,7 +16,7 @@ export class ScaleSwitcherComponent implements OnInit {
 
   public form = new FormGroup({
     tonic: new FormControl(this._scaleService.tonic$.value),
-    scale: new FormControl(this._scaleService.scale$.value.mask),
+    scale: new FormControl(this._scaleService.scale$.value),
   });
 
   public notes = NOTES;
@@ -24,8 +24,12 @@ export class ScaleSwitcherComponent implements OnInit {
   public scales = SCALES;
 
   public ngOnInit(): void {
-    this.form.valueChanges.pipe(untilDestroyed(this)).subscribe((data) => {
-      console.log(data);
-    });
+    this.form.controls.tonic.valueChanges
+      .pipe(untilDestroyed(this))
+      .subscribe((tonic) => this._scaleService.tonic$.next(tonic));
+
+    this.form.controls.scale.valueChanges
+      .pipe(untilDestroyed(this))
+      .subscribe((scale) => this._scaleService.scale$.next(scale));
   }
 }

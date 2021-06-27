@@ -10,7 +10,7 @@
   <mat-form-field appearance="outline" class="scale-field">
     <mat-label>{{ "scale.scale" | translate }}</mat-label>
     <mat-select formControlName="scale">
-      <mat-option *ngFor="let scale of scales; index as i" [value]="scale.mask">
+      <mat-option *ngFor="let scale of scales; index as i" [value]="scale">
         {{ scale.name }}
       </mat-option>
     </mat-select>
