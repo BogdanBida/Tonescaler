@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" id="Слой_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+  y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+  <style type="text/css">
+    .st0 {
+      opacity: 0.15;
+      stroke: #000000;
+      stroke-miterlimit: 10;
+    }
+  </style>
+  <path class="st0" d="M435.1,73.1L256,265L76.9,73.1C29.5,119.6,0,184.3,0,256c0,141.4,114.6,256,256,256s256-114.6,256-256
+	C512,184.3,482.5,119.6,435.1,73.1z" />
+</svg>

@@ -1,7 +1,2 @@
 <div class="frame"></div>
-<div class="wheel">
-  <div class="sector" *ngFor="let sector of sectors">
-    <div class="outer-item">{{ sector[0] | notename: false }}</div>
-    <div class="inner-item">{{ sector[1] | notename: false }}</div>
-  </div>
-</div>
+<app-wheel class="wheel"></app-wheel>

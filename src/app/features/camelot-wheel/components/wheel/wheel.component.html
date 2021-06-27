@@ -1,3 +1,23 @@
-<p>
-  wheel works!
-</p>
+<div class="wheel" (swipedown)="prevItem()" (swipeup)="nextItem()">
+  <div class="wrapper" [style.transform]="'rotate(' + degree + ')'">
+    <div *ngFor="let item of sectors$ | async; index as i">
+      <div
+        class="item"
+        #majorItem
+        [ngStyle]="getStyleFromItemPosition(item.major.position, majorItem)"
+        [style.transform]="'rotate(' + negativeDegree + ')'"
+      >
+        <span>{{ item.major.note | notename: false }}</span>
+      </div>
+      <div
+        class="item"
+        #minorItem
+        [ngStyle]="getStyleFromItemPosition(item.minor.position, minorItem)"
+        [style.transform]="'rotate(' + negativeDegree + ')'"
+      >
+        <span> {{ item.minor.note | notename: false }}m </span>
+      </div>
+    </div>
+  </div>
+</div>
+<img class="frame" src="assets/images/camelot-case.svg" alt="" />

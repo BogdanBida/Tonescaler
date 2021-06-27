@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+  <g fill="#E8E8E8">
+    <path d="M270.3,0h-28C174.4,3.7,113.5,33.8,69.8,80.2L256,272L442.4,79.9C398.7,33.6,338,3.7,270.3,0z M256,256
+		L86.2,80.8C130.2,38.2,190,12,256,12s125.8,26.2,169.8,68.8L256,256z" />
+  </g>
+</svg>

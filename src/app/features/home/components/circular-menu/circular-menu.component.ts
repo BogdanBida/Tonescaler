@@ -1,9 +1,8 @@
 import { AfterViewInit, Component, HostListener } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { map } from 'rxjs/operators';
+import { Coordinates, Position } from '../../../../core/models';
 import { CircularMenuService } from '../../services/circular-menu.service';
-import { Coordinates } from './../../models/coordinates';
-import { Position } from './../../models/position';
 
 const FULL_TURN = 360;
 
