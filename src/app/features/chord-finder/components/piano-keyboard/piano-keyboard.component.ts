@@ -1,21 +1,31 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { range } from 'lodash-es';
 import { NOTES } from 'src/app/core/constants';
 
 const KEYS_AMOUNT = 24;
 
-const DEFAULT_START_NOTE = 3;
+const DEFAULT_START_NOTE = 27; // C;
 
 @Component({
   selector: 'app-piano-keyboard',
   templateUrl: './piano-keyboard.component.html',
   styleUrls: ['./piano-keyboard.component.scss'],
 })
-export class PianoKeyboardComponent implements OnInit {
+export class PianoKeyboardComponent implements OnInit, OnChanges {
   @Input() public startNote = DEFAULT_START_NOTE;
 
-  @Output() public selectedNotes = new EventEmitter<number[]>();
+  @Input() public selectedNotes: number[] = [];
+
+  @Output() public selectNotes = new EventEmitter<number[]>();
 
   public form = new FormGroup({
     keys: new FormArray([]),
@@ -43,7 +53,17 @@ export class PianoKeyboardComponent implements OnInit {
         .map((v, i) => (v ? i + this.startNote : false))
         .filter(Boolean);
 
-      this.selectedNotes.emit(data);
+      this.selectNotes.emit(data);
     });
+  }
+
+  public ngOnChanges({ selectedNotes }: SimpleChanges): void {
+    if (selectedNotes) {
+      const val = selectedNotes.currentValue;
+
+      this.keys.controls.forEach((value, index) => {
+        value.patchValue(val.includes(index + this.startNote));
+      });
+    }
   }
 }

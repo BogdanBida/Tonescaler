@@ -9,6 +9,8 @@ import { ChordFinderService } from './../../core/services/chord-finder.service';
 export class ChordFinderComponent implements OnInit {
   constructor(private readonly _chordFinderService: ChordFinderService) {}
 
+  public chord: number[] = [];
+
   public ngOnInit(): void {}
 
   public onSelectedNotes(notes: number[]): void {

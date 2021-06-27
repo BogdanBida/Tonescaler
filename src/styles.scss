@@ -40,6 +40,10 @@ button {
   &:focus {
     outline: 1px solid rgba(white, 0.25);
   }
+
+  &:disabled {
+    pointer-events: none;
+  }
 }
 
 .btn-icon {

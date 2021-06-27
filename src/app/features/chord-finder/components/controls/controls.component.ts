@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AudioPlayerService } from './../../../../core/services/audio-player.service';
 import { ChordFinderService } from './../../../../core/services/chord-finder.service';
 
 @Component({
@@ -8,7 +9,14 @@ import { ChordFinderService } from './../../../../core/services/chord-finder.ser
   styleUrls: ['./controls.component.scss'],
 })
 export class ControlsComponent implements OnInit {
-  constructor(private readonly _chordFinder: ChordFinderService) {}
+  constructor(
+    private readonly _chordFinder: ChordFinderService,
+    private readonly _audioPlayer: AudioPlayerService
+  ) {}
+
+  @Output() public selectChord = new EventEmitter<number[]>();
+
+  public has$ = this._chordFinder.lastSelectedNotes$;
 
   public typeForm = new FormGroup({
     isStringed: new FormControl(false),
@@ -20,5 +28,33 @@ export class ControlsComponent implements OnInit {
 
   public chords$ = this._chordFinder.chordsDataAsArray$;
 
-  public ngOnInit(): void {}
+  public play(): void {
+    this._chordFinder.lastSelectedNotes$.value.forEach((note) => {
+      this._audioPlayer.play('acoustic_grand_piano', note);
+    });
+  }
+
+  public setChord(): void {
+    const tonic = this._chordFinder.firstNoteOfLastSelected;
+
+    if (tonic === null) {
+      return;
+    }
+
+    const chordIntervals: number[] =
+      this.chordSelectorForm.controls.chord.value;
+
+    const chord: number[] = [tonic];
+
+    chordIntervals &&
+      chordIntervals.forEach((value, index) =>
+        chord.push(chord[index] + value + 1)
+      );
+
+    this.selectChord.emit(chord);
+  }
+
+  public ngOnInit(): void {
+    this._audioPlayer.initInstrument('acoustic_grand_piano');
+  }
 }

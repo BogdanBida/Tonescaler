@@ -1,8 +1,9 @@
 <app-piano-keyboard
   class="control"
-  (selectedNotes)="onSelectedNotes($event)"
+  [selectedNotes]="chord"
+  (selectNotes)="onSelectedNotes($event)"
 ></app-piano-keyboard>
 <div class="bottom-wrapper">
-  <app-controls class="controls"></app-controls>
+  <app-controls class="controls" (selectChord)="chord = $event"></app-controls>
   <app-info class="info"></app-info>
 </div>

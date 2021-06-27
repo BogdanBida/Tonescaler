@@ -3,8 +3,10 @@
   <mat-slide-toggle></mat-slide-toggle>
 </form>
 <div class="buttons-wrapper">
-  <button class="show-btn">{{ "chord_finder.show" | translate }} 🠟</button>
-  <button class="play-btn">
+  <button class="show-btn" (click)="setChord()">
+    {{ "chord_finder.show" | translate }} 🠟
+  </button>
+  <button class="play-btn" (click)="play()">
     <img class="icon monochrome-icon" src="assets/icons/play.svg" alt="" />
   </button>
 </div>

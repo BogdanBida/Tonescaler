@@ -26,15 +26,23 @@ export class ChordFinderService {
 
   public result$ = new BehaviorSubject<string | null>(null);
 
+  public lastSelectedNotes$ = new BehaviorSubject<number[]>([]);
+
+  public get firstNoteOfLastSelected(): number | null {
+    return this.lastSelectedNotes$.value[0] ?? null;
+  }
+
   public recognize(notes: number[]): void {
+    if (!this._isOrder(notes)) {
+      notes = notes.sort((a, b) => a - b);
+    }
+
+    this.lastSelectedNotes$.next(notes);
+
     if (notes.length <= 1) {
       this.result$.next(null);
 
       return;
-    }
-
-    if (!this._isOrder(notes)) {
-      notes = notes.sort((a, b) => a - b);
     }
 
     const intervals = this._getIntervals(notes);
