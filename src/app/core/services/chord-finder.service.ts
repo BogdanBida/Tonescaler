@@ -28,44 +28,29 @@ export class ChordFinderService {
     return this.lastSelectedNotes$.value[0] ?? null;
   }
 
+  // todo: try to analyze chord inversions using recursion
   public recognize(notes: number[]): void {
-    if (!this._isOrder(notes)) {
+    if (!this._isInOrder(notes)) {
       notes = notes.sort((a, b) => a - b);
     }
 
     this.lastSelectedNotes$.next(notes);
 
     if (notes.length <= 1) {
-      this.result$.next(null);
-
-      return;
+      return this.result$.next(null);
     }
 
     const intervals = this._getIntervals(notes);
+    const result = this._chordMatching(intervals);
 
-    const chordsData = this.chordsData$.value;
-
-    if (!chordsData) {
-      return;
+    if (result) {
+      this.result$.next(
+        noteToString(notes[0], false) +
+          result.name.replace('major', '').replace('minor', 'm')
+      );
+    } else {
+      this.result$.next('');
     }
-
-    let result = '';
-
-    for (const chord of chordsData) {
-      if (intervals.length > chord.intervals.length) {
-        continue;
-      }
-
-      if (chord.intervals.every((val, index) => val === intervals[index])) {
-        result =
-          noteToString(notes[0], false) +
-          chord.name.replace('major', '').replace('minor', 'm');
-
-        break;
-      }
-    }
-
-    this.result$.next(result);
   }
 
   private _getIntervals(array: number[]): number[] {
@@ -78,9 +63,23 @@ export class ChordFinderService {
     return intervals;
   }
 
-  private _isOrder(array: number[]): boolean {
+  private _isInOrder(array: number[]): boolean {
     return array
       .slice(1, array.length)
       .every((value, index) => value > array[index]);
+  }
+
+  private _chordMatching(intervals: number[]): ChordData | null {
+    for (const chord of this.chordsData$.value) {
+      if (intervals.length > chord.intervals.length) {
+        continue;
+      }
+
+      if (chord.intervals.every((val, index) => val === intervals[index])) {
+        return chord;
+      }
+    }
+
+    return null;
   }
 }
