@@ -40,7 +40,8 @@
     "play": "Play",
     "show": "Show",
     "type": "Keyboards | Stringed",
-    "chord": "Chord"
+    "chord": "Chord",
+    "clear": "Clear"
   },
   "camelot_wheel": {},
   "keyboards": {},

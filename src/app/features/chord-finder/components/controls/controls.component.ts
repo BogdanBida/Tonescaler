@@ -44,14 +44,16 @@ export class ControlsComponent implements OnInit {
     const chordIntervals: number[] =
       this.chordSelectorForm.controls.chord.value;
 
-    const chord: number[] = [tonic];
+    if (chordIntervals) {
+      const chord: number[] = [tonic];
 
-    chordIntervals &&
       chordIntervals.forEach((value, index) =>
         chord.push(chord[index] + value + 1)
       );
-
-    this.selectChord.emit(chord);
+      this.selectChord.emit(chord);
+    } else {
+      this.selectChord.emit([]);
+    }
   }
 
   public ngOnInit(): void {

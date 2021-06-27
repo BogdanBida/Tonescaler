@@ -14,6 +14,9 @@
   <mat-form-field appearance="outline">
     <mat-label>{{ "chord_finder.chord" | translate }}</mat-label>
     <mat-select formControlName="chord">
+      <mat-option [value]="''">
+        {{ "chord_finder.clear" | translate }}
+      </mat-option>
       <mat-option
         *ngFor="let chord of chords$ | async"
         [value]="chord.intervals"
