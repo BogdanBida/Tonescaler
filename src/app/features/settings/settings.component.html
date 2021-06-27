@@ -1,30 +1,28 @@
-<div>
-  <form class="form" [formGroup]="form">
-    <mat-form-field appearance="outline">
-      <mat-label>{{ "settings.theme" | translate }}</mat-label>
-      <mat-select formControlName="theme">
-        <mat-option *ngFor="let theme of themes" [value]="theme">
-          {{ theme }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>{{ "settings.language" | translate }}</mat-label>
-      <mat-select formControlName="lang">
-        <mat-option *ngFor="let lang of langs" [value]="lang">
-          {{ lang }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div class="group">
-      <i class="title">Animations</i>
-      <mat-checkbox formControlName="enablePageTransitions">{{
-        "settings.enable_page_transitions" | translate
-      }}</mat-checkbox>
+<form class="common-group" [formGroup]="commonSettingsForm">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ "settings.theme" | translate }}</mat-label>
+    <mat-select formControlName="theme">
+      <mat-option *ngFor="let theme of themes" [value]="theme">
+        {{ theme }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>{{ "settings.language" | translate }}</mat-label>
+    <mat-select formControlName="lang">
+      <mat-option *ngFor="let lang of langs" [value]="lang">
+        {{ lang }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+<form [formGroup]="animSettingsForm" class="animation-group">
+  <i class="title">Animations</i>
+  <mat-checkbox formControlName="enablePageTransitions">{{
+    "settings.enable_page_transitions" | translate
+  }}</mat-checkbox>
 
-      <mat-checkbox formControlName="enableUiAnimations">{{
-        "settings.enable_ui_animations" | translate
-      }}</mat-checkbox>
-    </div>
-  </form>
-</div>
+  <mat-checkbox formControlName="enableUiAnimations">{{
+    "settings.enable_ui_animations" | translate
+  }}</mat-checkbox>
+</form>

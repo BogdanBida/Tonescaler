@@ -19,9 +19,12 @@ export class SettingsComponent implements OnInit {
     private readonly _appSerivce: AppService
   ) {}
 
-  public form = new FormGroup({
+  public commonSettingsForm = new FormGroup({
     theme: new FormControl(this._themeService.selectedTheme),
     lang: new FormControl(this._translateService.currentLang),
+  });
+
+  public animSettingsForm = new FormGroup({
     enablePageTransitions: new FormControl(
       this._appSerivce.isEnabledPageTransitions
     ),
@@ -33,11 +36,18 @@ export class SettingsComponent implements OnInit {
   public langs = [Languages.En, Languages.Ru];
 
   public ngOnInit(): void {
-    this.form.valueChanges.pipe(untilDestroyed(this)).subscribe((data) => {
-      this._themeService.setTheme(data.theme);
-      this._translateService.use(data.lang);
-      this._appSerivce.isEnabledPageTransitions = data.enablePageTransitions;
-      this._appSerivce.isEnabledUiAnimations = data.enableUiAnimations;
-    });
+    this.commonSettingsForm.valueChanges
+      .pipe(untilDestroyed(this))
+      .subscribe((data) => {
+        this._themeService.setTheme(data.theme);
+        this._translateService.use(data.lang);
+      });
+
+    this.animSettingsForm.valueChanges
+      .pipe(untilDestroyed(this))
+      .subscribe((data) => {
+        this._appSerivce.isEnabledPageTransitions = data.enablePageTransitions;
+        this._appSerivce.isEnabledUiAnimations = data.enableUiAnimations;
+      });
   }
 }
