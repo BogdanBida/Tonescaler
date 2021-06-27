@@ -4,7 +4,12 @@
   align-items: center;
 
   padding: 1em;
-  gap: 0.5em;
+
+  margin-bottom: -0.5em;
+  .form,
+  .buttons-wrapper {
+    margin-top: 0.5em;
+  }
 
   .form {
     display: flex;

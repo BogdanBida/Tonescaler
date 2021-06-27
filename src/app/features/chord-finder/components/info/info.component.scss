@@ -1,3 +1,5 @@
+@import "variables";
+
 :host {
   display: flex;
   align-items: center;
@@ -11,6 +13,26 @@
 
     .chord-name {
       font-size: 5rem;
+    }
+  }
+}
+
+@media screen and (max-width: $md) {
+  :host {
+    .chord-name-wrapper {
+      .chord-name {
+        font-size: 4rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $sm) {
+  :host {
+    .chord-name-wrapper {
+      .chord-name {
+        font-size: 2rem;
+      }
     }
   }
 }
