@@ -31,6 +31,8 @@ button {
   cursor: pointer;
   color: var(--text-color-primary);
   padding: 0;
+  border: none;
+  background-color: var(--bg-color);
   &:active {
     filter: brightness(1.1);
   }

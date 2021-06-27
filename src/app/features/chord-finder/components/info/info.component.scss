@@ -1,16 +1,16 @@
 :host {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 
   .chord-name-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-  }
 
-  .chord-name {
-    font-size: 5rem;
+    .chord-name {
+      font-size: 5rem;
+    }
   }
 }

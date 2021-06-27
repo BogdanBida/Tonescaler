@@ -8,7 +8,15 @@
   .control {
     margin-top: 2.5rem;
   }
-  .info {
+  .bottom-wrapper {
+    width: 100%;
     flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .info {
+      flex-grow: 1;
+    }
   }
 }
