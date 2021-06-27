@@ -1,0 +1,16 @@
+<form class="form type-form" [formGroup]="typeForm">
+  <mat-label>{{ "chord_finder.type" | translate }}</mat-label>
+  <mat-slide-toggle></mat-slide-toggle>
+</form>
+<button class="play-btn">{{ "chord_finder.play" | translate }}</button>
+<form class="form chord-form" [formGroup]="chordSelectorForm">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ "chord_finder.chord" | translate }}</mat-label>
+    <mat-select formControlName="chord">
+      <mat-option *ngFor="let chord of chords$ | async" [value]="chord[1]">
+        {{ chord[0] }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button class="show-btn">{{ "chord_finder.show" | translate }}</button>
+</form>

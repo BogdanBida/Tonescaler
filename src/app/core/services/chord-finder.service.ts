@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { noteToString } from '../utils';
 
 interface ChordsData {
@@ -18,6 +19,10 @@ export class ChordFinderService {
   }
 
   public readonly chordsData$ = new BehaviorSubject<ChordsData | null>(null);
+
+  public readonly chordsDataAsArray$ = this.chordsData$.pipe(
+    map((data) => data && Object.entries(data))
+  );
 
   public result$ = new BehaviorSubject<string | null>(null);
 

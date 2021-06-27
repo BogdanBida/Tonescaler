@@ -36,7 +36,11 @@
   "chord_finder": {
     "lookslike": "Looks like it's",
     "select_notes": "Select notes above",
-    "oops": "Oops, we don't seem to know what it is"
+    "oops": "Oops, we don't seem to know what it is",
+    "play": "Play",
+    "show": "Show",
+    "type": "Keyboards | Stringed",
+    "chord": "Chord"
   },
   "camelot_wheel": {},
   "keyboards": {},
