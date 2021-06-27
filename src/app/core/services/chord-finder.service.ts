@@ -51,9 +51,9 @@ export class ChordFinderService {
 
     let result = '';
 
-    chordsData.forEach((chord) => {
+    for (const chord of chordsData) {
       if (intervals.length > chord.intervals.length) {
-        return;
+        continue;
       }
 
       if (chord.intervals.every((val, index) => val === intervals[index])) {
@@ -61,9 +61,9 @@ export class ChordFinderService {
           noteToString(notes[0], false) +
           chord.name.replace('major', '').replace('minor', 'm');
 
-        return;
+        break;
       }
-    });
+    }
 
     this.result$.next(result);
   }
