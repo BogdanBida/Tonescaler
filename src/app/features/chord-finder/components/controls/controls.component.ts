@@ -26,7 +26,7 @@ export class ControlsComponent implements OnInit {
     chord: new FormControl(''),
   });
 
-  public chords$ = this._chordFinder.chordsDataAsArray$;
+  public chords$ = this._chordFinder.chordsData$;
 
   public play(): void {
     this._chordFinder.lastSelectedNotes$.value.forEach((note) => {

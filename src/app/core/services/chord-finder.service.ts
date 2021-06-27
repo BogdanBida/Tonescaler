@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { noteToString } from '../utils';
 
-interface ChordsData {
-  [key: string]: number[];
+interface ChordData {
+  name: string;
+  intervals: number[];
 }
 
 @Injectable({
@@ -14,15 +14,11 @@ interface ChordsData {
 export class ChordFinderService {
   constructor(private readonly _http: HttpClient) {
     this._http.get('assets/json/chords.json').subscribe((data) => {
-      this.chordsData$.next(data as ChordsData);
+      this.chordsData$.next(data as ChordData[]);
     });
   }
 
-  public readonly chordsData$ = new BehaviorSubject<ChordsData | null>(null);
-
-  public readonly chordsDataAsArray$ = this.chordsData$.pipe(
-    map((data) => data && Object.entries(data))
-  );
+  public readonly chordsData$ = new BehaviorSubject<ChordData[]>([]);
 
   public result$ = new BehaviorSubject<string | null>(null);
 
@@ -55,15 +51,15 @@ export class ChordFinderService {
 
     let result = '';
 
-    Object.keys(chordsData).forEach((key) => {
-      const chord = chordsData[key];
-
-      if (intervals.length > chord.length) {
+    chordsData.forEach((chord) => {
+      if (intervals.length > chord.intervals.length) {
         return;
       }
 
-      if (chord.every((val, index) => val === intervals[index])) {
-        result = noteToString(notes[0], false) + key.replace('_', '');
+      if (chord.intervals.every((val, index) => val === intervals[index])) {
+        result =
+          noteToString(notes[0], false) +
+          chord.name.replace('major', '').replace('minor', 'm');
 
         return;
       }
