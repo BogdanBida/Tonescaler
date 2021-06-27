@@ -1,8 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { GotohomeComponent } from './components/gotohome/gotohome.component';
 import { MininavComponent } from './components/mininav/mininav.component';
+import { ScaleSwitcherComponent } from './components/scale-switcher/scale-switcher.component';
 import { SettingsButtonComponent } from './components/settings-button/settings-button.component';
 import { NotenamePipe } from './pipes/notename.pipe';
 
@@ -11,10 +15,17 @@ const exports = [
   MininavComponent,
   NotenamePipe,
   SettingsButtonComponent,
+  ScaleSwitcherComponent,
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    RouterModule,
+    TranslateModule.forChild(),
+  ],
   exports,
   declarations: [...exports],
 })

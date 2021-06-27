@@ -1,0 +1,21 @@
+:host {
+  .form {
+    display: flex;
+    .tonic-field {
+      margin-right: 0.5em;
+    }
+  }
+}
+
+::ng-deep {
+  .tonic-field {
+    .mat-form-field-infix {
+      width: 5em;
+    }
+  }
+  .scale-field {
+    .mat-form-field-infix {
+      width: 8em;
+    }
+  }
+}

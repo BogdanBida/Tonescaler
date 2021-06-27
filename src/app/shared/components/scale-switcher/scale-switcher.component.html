@@ -1,0 +1,18 @@
+<form class="form" [formGroup]="form">
+  <mat-form-field appearance="outline" class="tonic-field">
+    <mat-label>{{ "scale.tonic" | translate }}</mat-label>
+    <mat-select formControlName="tonic">
+      <mat-option *ngFor="let note of notes; index as i" [value]="i">
+        {{ note }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="outline" class="scale-field">
+    <mat-label>{{ "scale.scale" | translate }}</mat-label>
+    <mat-select formControlName="scale">
+      <mat-option *ngFor="let scale of scales; index as i" [value]="scale.mask">
+        {{ scale.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

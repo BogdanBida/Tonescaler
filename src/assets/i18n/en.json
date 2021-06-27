@@ -43,6 +43,10 @@
     "chord": "Chord",
     "clear": "Clear"
   },
+  "scale": {
+    "tonic": "Tonic",
+    "scale": "Scale"
+  },
   "camelot_wheel": {},
   "keyboards": {},
   "stringed": {},
