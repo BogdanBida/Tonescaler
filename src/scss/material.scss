@@ -33,3 +33,36 @@ $tonescaler-theme: mat.define-light-theme(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($tonescaler-theme);
+
+.mat-form-field-label {
+  color: var(--text-color-secondary);
+  .mat-focused {
+    color: var(--main-color);
+  }
+}
+.mat-form-field.mat-focused {
+  &.mat-primary {
+    .mat-select-arrow {
+      color: var(--main-color);
+    }
+  }
+  .mat-form-field-label {
+    color: var(--text-color-primary);
+  }
+}
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: gray;
+}
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: var(--main-color);
+}
+.mat-select-value {
+  color: var(--text-color-primary);
+}
+.mat-select-arrow {
+  color: var(--text-color-secondary);
+}
+
+.mat-dialog-container {
+  background-color: var(--bg-color1);
+}
