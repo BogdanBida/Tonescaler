@@ -5,7 +5,7 @@ import { noteToString } from 'src/app/core/utils/convertors';
   name: 'notename',
 })
 export class NotenamePipe implements PipeTransform {
-  public transform(value: number, args?: any): any {
-    return noteToString(value);
+  public transform(value: number, includeOctave = true): any {
+    return noteToString(value, includeOctave);
   }
 }

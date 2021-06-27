@@ -34,6 +34,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'camelot-wheel',
+        loadChildren: (): any =>
+          import('./features/camelot-wheel/camelot-wheel.module').then(
+            (module) => module.CamelotWheelModule
+          ),
+      },
+      {
         path: 'not-found',
         loadChildren: (): any =>
           import('./features/not-found/not-found.module').then(
