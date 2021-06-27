@@ -2,7 +2,12 @@
   <mat-label>{{ "chord_finder.type" | translate }}</mat-label>
   <mat-slide-toggle></mat-slide-toggle>
 </form>
-<button class="play-btn">{{ "chord_finder.play" | translate }}</button>
+<div class="buttons-wrapper">
+  <button class="show-btn">{{ "chord_finder.show" | translate }} 🠟</button>
+  <button class="play-btn">
+    <img class="icon monochrome-icon" src="assets/icons/play.svg" alt="" />
+  </button>
+</div>
 <form class="form chord-form" [formGroup]="chordSelectorForm">
   <mat-form-field appearance="outline">
     <mat-label>{{ "chord_finder.chord" | translate }}</mat-label>
@@ -12,5 +17,4 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button class="show-btn">{{ "chord_finder.show" | translate }}</button>
 </form>

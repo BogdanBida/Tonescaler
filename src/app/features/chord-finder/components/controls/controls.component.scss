@@ -3,26 +3,39 @@
   flex-direction: column;
   align-items: center;
 
+  padding: 1em;
+  gap: 0.5em;
+
   .form {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     &.type-form {
       flex-direction: column;
     }
   }
 
-  .play-btn {
-    margin-right: 0.5em;
-    padding: 0.5em;
-    border-radius: 0.5em;
-    background-color: var(--successful-color);
-    color: black;
-  }
+  .buttons-wrapper {
+    display: flex;
 
-  .show-btn {
-    height: 100%;
-    background-color: var(--main-color);
-    color: black;
+    .play-btn,
+    .show-btn {
+      margin-right: 0.5em;
+      padding: 0.5em;
+      border-radius: 0.5em;
+      flex-grow: 1;
+      border: 2px solid var(--main-color);
+      background-color: var(--bg-color);
+    }
+
+    .play-btn {
+      display: flex;
+      align-items: center;
+      .icon {
+        height: 1.5em;
+        margin-left: 0.25em;
+      }
+    }
   }
 }
