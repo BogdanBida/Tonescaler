@@ -1,0 +1,71 @@
+:host {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(black, 0.15),
+    rgba(black, 0.15) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  border-top: 2px solid rgba(black, 0.15);
+  border-bottom: 2px solid rgba(black, 0.15);
+  overflow-x: scroll;
+  overflow-y: hidden;
+
+  scrollbar-color: var(--main-color) transparent;
+  scrollbar-arrow-color: var(--bg-color);
+  scrollbar-width: thin;
+
+  .wrapper {
+    display: flex;
+    height: 300px;
+    max-height: 50vh;
+
+    margin: 0 auto;
+    .note {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+
+      font-size: 0.75rem;
+
+      width: 3em;
+      margin: 0 2px;
+      padding: 1em 0;
+      height: 100%;
+      z-index: 0;
+      background-color: whitesmoke;
+
+      cursor: pointer;
+      transition: 50ms;
+      &.black {
+        z-index: 1;
+        width: 2.5em;
+        margin-left: -1.25em;
+        margin-right: -1.25em;
+        height: 66.66%;
+        background-color: darkslategray;
+
+        .name {
+          color: whitesmoke;
+        }
+
+        &:active {
+          box-shadow: inset 0 -4px 8px black;
+        }
+      }
+
+      .name {
+        color: #303030;
+        user-select: none;
+      }
+
+      &:active {
+        box-shadow: inset 0 -4px 8px rgba(black, 0.5);
+      }
+    }
+  }
+}

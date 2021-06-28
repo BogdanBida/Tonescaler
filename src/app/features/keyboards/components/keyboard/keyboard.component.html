@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div
+    class="note"
+    *ngFor="let key of keys; index as i"
+    [class.black]="isBlack(key)"
+    (click)="play(key)"
+  >
+    <span class="name">{{ key | notename }}</span>
+  </div>
+</div>

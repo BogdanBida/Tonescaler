@@ -41,6 +41,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'keyboards',
+        loadChildren: (): any =>
+          import('./features/keyboards/keyboards.module').then(
+            (module) => module.KeyboardsModule
+          ),
+      },
+      {
         path: 'not-found',
         loadChildren: (): any =>
           import('./features/not-found/not-found.module').then(

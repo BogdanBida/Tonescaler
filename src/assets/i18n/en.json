@@ -48,7 +48,10 @@
     "scale": "Scale"
   },
   "camelot_wheel": {},
-  "keyboards": {},
+  "keyboards": {
+    "range": "Range",
+    "first": "First note"
+  },
   "stringed": {},
   "kalimbas": {},
   "saxophone": {},

@@ -1,0 +1,22 @@
+<app-keyboard [amount]="keysAmount"></app-keyboard>
+<div class="settings">
+  <app-scale-switcher class="scale-switcher"></app-scale-switcher>
+  <div class="group">
+    <label>
+      <span>{{ "keyboards.range" | translate }}: </span>
+      <span>
+        {{ keysAmount }}
+      </span>
+    </label>
+    <mat-slider
+      class="slider"
+      [max]="88"
+      [min]="13"
+      [step]="1"
+      [tickInterval]="1"
+      [thumbLabel]="true"
+      [(ngModel)]="keysAmount"
+    >
+    </mat-slider>
+  </div>
+</div>
