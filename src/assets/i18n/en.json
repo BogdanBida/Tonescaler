@@ -45,7 +45,8 @@
   },
   "scale": {
     "tonic": "Tonic",
-    "scale": "Scale"
+    "scale": "Scale",
+    "none": "None"
   },
   "camelot_wheel": {},
   "keyboards": {
