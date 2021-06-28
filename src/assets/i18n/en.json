@@ -51,6 +51,7 @@
   "camelot_wheel": {},
   "keyboards": {
     "range": "Range",
+    "keys": "keys",
     "first": "First note"
   },
   "stringed": {},
