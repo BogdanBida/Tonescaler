@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     component: KeyboardsComponent,
-    data: { state: 'center' },
+    data: { state: 'top' },
   },
 ];
 
