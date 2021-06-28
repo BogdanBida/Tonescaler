@@ -30,7 +30,9 @@
       align-items: center;
       justify-content: flex-end;
 
-      font-size: 0.75rem;
+      font-size: 1rem;
+      color: #303030;
+      user-select: none;
 
       width: 3em;
       margin: 0 2px;
@@ -49,18 +51,18 @@
         height: 66.66%;
         background-color: darkslategray;
 
-        .name {
-          color: whitesmoke;
-        }
+        color: whitesmoke;
 
         &:active {
           box-shadow: inset 0 -4px 8px black;
         }
       }
 
-      .name {
-        color: #303030;
-        user-select: none;
+      .stage {
+        width: 100%;
+        padding: 0.5em 0;
+        margin: 0.5em 0;
+        text-align: center;
       }
 
       &:active {

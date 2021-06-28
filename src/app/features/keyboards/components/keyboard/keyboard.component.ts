@@ -6,6 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { range } from 'lodash-es';
+import { STAGES } from 'src/app/core/constants';
 import { noteToString } from 'src/app/core/utils/convertors';
 import {
   DEFAULT_FIRST_KEY,
@@ -30,6 +31,8 @@ export class KeyboardComponent implements OnInit, OnChanges {
 
   @Input() public amount = DEFAULT_KEYS_AMOUNT;
 
+  public whoInScale = this._scaleService.whoInScale.bind(this._scaleService);
+
   public keys!: number[];
 
   public ngOnInit(): void {
@@ -43,6 +46,16 @@ export class KeyboardComponent implements OnInit, OnChanges {
 
   public isBlack(key: number): boolean {
     return noteToString(key, false).includes('#');
+  }
+
+  public stage(key: number): string {
+    const stage = this.whoInScale(key);
+
+    if (!stage) {
+      return '';
+    }
+
+    return STAGES[this.whoInScale(key) - 1];
   }
 
   public play(note: number): void {

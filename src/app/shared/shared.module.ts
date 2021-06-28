@@ -9,11 +9,13 @@ import { MininavComponent } from './components/mininav/mininav.component';
 import { ScaleSwitcherComponent } from './components/scale-switcher/scale-switcher.component';
 import { SettingsButtonComponent } from './components/settings-button/settings-button.component';
 import { NotenamePipe } from './pipes/notename.pipe';
+import { StagecolorPipe } from './pipes/stagecolor.pipe';
 
 const exports = [
   GotohomeComponent,
   MininavComponent,
   NotenamePipe,
+  StagecolorPipe,
   SettingsButtonComponent,
   ScaleSwitcherComponent,
 ];

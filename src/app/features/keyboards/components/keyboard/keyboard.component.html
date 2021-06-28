@@ -5,6 +5,9 @@
     [class.black]="isBlack(key)"
     (click)="play(key)"
   >
-    <span class="name">{{ key | notename }}</span>
+    <div class="stage" [style.background-color]="whoInScale(key) | stagecolor">
+      {{ stage(key) }}
+    </div>
+    <span class="name">{{ key | notename: false }}</span>
   </div>
 </div>
