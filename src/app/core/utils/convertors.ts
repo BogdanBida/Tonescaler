@@ -9,7 +9,7 @@ import {
 export function noteToString(note: number, includeOctave = true): string {
   return (
     NOTES[note % 12] +
-    (includeOctave ? String(1 + Math.trunc((note - OCTAVE_OFFSET) / 12)) : '')
+    (includeOctave ? String(Math.trunc((note - OCTAVE_OFFSET) / 12)) : '')
   );
 }
 
