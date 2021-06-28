@@ -51,17 +51,22 @@
         height: 66.66%;
         background-color: #0f2f2f;
 
-        color: whitesmoke;
+        .name {
+          color: whitesmoke;
+        }
 
         &:active {
           box-shadow: inset 0 -4px 8px black;
+        }
+
+        &.disabled {
+          background-color: gray;
         }
       }
 
       &.disabled {
         pointer-events: none;
-        background-color: gray;
-        filter: brightness(1.5);
+        background-color: darkgray;
       }
 
       .stage {
