@@ -49,13 +49,19 @@
         margin-left: -1.25em;
         margin-right: -1.25em;
         height: 66.66%;
-        background-color: darkslategray;
+        background-color: #0f2f2f;
 
         color: whitesmoke;
 
         &:active {
           box-shadow: inset 0 -4px 8px black;
         }
+      }
+
+      &.disabled {
+        pointer-events: none;
+        background-color: gray;
+        filter: brightness(1.5);
       }
 
       .stage {

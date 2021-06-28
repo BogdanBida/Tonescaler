@@ -58,6 +58,10 @@ export class KeyboardComponent implements OnInit, OnChanges {
     return STAGES[this.whoInScale(key) - 1];
   }
 
+  public isDisabled(key: number): boolean {
+    return this._scaleService.scale$.value ? !this.whoInScale(key) : false;
+  }
+
   public play(note: number): void {
     this._playerService.play(INSTRUMENT, note);
   }

@@ -4,10 +4,11 @@
     *ngFor="let key of keys; index as i"
     [class.black]="isBlack(key)"
     (click)="play(key)"
+    [class.disabled]="isDisabled(key)"
   >
     <div class="stage" [style.background-color]="whoInScale(key) | stagecolor">
       {{ stage(key) }}
     </div>
-    <span class="name">{{ key | notename: false }}</span>
+    <span class="name">{{ key | notename }}</span>
   </div>
 </div>
