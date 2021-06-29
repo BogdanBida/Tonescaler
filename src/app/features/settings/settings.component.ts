@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { TranslateService } from '@ngx-translate/core';
 import { Languages, Themes } from 'src/app/core/enums';
-import { ThemeService } from 'src/app/core/services';
+import { LanguageService, ThemeService } from 'src/app/core/services';
 import { AppService } from 'src/app/core/services/app.service';
 
 @UntilDestroy()
@@ -15,13 +14,13 @@ import { AppService } from 'src/app/core/services/app.service';
 export class SettingsComponent implements OnInit {
   constructor(
     private readonly _themeService: ThemeService,
-    private readonly _translateService: TranslateService,
+    private readonly _languageService: LanguageService,
     private readonly _appSerivce: AppService
   ) {}
 
   public commonSettingsForm = new FormGroup({
     theme: new FormControl(this._themeService.selectedTheme),
-    lang: new FormControl(this._translateService.currentLang),
+    lang: new FormControl(this._languageService.currentLang),
   });
 
   public animSettingsForm = new FormGroup({
@@ -40,7 +39,7 @@ export class SettingsComponent implements OnInit {
       .pipe(untilDestroyed(this))
       .subscribe((data) => {
         this._themeService.setTheme(data.theme);
-        this._translateService.use(data.lang);
+        this._languageService.use(data.lang);
       });
 
     this.animSettingsForm.valueChanges
