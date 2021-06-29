@@ -1,9 +1,62 @@
 {
-  "common": {
-    "welcome": "Вибери инструмент"
+  "routes": {
+    "settings": "Настройки",
+    "tuner": "Тюнер",
+    "chord_finder": "Искатель аккордов",
+    "camelot_wheel": "Квинтовый круг",
+    "keyboards": "Клавишные",
+    "stringed": "Струнные",
+    "kalimbas": "Калимба",
+    "saxophone": "Саксофон",
+    "trumpets": "Трубы",
+    "harmonica": "Гармошки",
+    "lyre": "Лира",
+    "flutes": "Флейты"
+  },
+  "page_not_found": {
+    "description": "Страница не найдена или находится в разработке"
   },
   "settings": {
     "theme": "Выберите тему",
-    "language": "Выберите язык"
-  }
+    "language": "Выберите язык",
+    "animations": "Анимации",
+    "enable_page_transitions": "Включить переходы между страницами",
+    "enable_ui_animations": "Включить анимации интерфейса"
+  },
+  "tuner": {
+    "frequency": "Частота",
+    "cents": "Отклонение",
+    "silence": "Тишина",
+    "upper": "Выше",
+    "lower": "Ниже",
+    "algorithm": "Алгоритм"
+  },
+  "chord_finder": {
+    "lookslike": "Похоже это",
+    "select_notes": "Выберите ноты выше",
+    "oops": "Упсс, кажется мы не знаем что это",
+    "play": "Проиграть",
+    "show": "Показать",
+    "type": "Клавиши | Струны",
+    "chord": "Аккорд",
+    "clear": "Очистить"
+  },
+  "scale": {
+    "tonic": "Тоника",
+    "scale": "Лад",
+    "none": "Ничего"
+  },
+  "camelot_wheel": {},
+  "keyboards": {
+    "range": "Диапазон",
+    "keys": "Клавиш",
+    "first": "Первая нота"
+  },
+  "stringed": {},
+  "kalimbas": {},
+  "saxophone": {},
+  "trumpets": {},
+  "harmonica": {},
+  "lyre": {},
+  "flutes": {}
 }

@@ -22,6 +22,7 @@
   "settings": {
     "theme": "Select theme",
     "language": "Select language",
+    "animations": "Animations",
     "enable_page_transitions": "Enable page transitions",
     "enable_ui_animations": "Enable UI animations"
   },
