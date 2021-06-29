@@ -15,10 +15,11 @@
       class="slider"
       [max]="maxKeys"
       [min]="minKeys"
+      [value]="keysAmount"
       [step]="1"
       [tickInterval]="1"
       [thumbLabel]="true"
-      [(ngModel)]="keysAmount"
+      (input)="updateKeyAmount($event)"
     >
     </mat-slider>
   </div>
