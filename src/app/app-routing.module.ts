@@ -48,6 +48,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'stringed',
+        loadChildren: (): any =>
+          import('./features/stringed/stringed.module').then(
+            (module) => module.StringedModule
+          ),
+      },
+      {
         path: 'not-found',
         loadChildren: (): any =>
           import('./features/not-found/not-found.module').then(
