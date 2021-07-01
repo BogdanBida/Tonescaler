@@ -2,12 +2,12 @@
   <div
     class="note"
     *ngFor="let key of keys; index as i"
-    [class.black]="isBlack(key)"
+    [class.black]="isBlackKey(key)"
     (click)="play(key)"
     [class.disabled]="isDisabled(key)"
   >
     <div class="stage" [style.background-color]="whoInScale(key) | stagecolor">
-      {{ stage(key) }}
+      {{ getStage(key) }}
     </div>
     <span class="name">{{ key | notename }}</span>
   </div>
