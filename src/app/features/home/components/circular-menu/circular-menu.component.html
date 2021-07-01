@@ -1,5 +1,8 @@
 <nav
   [class.closed]="isClosed$ | async"
+  appMouseWheel
+  (wheelUp)="nextItem()"
+  (wheelDown)="prevItem()"
   (swipedown)="prevItem()"
   (swipeup)="nextItem()"
 >

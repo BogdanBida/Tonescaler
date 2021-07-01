@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, HostListener } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { map } from 'rxjs/operators';
 import { Coordinates, Position } from '../../../../core/models';
@@ -26,15 +26,6 @@ export class CircularMenuComponent implements AfterViewInit {
   public prevItem = this._menuService.prevItem.bind(this._menuService);
 
   private _degree = 0;
-
-  @HostListener('wheel', ['$event'])
-  public onWheel(event: WheelEvent): void {
-    if (event.deltaY > 0) {
-      this.nextItem();
-    } else {
-      this.prevItem();
-    }
-  }
 
   public getStyleFromItemPosition(
     position: Coordinates,
