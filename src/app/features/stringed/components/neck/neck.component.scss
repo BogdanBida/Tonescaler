@@ -22,7 +22,6 @@
     position: relative;
     display: flex;
     align-items: center;
-    margin: 0.25em 0;
 
     &::after {
       position: absolute;
@@ -40,20 +39,28 @@
         darkgray 0.25em,
         darkgray 0.5em
       );
+      background-image: repeating-linear-gradient(
+        to right,
+        #9c8549,
+        #9c8549 0.25em,
+        #af9d6d 0.25em,
+        #af9d6d 0.5em
+      );
       z-index: 0;
     }
 
     .fret {
       display: flex;
       align-items: center;
-      width: 4em;
+      min-width: 4em;
 
       cursor: pointer;
 
       text-align: center;
 
-      margin: 0 0.5em;
-      padding: 0 0.5em;
+      user-select: none;
+
+      padding: 0.33em 0.5em;
 
       border-right: 2px solid gray;
 
@@ -66,6 +73,66 @@
         &.disabled {
           filter: brightness(0.5);
           background-color: transparent;
+        }
+      }
+
+      &:first-child,
+      &:nth-child(12) {
+        border-right: 4px solid darkgray;
+      }
+    }
+
+    $dot-color: rgba(whitesmoke, 0.75);
+    $small-dot-size: 0.3em;
+    $large-dot-size: 0.5em;
+
+    &:last-child,
+    &:nth-child(3) {
+      .fret {
+        &:nth-child(4),
+        &:nth-child(6),
+        &:nth-child(8),
+        &:nth-child(10),
+        &:nth-child(16),
+        &:nth-child(18) {
+          background-image: radial-gradient(
+            circle at bottom,
+            $dot-color $small-dot-size,
+            transparent $small-dot-size
+          );
+        }
+
+        &:nth-child(13) {
+          background-image: radial-gradient(
+            circle at bottom,
+            $dot-color $large-dot-size,
+            transparent $large-dot-size
+          );
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      .fret {
+        &:nth-child(4),
+        &:nth-child(6),
+        &:nth-child(8),
+        &:nth-child(10),
+        &:nth-child(16),
+        &:nth-child(18) {
+          background-image: radial-gradient(
+            circle at top,
+            $dot-color $small-dot-size,
+            transparent $small-dot-size
+          );
+        }
+
+        &:nth-child(13) {
+          background-image: radial-gradient(
+            circle at top,
+            $dot-color $large-dot-size,
+            transparent $large-dot-size
+          );
         }
       }
     }
