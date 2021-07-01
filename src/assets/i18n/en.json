@@ -58,6 +58,7 @@
   "stringed": {
     "tune": "Tune",
     "tunings": {
+      "custom": "Custom",
       "standart": "Standart guitar",
       "violin": "Violin",
       "8x": "8xString guitar",

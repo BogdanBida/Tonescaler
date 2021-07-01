@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { STRINGED_TUNINGS } from './../../core/constants/stringed-tunings';
+import { StringedService } from './services/stringed.service';
 
 @Component({
   selector: 'app-stringed',
@@ -7,7 +7,9 @@ import { STRINGED_TUNINGS } from './../../core/constants/stringed-tunings';
   styleUrls: ['./stringed.component.scss'],
 })
 export class StringedComponent implements OnInit {
-  public selectedTuning = STRINGED_TUNINGS[0].value;
+  constructor(private readonly _stringedService: StringedService) {}
+
+  public selectedTuning$ = this._stringedService.selectedTune$;
 
   public ngOnInit(): void {}
 }

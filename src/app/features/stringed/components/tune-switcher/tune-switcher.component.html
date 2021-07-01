@@ -1,0 +1,8 @@
+<button class="btn" (click)="removeString()">-</button>
+<button class="btn" (click)="addString()">+</button>
+<div class="number">{{ tuning.length }}</div>
+<div class="switchers-container">
+  <div class="pin" *ngFor="let pin of tuning">
+    <span>{{ pin | notename }}</span>
+  </div>
+</div>

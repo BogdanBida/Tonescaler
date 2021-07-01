@@ -1,4 +1,2 @@
-<app-neck [tuning]="selectedTuning"></app-neck>
-<app-stringed-controls
-  (tuningChange)="selectedTuning = $event"
-></app-stringed-controls>
+<app-neck [tuning]="selectedTuning$ | async"></app-neck>
+<app-stringed-controls></app-stringed-controls>

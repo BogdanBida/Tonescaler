@@ -1,8 +1,15 @@
+<app-tune-switcher
+  [defaultTuning]="tuning"
+  (tuningChange)="setCustomTune($event)"
+></app-tune-switcher>
 <app-scale-switcher></app-scale-switcher>
 <form class="form" [formGroup]="form">
   <mat-form-field appearance="outline">
     <mat-label>{{ "stringed.tune" | translate }}</mat-label>
     <mat-select formControlName="tuning" placeholder="">
+      <mat-option *ngIf="customTune && customTune.length" [value]="customTune">
+        {{ "stringed.tunings.custom" | translate }}
+      </mat-option>
       <mat-option *ngFor="let tune of stringedTunings" [value]="tune.value">
         {{ "stringed.tunings." + tune.name | translate }}
       </mat-option>

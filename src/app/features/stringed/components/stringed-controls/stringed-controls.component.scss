@@ -1,8 +1,10 @@
 :host {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap-reverse;
+  align-content: space-between;
+  flex-wrap: wrap;
   width: 100%;
+  flex-grow: 1;
   padding: 1em;
 
   .form {

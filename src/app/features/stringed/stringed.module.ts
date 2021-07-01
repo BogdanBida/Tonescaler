@@ -6,6 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from './../../shared/shared.module';
 import { NeckComponent } from './components/neck/neck.component';
 import { StringedControlsComponent } from './components/stringed-controls/stringed-controls.component';
+import { TuneSwitcherComponent } from './components/tune-switcher/tune-switcher.component';
 import { StringedRoutingModule } from './stringed-routing.module';
 import { StringedComponent } from './stringed.component';
 
@@ -18,6 +19,11 @@ import { StringedComponent } from './stringed.component';
     MatSelectModule,
     TranslateModule.forChild(),
   ],
-  declarations: [StringedComponent, NeckComponent, StringedControlsComponent],
+  declarations: [
+    StringedComponent,
+    NeckComponent,
+    StringedControlsComponent,
+    TuneSwitcherComponent,
+  ],
 })
 export class StringedModule {}
