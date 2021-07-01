@@ -57,6 +57,7 @@
   },
   "stringed": {
     "tune": "Tune",
+    "length": "Neck length",
     "tunings": {
       "custom": "Custom",
       "standart": "Standart guitar",

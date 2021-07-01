@@ -24,7 +24,7 @@ export class NeckComponent implements OnInit, OnChanges {
     private readonly _playerService: AudioPlayerService
   ) {}
 
-  @Input() public fretAmount = DEFAULT_FRET_AMOUNT;
+  @Input() public fretAmount: number | null = DEFAULT_FRET_AMOUNT;
 
   @Input() public tuning: number[] | null = [];
 
@@ -41,7 +41,7 @@ export class NeckComponent implements OnInit, OnChanges {
   }
 
   public ngOnChanges({ tuning }: SimpleChanges): void {
-    if (tuning.currentValue) {
+    if (tuning) {
       this.neckStrings = tuning.currentValue.map((neckString: number) => ({
         root: neckString,
       }));

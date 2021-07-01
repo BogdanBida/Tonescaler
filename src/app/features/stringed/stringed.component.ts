@@ -11,5 +11,7 @@ export class StringedComponent implements OnInit {
 
   public selectedTuning$ = this._stringedService.selectedTune$;
 
+  public neckLength$ = this._stringedService.neckLength$;
+
   public ngOnInit(): void {}
 }

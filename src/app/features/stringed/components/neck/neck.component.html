@@ -1,7 +1,7 @@
 <div class="string" *ngFor="let neckString of neckStrings">
   <div
     class="fret"
-    *ngFor="let fretNumber of range(fretAmount)"
+    *ngFor="let fretNumber of range(fretAmount ?? 1)"
     (click)="play(neckString.root + fretNumber)"
   >
     <div

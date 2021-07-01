@@ -54,6 +54,7 @@
   },
   "stringed": {
     "tune": "Строй",
+    "length": "Длинна грифа",
     "tunings": {
       "custom": "Свой",
       "standart": "Стандартная гитара",

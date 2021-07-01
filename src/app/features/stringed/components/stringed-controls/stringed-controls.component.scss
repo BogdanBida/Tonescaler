@@ -8,6 +8,19 @@
   padding: 1em;
 
   .form {
+    display: flex;
+    margin-left: -1em;
     padding: 0 1rem;
+    .form-field {
+      margin-left: 1em;
+    }
+  }
+}
+
+::ng-deep {
+  .neck-length-field {
+    .mat-form-field-infix {
+      width: 5em;
+    }
   }
 }

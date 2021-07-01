@@ -1,2 +1,5 @@
-<app-neck [tuning]="selectedTuning$ | async"></app-neck>
+<app-neck
+  [tuning]="selectedTuning$ | async"
+  [fretAmount]="neckLength$ | async"
+></app-neck>
 <app-stringed-controls></app-stringed-controls>

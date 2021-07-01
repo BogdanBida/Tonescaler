@@ -4,7 +4,7 @@
 ></app-tune-switcher>
 <app-scale-switcher></app-scale-switcher>
 <form class="form" [formGroup]="form">
-  <mat-form-field appearance="outline">
+  <mat-form-field class="form-field" appearance="outline">
     <mat-label>{{ "stringed.tune" | translate }}</mat-label>
     <mat-select formControlName="tuning" placeholder="">
       <mat-option *ngIf="customTune && customTune.length" [value]="customTune">
@@ -12,6 +12,14 @@
       </mat-option>
       <mat-option *ngFor="let tune of stringedTunings" [value]="tune.value">
         {{ "stringed.tunings." + tune.name | translate }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="form-field neck-length-field" appearance="outline">
+    <mat-label>{{ "stringed.length" | translate }}</mat-label>
+    <mat-select formControlName="neckLength" placeholder="">
+      <mat-option *ngFor="let length of lengths" [value]="length">
+        {{ length }}
       </mat-option>
     </mat-select>
   </mat-form-field>
