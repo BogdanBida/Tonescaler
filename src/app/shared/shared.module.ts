@@ -8,6 +8,7 @@ import { GotohomeComponent } from './components/gotohome/gotohome.component';
 import { MininavComponent } from './components/mininav/mininav.component';
 import { ScaleSwitcherComponent } from './components/scale-switcher/scale-switcher.component';
 import { SettingsButtonComponent } from './components/settings-button/settings-button.component';
+import { MouseWheelDirective } from './directives/mouse-wheel.directive';
 import { NotenamePipe } from './pipes/notename.pipe';
 import { StagecolorPipe } from './pipes/stagecolor.pipe';
 
@@ -18,6 +19,7 @@ const exports = [
   StagecolorPipe,
   SettingsButtonComponent,
   ScaleSwitcherComponent,
+  MouseWheelDirective,
 ];
 
 @NgModule({
