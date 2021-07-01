@@ -2,7 +2,15 @@
 <button class="btn" (click)="addString()">+</button>
 <div class="number">{{ tuning.length }}</div>
 <div class="switchers-container">
-  <div class="pin" *ngFor="let pin of tuning">
+  <div
+    class="pin"
+    *ngFor="let pin of tuning; index as id"
+    (swipeup)="decreasePin(id)"
+    (swipedown)="increasePin(id)"
+    appMouseWheel
+    (wheelUp)="increasePin(id)"
+    (wheelDown)="decreasePin(id)"
+  >
     <span>{{ pin | notename }}</span>
   </div>
 </div>

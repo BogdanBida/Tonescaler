@@ -47,4 +47,14 @@ export class TuneSwitcherComponent implements OnInit, OnChanges {
       this.tuningChange.emit(this.tuning);
     }
   }
+
+  public increasePin(id: number): void {
+    this.tuning[id]++;
+    this.tuningChange.emit(this.tuning);
+  }
+
+  public decreasePin(id: number): void {
+    this.tuning[id]--;
+    this.tuningChange.emit(this.tuning);
+  }
 }
