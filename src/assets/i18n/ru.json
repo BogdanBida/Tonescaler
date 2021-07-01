@@ -52,7 +52,21 @@
     "keys": "Клавиш",
     "first": "Первая нота"
   },
-  "stringed": {},
+  "stringed": {
+    "tune": "Строй",
+    "tunings": {
+      "standart": "Стандартная гитара",
+      "violin": "Скрипка",
+      "8x": "8хСтрунная гитара",
+      "bass": "Бас гитара",
+      "dadgad": "DADGAD",
+      "opend": "Открытая D",
+      "crafty": "Крафти строй",
+      "balalaika": "Балалайка",
+      "ukulele": "Укулеле",
+      "sitar": "(Cross A) Ситара"
+    }
+  },
   "kalimbas": {},
   "saxophone": {},
   "trumpets": {},

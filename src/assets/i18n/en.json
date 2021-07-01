@@ -55,7 +55,21 @@
     "keys": "keys",
     "first": "First note"
   },
-  "stringed": {},
+  "stringed": {
+    "tune": "Tune",
+    "tunings": {
+      "standart": "Standart guitar",
+      "violin": "Violin",
+      "8x": "8xString guitar",
+      "bass": "Bass guitar",
+      "dadgad": "DADGAD",
+      "opend": "Open D",
+      "crafty": "Crafty tuning",
+      "balalaika": "Balalaika",
+      "ukulele": "Ukulele",
+      "sitar": "Cross A (Sitar)"
+    }
+  },
   "kalimbas": {},
   "saxophone": {},
   "trumpets": {},

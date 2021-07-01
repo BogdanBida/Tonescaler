@@ -1,1 +1,11 @@
 <app-scale-switcher></app-scale-switcher>
+<form class="form" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ "stringed.tune" | translate }}</mat-label>
+    <mat-select formControlName="tuning" placeholder="">
+      <mat-option *ngFor="let tune of stringedTunings" [value]="tune.value">
+        {{ "stringed.tunings." + tune.name | translate }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
