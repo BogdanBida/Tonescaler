@@ -1,17 +1,56 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DEFAULT_FRET_AMOUNTS } from '../../constants/stringed';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
+import { range } from 'lodash-es';
+import { DEFAULT_FRET_AMOUNT } from '../../constants/stringed';
+import { NeckString } from '../../models/neck-string';
+import { AudioPlayerService } from './../../../../core/services/audio-player.service';
+import { ScaleService } from './../../../../core/services/scale.service';
+
+const INSTRUMENT = 'acoustic_guitar_steel';
 
 @Component({
   selector: 'app-neck',
   templateUrl: './neck.component.html',
   styleUrls: ['./neck.component.scss'],
 })
-export class NeckComponent implements OnInit {
-  @Input() public fretAmounts = DEFAULT_FRET_AMOUNTS;
+export class NeckComponent implements OnInit, OnChanges {
+  constructor(
+    private readonly _scaleService: ScaleService,
+    private readonly _playerService: AudioPlayerService
+  ) {}
 
-  @Input() public tuning = [];
+  @Input() public fretAmount = DEFAULT_FRET_AMOUNT;
 
-  // constructor() { }
+  @Input() public tuning: number[] = [];
 
-  public ngOnInit(): void {}
+  public neckStrings: NeckString[] = [];
+
+  public range = range;
+
+  public whoInScale = this._scaleService.whoInScale.bind(this._scaleService);
+
+  public getStage = this._scaleService.getStage.bind(this._scaleService);
+
+  public ngOnInit(): void {
+    this._playerService.initInstrument(INSTRUMENT);
+  }
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    this.neckStrings = this.tuning.map((neckString) => ({
+      root: neckString,
+    }));
+  }
+
+  public isDisabled(key: number): boolean {
+    return this._scaleService.scale$.value ? !this.whoInScale(key) : false;
+  }
+
+  public play(note: number): void {
+    this._playerService.play(INSTRUMENT, note);
+  }
 }

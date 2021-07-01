@@ -1,1 +1,17 @@
-<p>neck works!</p>
+<div class="string" *ngFor="let neckString of neckStrings">
+  <div
+    class="fret"
+    *ngFor="let fretNumber of range(fretAmount)"
+    (click)="play(neckString.root + fretNumber)"
+  >
+    <div
+      class="notename"
+      [class.disabled]="isDisabled(neckString.root + fretNumber)"
+      [style.color]="
+        whoInScale(neckString.root + fretNumber) | stagecolor: 'white'
+      "
+    >
+      {{ neckString.root + fretNumber | notename }}
+    </div>
+  </div>
+</div>

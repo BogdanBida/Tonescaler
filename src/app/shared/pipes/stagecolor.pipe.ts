@@ -4,9 +4,9 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'stagecolor',
 })
 export class StagecolorPipe implements PipeTransform {
-  public transform(stage: number, args?: any): any {
+  public transform(stage: number, defaultColor = 'transparent'): any {
     const colors = [
-      'transparent',
+      defaultColor,
       'red',
       'orange',
       'yellow',

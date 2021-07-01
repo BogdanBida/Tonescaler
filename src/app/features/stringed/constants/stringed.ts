@@ -1,1 +1,1 @@
-export const DEFAULT_FRET_AMOUNTS = 12;
+export const DEFAULT_FRET_AMOUNT = 13;
