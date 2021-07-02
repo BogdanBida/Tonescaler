@@ -30,6 +30,14 @@
     flex-wrap: wrap;
     flex-direction: row-reverse;
     margin-bottom: 0.5em;
+    .pin-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .pin-number {
+        font-size: 0.75rem;
+      }
+    }
 
     .pin {
       position: relative;
@@ -37,7 +45,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 3em;
+      width: 2.5em;
       height: 5em;
       background-color: var(--bg-color);
       background-image: repeating-linear-gradient(
@@ -50,7 +58,7 @@
 
       box-shadow: inset 1px 0 3px black;
 
-      margin: 0 2px;
+      margin: 0 4px;
       cursor: n-resize;
       user-select: none;
       border-radius: 25%;

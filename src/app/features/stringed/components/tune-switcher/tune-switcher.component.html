@@ -4,17 +4,19 @@
   <div class="number">{{ tuning.length }}</div>
 </div>
 <div class="switchers-container">
-  <div
-    class="pin"
-    *ngFor="let pin of tuning; index as id"
-    (swipeup)="decreasePin(id)"
-    (swipedown)="increasePin(id)"
-    appMouseWheel
-    (wheelUp)="decreasePin(id)"
-    (wheelDown)="increasePin(id)"
-  >
-    <span>&#x25B2;</span>
-    <span>{{ pin | notename }}</span>
-    <span>&#x25BC;</span>
+  <div class="pin-wrapper" *ngFor="let pin of tuning; index as id">
+    <div
+      class="pin"
+      (swipeup)="decreasePin(id)"
+      (swipedown)="increasePin(id)"
+      appMouseWheel
+      (wheelUp)="decreasePin(id)"
+      (wheelDown)="increasePin(id)"
+    >
+      <span>&#x25B2;</span>
+      <span>{{ pin | notename }}</span>
+      <span>&#x25BC;</span>
+    </div>
+    <span class="pin-number">{{ id + 1 }}</span>
   </div>
 </div>

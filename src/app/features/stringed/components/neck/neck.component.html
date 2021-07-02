@@ -7,6 +7,7 @@
     <div
       class="notename"
       [class.disabled]="isDisabled(neckString.root + fretNumber)"
+      [class.tonic]="whoInScale(neckString.root + fretNumber) === 1"
       [style.color]="
         whoInScale(neckString.root + fretNumber) | stagecolor: 'white'
       "

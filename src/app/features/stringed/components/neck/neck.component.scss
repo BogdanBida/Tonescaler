@@ -1,5 +1,7 @@
 @import "mixins";
 
+$note-bg-color: #141414;
+
 :host {
   display: flex;
   flex-direction: column;
@@ -18,11 +20,29 @@
 
   @include scrollbar-thin;
 
+  counter-reset: stringCounter;
+
   .string {
     position: relative;
     display: flex;
     align-items: center;
     width: max-content;
+    padding-left: 0.1em;
+
+    &::before {
+      counter-increment: stringCounter;
+      content: counter(stringCounter);
+      position: sticky;
+      left: 0;
+      top: 0;
+      display: block;
+      text-align: center;
+      width: 1.5em;
+      margin-right: -0.5em;
+      background-color: $note-bg-color;
+      border-right: 2px solid var(--main-color);
+      z-index: 2;
+    }
 
     &::after {
       position: absolute;
@@ -51,6 +71,7 @@
     }
 
     .fret {
+      position: relative;
       display: flex;
       align-items: center;
       min-width: 4em;
@@ -69,7 +90,11 @@
       .notename {
         width: 100%;
         border-radius: 0.5em;
-        background-color: #141414;
+        background-color: $note-bg-color;
+
+        &.tonic {
+          box-shadow: 0 0 2px 1px var(--main-color);
+        }
 
         &.disabled {
           filter: brightness(0.5);
@@ -80,6 +105,59 @@
       &:first-child,
       &:nth-child(12) {
         border-right: 4px solid darkgray;
+      }
+    }
+
+    &:first-child {
+      .fret {
+        &:nth-child(4),
+        &:nth-child(6),
+        &:nth-child(8),
+        &:nth-child(10),
+        &:nth-child(13),
+        &:nth-child(16),
+        &:nth-child(18),
+        &:nth-child(20),
+        &:nth-child(22) {
+          &::after {
+            position: absolute;
+            top: 0;
+            right: -0.25em;
+            width: 1.1em;
+            height: 1.1em;
+            border-radius: 1em;
+            border: 1px solid var(--main-color);
+            background-color: var(--bg-color);
+          }
+        }
+
+        &:nth-child(4)::after {
+          content: "3";
+        }
+        &:nth-child(6)::after {
+          content: "5";
+        }
+        &:nth-child(8)::after {
+          content: "7";
+        }
+        &:nth-child(10)::after {
+          content: "9";
+        }
+        &:nth-child(13)::after {
+          content: "12";
+        }
+        &:nth-child(16)::after {
+          content: "15";
+        }
+        &:nth-child(18)::after {
+          content: "17";
+        }
+        &:nth-child(20)::after {
+          content: "19";
+        }
+        &:nth-child(22)::after {
+          content: "21";
+        }
       }
     }
 
