@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-export const DEFAULT_FRET_AMOUNT = 16;
+export const DEFAULT_NECK_LENGTH = 21;
 
 export const MAX_STRINGS = 9;
 

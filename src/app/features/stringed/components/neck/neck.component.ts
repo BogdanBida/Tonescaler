@@ -6,7 +6,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { range } from 'lodash-es';
-import { DEFAULT_FRET_AMOUNT } from '../../constants/stringed';
+import { DEFAULT_NECK_LENGTH } from '../../constants/stringed';
 import { NeckString } from '../../models/neck-string';
 import { AudioPlayerService } from './../../../../core/services/audio-player.service';
 import { ScaleService } from './../../../../core/services/scale.service';
@@ -24,7 +24,7 @@ export class NeckComponent implements OnInit, OnChanges {
     private readonly _playerService: AudioPlayerService
   ) {}
 
-  @Input() public fretAmount: number | null = DEFAULT_FRET_AMOUNT;
+  @Input() public neckLength: number | null = DEFAULT_NECK_LENGTH;
 
   @Input() public tuning: number[] | null = [];
 
