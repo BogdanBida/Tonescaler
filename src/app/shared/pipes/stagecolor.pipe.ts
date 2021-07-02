@@ -1,20 +1,14 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { ThemeService } from 'src/app/core/services';
 
 @Pipe({
   name: 'stagecolor',
 })
 export class StagecolorPipe implements PipeTransform {
+  constructor(private readonly _themeService: ThemeService) {}
+
   public transform(stage: number, defaultColor = 'transparent'): any {
-    const colors = [
-      defaultColor,
-      'red',
-      'orange',
-      'yellow',
-      'green',
-      'skyblue',
-      'blue',
-      'magenta',
-    ];
+    const colors = this._themeService.getScalePalette(defaultColor);
 
     return colors[stage];
   }

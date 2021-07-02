@@ -19,6 +19,7 @@
   "settings": {
     "theme": "Выберите тему",
     "language": "Выберите язык",
+    "scale_palette": "Палитра тональности",
     "animations": "Анимации",
     "enable_page_transitions": "Включить переходы между страницами",
     "enable_ui_animations": "Включить анимации интерфейса"

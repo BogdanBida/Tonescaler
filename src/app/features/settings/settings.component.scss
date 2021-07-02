@@ -6,7 +6,7 @@
   width: 100%;
 
   form {
-    > * {
+    mat-form-field {
       margin: 0.5em;
     }
   }
@@ -20,17 +20,48 @@
     flex-wrap: wrap;
   }
 
-  .animation-group {
+  .vertical-group {
     display: flex;
     flex-direction: column;
+    padding: 1rem;
+  }
+
+  .animations-group {
+    @extend .vertical-group;
     border-radius: 1em;
     border: 1px solid gray;
-    padding: 1rem;
   }
 
   .title {
     width: 100%;
     color: var(--text-color-secondary);
     margin-bottom: 1em;
+  }
+
+  .palette-group {
+    .scale-palette-field {
+      margin-bottom: 0;
+
+      .mat-form-field-wrapper {
+        margin-bottom: 0;
+      }
+    }
+
+    .palette-container {
+      display: flex;
+      .color {
+        width: 16px;
+        height: 16px;
+        margin: 4px;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .scale-palette-field {
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+    }
   }
 }

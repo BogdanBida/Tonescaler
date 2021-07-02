@@ -16,7 +16,27 @@
     </mat-select>
   </mat-form-field>
 </form>
-<form [formGroup]="animSettingsForm" class="animation-group">
+<form class="vertical-group palette-group" [formGroup]="palettesForm">
+  <mat-form-field appearance="outline" class="scale-palette-field">
+    <mat-label>{{ "settings.scale_palette" | translate }}</mat-label>
+    <mat-select formControlName="scalePalette">
+      <mat-option
+        *ngFor="let scalePalette of scalePalettes"
+        [value]="scalePalette"
+      >
+        {{ scalePalette }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="palette-container">
+    <div
+      class="color"
+      *ngFor="let color of scaleColors"
+      [style.background-color]="color"
+    ></div>
+  </div>
+</form>
+<form [formGroup]="animSettingsForm" class="animations-group">
   <i class="title">{{ "settings.animations" | translate }}</i>
   <mat-checkbox formControlName="enablePageTransitions">{{
     "settings.enable_page_transitions" | translate
@@ -26,4 +46,3 @@
     "settings.enable_ui_animations" | translate
   }}</mat-checkbox>
 </form>
-<app-scale-switcher></app-scale-switcher>

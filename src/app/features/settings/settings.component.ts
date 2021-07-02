@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { Languages, Themes } from 'src/app/core/enums';
+import { Languages, ScalePalettes, Themes } from 'src/app/core/enums';
 import { LanguageService, ThemeService } from 'src/app/core/services';
 import { AppService } from 'src/app/core/services/app.service';
 
@@ -21,6 +21,9 @@ export class SettingsComponent implements OnInit {
   public commonSettingsForm = new FormGroup({
     theme: new FormControl(this._themeService.selectedTheme),
     lang: new FormControl(this._languageService.currentLang),
+    scalePalette: new FormControl(
+      this._themeService.selectedScalePalette$.value
+    ),
   });
 
   public animSettingsForm = new FormGroup({
@@ -30,11 +33,29 @@ export class SettingsComponent implements OnInit {
     enableUiAnimations: new FormControl(this._appSerivce.isEnabledUiAnimations),
   });
 
+  public palettesForm = new FormGroup({
+    scalePalette: new FormControl(
+      this._themeService.selectedScalePalette$.value
+    ),
+  });
+
   public themes = [Themes.Dark, Themes.Light];
 
   public langs = [Languages.En, Languages.Ru];
 
+  public scalePalettes = [
+    ScalePalettes.Rainbow,
+    ScalePalettes.Light,
+    ScalePalettes.Contrast,
+  ];
+
+  public scaleColors: string[] = [];
+
   public ngOnInit(): void {
+    this._themeService.selectedScalePalette$.subscribe(() => {
+      this.scaleColors = this._themeService.getScalePalette();
+    });
+
     this.commonSettingsForm.valueChanges
       .pipe(untilDestroyed(this))
       .subscribe((data) => {
@@ -47,6 +68,12 @@ export class SettingsComponent implements OnInit {
       .subscribe((data) => {
         this._appSerivce.isEnabledPageTransitions = data.enablePageTransitions;
         this._appSerivce.isEnabledUiAnimations = data.enableUiAnimations;
+      });
+
+    this.palettesForm.valueChanges
+      .pipe(untilDestroyed(this))
+      .subscribe((data) => {
+        this._themeService.setScalePalette(data.scalePalette);
       });
   }
 }

@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy } from '@ngneat/until-destroy';
 import { filter, map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
-import { SettingTypes, Themes } from '../enums';
+import { ScalePalettes, SettingTypes, Themes } from '../enums';
 import { AppCookieService } from './app-cookie.service';
 import { ThemeService } from './theme.service';
 
@@ -70,6 +70,12 @@ export class AppService {
       environment.defaultTheme;
 
     this._themeService.setTheme(defaultTheme as Themes);
+
+    const defaultScalePalette =
+      this._cookieService.getSetting(SettingTypes.PreferredScalePalette) ||
+      environment.defaultScalePalette;
+
+    this._themeService.setScalePalette(defaultScalePalette as ScalePalettes);
   }
 
   private _initAnimations(): void {
