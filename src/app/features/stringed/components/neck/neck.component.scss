@@ -96,7 +96,8 @@
         &:nth-child(10),
         &:nth-child(16),
         &:nth-child(18),
-        &:nth-child(20) {
+        &:nth-child(20),
+        &:nth-child(22) {
           background-image: radial-gradient(
             circle at bottom,
             $dot-color $small-dot-size,
@@ -104,7 +105,8 @@
           );
         }
 
-        &:nth-child(13) {
+        &:nth-child(13),
+        &:nth-child(25) {
           background-image: radial-gradient(
             circle at bottom,
             $dot-color $large-dot-size,
@@ -122,7 +124,8 @@
         &:nth-child(10),
         &:nth-child(16),
         &:nth-child(18),
-        &:nth-child(20) {
+        &:nth-child(20),
+        &:nth-child(22) {
           background-image: radial-gradient(
             circle at top,
             $dot-color $small-dot-size,
@@ -130,7 +133,8 @@
           );
         }
 
-        &:nth-child(13) {
+        &:nth-child(13),
+        &:nth-child(25) {
           background-image: radial-gradient(
             circle at top,
             $dot-color $large-dot-size,
