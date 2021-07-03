@@ -16,12 +16,11 @@ $note-bg-color: #141414;
   border-top: 2px solid rgba(black, 0.15);
   border-bottom: 2px solid rgba(black, 0.15);
   overflow-x: scroll;
-  overflow-y: hidden;
+  overflow-y: auto;
 
   @include scrollbar-thin;
 
   counter-reset: stringCounter;
-
   .string {
     position: relative;
     display: flex;

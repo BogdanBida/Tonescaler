@@ -1,5 +1,7 @@
 <app-neck
   [tuning]="selectedTuning$ | async"
   [neckLength]="neckLength$ | async"
+  class="neck"
+  [style.maxHeight]="maxNeckHeight"
 ></app-neck>
-<app-stringed-controls></app-stringed-controls>
+<app-stringed-controls class="controls" #controls></app-stringed-controls>

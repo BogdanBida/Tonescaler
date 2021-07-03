@@ -55,4 +55,8 @@ export class NeckComponent implements OnInit, OnChanges {
   public play(note: number): void {
     this._playerService.play(INSTRUMENT, note);
   }
+
+  public stringIdentity(index: number, item: NeckString): number {
+    return item.root;
+  }
 }

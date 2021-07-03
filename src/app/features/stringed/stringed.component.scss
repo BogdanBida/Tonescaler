@@ -4,4 +4,9 @@
   justify-content: space-between;
   padding-top: 2.5rem;
   width: 100%;
+  flex-grow: 1;
+
+  .neck {
+    max-height: 40vh;
+  }
 }
