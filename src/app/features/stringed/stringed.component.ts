@@ -19,7 +19,7 @@ export class StringedComponent implements AfterViewInit, OnDestroy {
 
   @ViewChild('controls', { read: ElementRef }) public controlsRef!: ElementRef;
 
-  public selectedTuning$ = this._stringedService.selectedTune$;
+  public selectedTuning$ = this._stringedService.selectedTuning$;
 
   public neckLength$ = this._stringedService.neckLength$;
 

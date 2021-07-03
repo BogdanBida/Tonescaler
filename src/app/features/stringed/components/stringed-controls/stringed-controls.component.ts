@@ -18,7 +18,7 @@ export class StringedControlsComponent implements OnInit {
   public lengths = NECK_LENGTHS;
 
   public form = new FormGroup({
-    tuning: new FormControl(this._stringedService.selectedTune$.value),
+    tuning: new FormControl(this._stringedService.selectedTuning$.value),
     neckLength: new FormControl(this._stringedService.neckLength$.value),
   });
 
@@ -28,7 +28,7 @@ export class StringedControlsComponent implements OnInit {
     this.customTune = value;
 
     if (value) {
-      this._stringedService.selectedTune$.next([...value]);
+      this._stringedService.selectedTuning$.next([...value]);
       this.form.controls.tuning.setValue(value, {
         emitEvent: false,
       });
@@ -50,7 +50,7 @@ export class StringedControlsComponent implements OnInit {
 
     tuningControl.valueChanges.subscribe((tuning: number[]) => {
       this.customTune = null;
-      this._stringedService.selectedTune$.next(tuning);
+      this._stringedService.selectedTuning$.next(tuning);
     });
   }
 }
