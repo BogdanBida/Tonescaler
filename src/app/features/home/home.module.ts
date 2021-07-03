@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { CircularMenuComponent } from './components/circular-menu/circular-menu.component';
 import { HelperMenuComponent } from './components/helper-menu/helper-menu.component';
@@ -10,12 +9,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    SharedModule,
-    HomeRoutingModule,
-    TranslateModule.forChild(),
-  ],
+  imports: [CommonModule, SharedModule, HomeRoutingModule],
   declarations: [
     HomeComponent,
     CircularMenuComponent,

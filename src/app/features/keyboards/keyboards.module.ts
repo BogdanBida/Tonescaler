@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
-import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { KeyboardControlsComponent } from './components/keyboard-controls/keyboard-controls.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
@@ -16,7 +15,6 @@ import { KeyboardsComponent } from './keyboards.component';
     FormsModule,
     KeyboardsRoutingModule,
     MatSliderModule,
-    TranslateModule.forChild(),
   ],
   declarations: [
     KeyboardsComponent,

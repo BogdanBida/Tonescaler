@@ -12,7 +12,7 @@ import { MouseWheelDirective } from './directives/mouse-wheel.directive';
 import { NotenamePipe } from './pipes/notename.pipe';
 import { StagecolorPipe } from './pipes/stagecolor.pipe';
 
-const exports = [
+const directivesToExport = [
   GotohomeComponent,
   MininavComponent,
   NotenamePipe,
@@ -30,7 +30,7 @@ const exports = [
     RouterModule,
     TranslateModule.forChild(),
   ],
-  exports,
-  declarations: [...exports],
+  exports: [...directivesToExport, TranslateModule],
+  declarations: [...directivesToExport],
 })
 export class SharedModule {}

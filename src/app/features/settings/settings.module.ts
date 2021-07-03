@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
-import { TranslateModule } from '@ngx-translate/core';
 import { SharedModule } from './../../shared/shared.module';
 import { SettingsRoutingModule } from './settings-routing.module';
 import { SettingsComponent } from './settings.component';
@@ -17,7 +16,6 @@ import { SettingsComponent } from './settings.component';
     MatCheckboxModule,
     ReactiveFormsModule,
     SettingsRoutingModule,
-    TranslateModule.forChild(),
   ],
   declarations: [SettingsComponent],
 })
