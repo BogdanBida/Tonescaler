@@ -15,9 +15,9 @@ export const MENU_ITEMS = [
     route: 'kalimbas',
   },
   {
-    name: 'saxophone',
+    name: 'saxophones',
     iconUrl: 'assets/icons/saxophone.svg',
-    route: 'saxophone',
+    route: 'saxophones',
   },
   {
     name: 'trumpets',
@@ -25,9 +25,9 @@ export const MENU_ITEMS = [
     route: 'trumpets',
   },
   {
-    name: 'harmonica',
+    name: 'harmonicas',
     iconUrl: 'assets/icons/harmonica.svg',
-    route: 'harmonica',
+    route: 'harmonicas',
   },
   {
     name: 'lyre',
