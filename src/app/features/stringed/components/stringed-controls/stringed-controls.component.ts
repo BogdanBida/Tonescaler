@@ -18,7 +18,7 @@ export class StringedControlsComponent implements OnInit {
   public lengths = NECK_LENGTHS;
 
   public form = new FormGroup({
-    tuning: new FormControl(this.stringedTunings[0].value),
+    tuning: new FormControl(this._stringedService.selectedTune$.value),
     neckLength: new FormControl(this._stringedService.neckLength$.value),
   });
 

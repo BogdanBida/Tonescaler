@@ -2,7 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
-  OnInit,
+  OnDestroy,
   ViewChild,
 } from '@angular/core';
 import { UntilDestroy } from '@ngneat/until-destroy';
@@ -14,7 +14,7 @@ import { StringedService } from './services/stringed.service';
   templateUrl: './stringed.component.html',
   styleUrls: ['./stringed.component.scss'],
 })
-export class StringedComponent implements OnInit, AfterViewInit {
+export class StringedComponent implements AfterViewInit, OnDestroy {
   constructor(private readonly _stringedService: StringedService) {}
 
   @ViewChild('controls', { read: ElementRef }) public controlsRef!: ElementRef;
@@ -25,10 +25,12 @@ export class StringedComponent implements OnInit, AfterViewInit {
 
   public maxNeckHeight = '50vh';
 
-  public ngOnInit(): void {}
-
   public ngAfterViewInit(): void {
     this._setMaxNeckHeight();
+  }
+
+  public ngOnDestroy(): void {
+    this._stringedService.resetTuning();
   }
 
   private _setMaxNeckHeight(): void {
