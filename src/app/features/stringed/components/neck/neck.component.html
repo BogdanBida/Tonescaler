@@ -4,18 +4,16 @@
 >
   <div
     class="fret"
-    *ngFor="let fretNumber of range(neckLength ?? 1)"
-    (click)="play(neckString.root + fretNumber)"
+    *ngFor="let fretNumber of rangeByLength(neckString.root, neckLength ?? 1)"
+    (click)="play(fretNumber)"
   >
     <div
       class="notename"
-      [class.disabled]="isDisabled(neckString.root + fretNumber)"
-      [class.tonic]="whoInScale(neckString.root + fretNumber) === 1"
-      [style.color]="
-        whoInScale(neckString.root + fretNumber) | stagecolor: 'white'
-      "
+      [class.disabled]="isDisabled(fretNumber)"
+      [class.tonic]="whoInScale(fretNumber) === 1"
+      [style.color]="whoInScale(fretNumber) | stagecolor: 'white'"
     >
-      {{ neckString.root + fretNumber | notename }}
+      {{ fretNumber | notename }}
     </div>
   </div>
 </div>

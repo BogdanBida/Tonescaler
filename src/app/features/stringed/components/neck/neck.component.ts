@@ -30,8 +30,6 @@ export class NeckComponent implements OnInit, OnChanges {
 
   public neckStrings: NeckString[] = [];
 
-  public range = range;
-
   public whoInScale = this._scaleService.whoInScale.bind(this._scaleService);
 
   public getStage = this._scaleService.getStage.bind(this._scaleService);
@@ -47,6 +45,9 @@ export class NeckComponent implements OnInit, OnChanges {
       }));
     }
   }
+
+  public rangeByLength = (start: number, length: number): number[] =>
+    range(start, start + length);
 
   public isDisabled(key: number): boolean {
     return this._scaleService.scale$.value ? !this.whoInScale(key) : false;
