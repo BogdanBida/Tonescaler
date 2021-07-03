@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     component: SaxophonesComponent,
-    data: { state: 'bottom' },
+    data: { state: 'top' },
   },
 ];
 
