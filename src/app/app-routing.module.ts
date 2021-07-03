@@ -83,6 +83,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'harps',
+        loadChildren: (): any =>
+          import('./features/harps/harps.module').then(
+            (module) => module.HarpsModule
+          ),
+      },
+      {
         path: 'flutes',
         loadChildren: (): any =>
           import('./features/flutes/flutes.module').then(
