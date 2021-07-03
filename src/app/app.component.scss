@@ -10,6 +10,7 @@
   .router-wrapper {
     display: flex;
     flex-grow: 1;
+    padding-top: 2.5rem;
     > *:not(router-outlet) {
       flex-grow: 1;
       width: 100%;

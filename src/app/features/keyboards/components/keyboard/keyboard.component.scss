@@ -16,7 +16,7 @@
   overflow-x: scroll;
   overflow-y: hidden;
 
-  @include scrollbar-thin;
+  @include scrollbarThin;
 
   .wrapper {
     display: flex;

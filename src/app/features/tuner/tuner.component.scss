@@ -1,10 +1,13 @@
+@import "mixins";
+
 :host {
-  display: flex;
+  @include flexHost;
+  position: relative;
   flex-direction: column;
-  width: 100%;
 
   .info,
   .chart {
+    width: 100%;
     flex-grow: 1;
     height: 50%;
   }

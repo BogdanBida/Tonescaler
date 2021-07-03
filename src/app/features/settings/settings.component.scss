@@ -1,9 +1,10 @@
+@import "mixins";
+
 :host {
-  display: flex;
+  @include flexHost;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
 
   form {
     mat-form-field {

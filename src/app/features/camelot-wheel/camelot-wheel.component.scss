@@ -1,7 +1,7 @@
+@import "mixins";
+
 :host {
-  display: flex;
+  @include flexHost;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding-top: 2rem;
 }

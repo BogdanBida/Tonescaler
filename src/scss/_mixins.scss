@@ -1,4 +1,4 @@
-@mixin scrollbar-thin() {
+@mixin scrollbarThin() {
   scrollbar-color: var(--main-color) transparent;
   scrollbar-arrow-color: var(--bg-color);
   scrollbar-width: thin;
@@ -20,4 +20,10 @@
   &::-webkit-scrollbar-thumb:hover {
     filter: brightness(0.95);
   }
+}
+
+@mixin flexHost() {
+  display: flex;
+  width: 100%;
+  flex-grow: 1;
 }

@@ -1,9 +1,10 @@
+@import "mixins";
+
 :host {
-  display: flex;
+  @include flexHost;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
 
   .code {
     font-size: calc(100vw / 5);

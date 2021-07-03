@@ -1,8 +1,8 @@
+@import "mixins";
+
 :host {
-  display: flex;
+  @include flexHost;
   flex-direction: column;
-  padding-top: 3rem;
-  width: 100%;
 }
 
 @media screen and (orientation: portrait) {
