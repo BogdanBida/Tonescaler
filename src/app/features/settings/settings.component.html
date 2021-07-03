@@ -31,9 +31,11 @@
   <div class="palette-container">
     <div
       class="color"
-      *ngFor="let color of scaleColors"
+      *ngFor="let color of scaleColors; index as i"
       [style.background-color]="color"
-    ></div>
+    >
+      {{ stages[i] }}
+    </div>
   </div>
 </form>
 <form [formGroup]="animSettingsForm" class="animations-group">

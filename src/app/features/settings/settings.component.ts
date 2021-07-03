@@ -4,6 +4,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { Languages, ScalePalettes, Themes } from 'src/app/core/enums';
 import { LanguageService, ThemeService } from 'src/app/core/services';
 import { AppService } from 'src/app/core/services/app.service';
+import { STAGES } from './../../core/constants/stages';
 
 @UntilDestroy()
 @Component({
@@ -17,6 +18,8 @@ export class SettingsComponent implements OnInit {
     private readonly _languageService: LanguageService,
     private readonly _appSerivce: AppService
   ) {}
+
+  public stages = STAGES;
 
   public commonSettingsForm = new FormGroup({
     theme: new FormControl(this._themeService.selectedTheme),
@@ -53,7 +56,7 @@ export class SettingsComponent implements OnInit {
 
   public ngOnInit(): void {
     this._themeService.selectedScalePalette$.subscribe(() => {
-      this.scaleColors = this._themeService.getScalePalette();
+      this.scaleColors = this._themeService.getScalePalette().splice(1);
     });
 
     this.commonSettingsForm.valueChanges
