@@ -10,7 +10,6 @@ import {
   ResizeObserverService,
   RESIZE_OPTION_BOX,
 } from '@ng-web-apis/resize-observer';
-import { TunerService } from 'src/app/core/services';
 import { TunerChartService } from '../../services/tuner-chart.service';
 
 @Component({
@@ -30,7 +29,6 @@ export class TunerChartComponent implements AfterViewInit, OnDestroy {
     private readonly _self: ElementRef,
     @Inject(ResizeObserverService)
     private readonly _entries$: ResizeObserverService,
-    private readonly _tunerService: TunerService,
     private readonly _tunerChartService: TunerChartService
   ) {
     this._entries$.subscribe((entries) => {
