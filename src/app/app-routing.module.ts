@@ -62,6 +62,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'flutes',
+        loadChildren: (): any =>
+          import('./features/flutes/flutes.module').then(
+            (module) => module.FlutesModule
+          ),
+      },
+      {
         path: 'not-found',
         loadChildren: (): any =>
           import('./features/not-found/not-found.module').then(
