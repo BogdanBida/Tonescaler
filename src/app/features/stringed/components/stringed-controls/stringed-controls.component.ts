@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { StringedTuning } from 'src/app/core/models/stringed-tuning';
 import { STRINGED_TUNINGS } from './../../../../core/constants/stringed-tunings';
-import { NECK_LENGTHS } from './../../constants/stringed';
+import { DEFAULT_INSTRUMENT, NECK_LENGTHS } from './../../constants/stringed';
 import { StringedService } from './../../services/stringed.service';
 
 @Component({
@@ -12,8 +13,7 @@ import { StringedService } from './../../services/stringed.service';
 export class StringedControlsComponent implements OnInit {
   constructor(private readonly _stringedService: StringedService) {}
 
-  public stringedTunings: { name: string; value: number[] }[] =
-    STRINGED_TUNINGS;
+  public stringedTunings: StringedTuning[] = STRINGED_TUNINGS;
 
   public lengths = NECK_LENGTHS;
 
@@ -51,6 +51,14 @@ export class StringedControlsComponent implements OnInit {
     tuningControl.valueChanges.subscribe((tuning: number[]) => {
       this.customTune = null;
       this._stringedService.selectedTuning$.next(tuning);
+
+      const tuningData = this.stringedTunings.find(
+        (data) => data.value === tuning
+      );
+
+      this._stringedService.selectedInstrument$.next(
+        (tuningData && tuningData.instrument) || DEFAULT_INSTRUMENT
+      );
     });
   }
 }

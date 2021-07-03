@@ -21,6 +21,8 @@ export class StringedComponent implements AfterViewInit, OnDestroy {
 
   public selectedTuning$ = this._stringedService.selectedTuning$;
 
+  public selectedInstrument$ = this._stringedService.selectedInstrument$;
+
   public neckLength$ = this._stringedService.neckLength$;
 
   public maxNeckHeight = '50vh';

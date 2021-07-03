@@ -1,43 +1,55 @@
+import { StringedTuning } from '../models/stringed-tuning';
+
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-export const STRINGED_TUNINGS = [
+export const STRINGED_TUNINGS: StringedTuning[] = [
   {
     name: 'standart',
-    value: [43, 38, 34, 29, 24, 19],
+    value: [55, 50, 46, 41, 36, 31],
+    instrument: 'acoustic_guitar_steel',
   },
   {
     name: 'violin',
-    value: [55, 48, 41, 34],
+    value: [67, 60, 53, 46],
+    instrument: 'violin',
   },
   {
     name: '8x',
-    value: [43, 38, 34, 29, 24, 19, 14, 9],
+    value: [55, 50, 46, 41, 36, 31, 26, 21],
+    instrument: 'electric_guitar_clean',
   },
   {
     name: 'bass',
-    value: [22, 17, 12, 7],
+    value: [34, 29, 24, 19],
+    instrument: 'electric_bass_pick',
   },
   {
     name: 'balalaika',
-    value: [48, 43, 43],
+    value: [60, 55, 55],
+    instrument: 'banjo',
   },
   {
     name: 'ukulele',
-    value: [48, 43, 39, 58],
+    value: [60, 55, 51, 70],
+    instrument: 'acoustic_guitar_nylon',
   },
   {
     name: 'dadgad',
-    value: [41, 36, 34, 29, 24, 17],
+    value: [53, 48, 46, 41, 36, 29],
+    instrument: 'acoustic_guitar_steel',
   },
   {
     name: 'opend',
-    value: [41, 36, 33, 29, 24, 17],
+    value: [53, 48, 45, 41, 36, 29],
+    instrument: 'acoustic_guitar_steel',
   },
   {
     name: 'crafty',
-    value: [46, 43, 36, 29, 22, 15],
+    value: [58, 55, 48, 41, 34, 27],
+    instrument: 'acoustic_guitar_steel',
   },
   {
     name: 'sitar',
-    value: [48, 34, 36, 31, 24, 19],
+    value: [60, 46, 48, 43, 36, 31],
+    instrument: 'sitar',
   },
 ];
