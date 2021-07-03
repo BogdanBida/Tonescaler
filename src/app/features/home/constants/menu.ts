@@ -12,7 +12,7 @@ export const MENU_ITEMS = [
   {
     name: 'kalimbas',
     iconUrl: 'assets/icons/kalimba.svg',
-    route: 'kalimba',
+    route: 'kalimbas',
   },
   {
     name: 'saxophone',

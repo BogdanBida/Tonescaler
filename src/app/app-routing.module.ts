@@ -55,6 +55,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'kalimbas',
+        loadChildren: (): any =>
+          import('./features/kalimbas/kalimbas.module').then(
+            (module) => module.KalimbasModule
+          ),
+      },
+      {
         path: 'not-found',
         loadChildren: (): any =>
           import('./features/not-found/not-found.module').then(
