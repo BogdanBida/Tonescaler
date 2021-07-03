@@ -10,8 +10,10 @@ import {
   ResizeObserverService,
   RESIZE_OPTION_BOX,
 } from '@ng-web-apis/resize-observer';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TunerChartService } from '../../services/tuner-chart.service';
 
+@UntilDestroy()
 @Component({
   selector: 'app-tuner-chart',
   templateUrl: './tuner-chart.component.html',
@@ -31,7 +33,7 @@ export class TunerChartComponent implements AfterViewInit, OnDestroy {
     private readonly _entries$: ResizeObserverService,
     private readonly _tunerChartService: TunerChartService
   ) {
-    this._entries$.subscribe((entries) => {
+    this._entries$.pipe(untilDestroyed(this)).subscribe((entries) => {
       this.onResize();
     });
   }
