@@ -3,7 +3,7 @@ import { STRINGED_TUNINGS } from 'src/app/core/constants/stringed-tunings';
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 export const DEFAULT_NECK_LENGTH = 21;
 
-export const MAX_STRINGS = 9;
+export const MAX_STRINGS = 12;
 
 export const MIN_STRINGS = 1;
 

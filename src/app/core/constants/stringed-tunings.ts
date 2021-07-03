@@ -52,4 +52,9 @@ export const STRINGED_TUNINGS: StringedTuning[] = [
     value: [60, 46, 48, 43, 36, 31],
     instrument: 'sitar',
   },
+  {
+    name: '7x_ru',
+    value: [53, 50, 46, 41, 38, 34, 29],
+    instrument: 'acoustic_guitar_nylon',
+  },
 ];

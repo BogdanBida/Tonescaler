@@ -25,7 +25,7 @@ export class StringedComponent implements AfterViewInit, OnDestroy {
 
   public neckLength$ = this._stringedService.neckLength$;
 
-  public maxNeckHeight = '50vh';
+  public maxNeckHeight!: string;
 
   public ngAfterViewInit(): void {
     this._setMaxNeckHeight();
@@ -36,7 +36,6 @@ export class StringedComponent implements AfterViewInit, OnDestroy {
   }
 
   private _setMaxNeckHeight(): void {
-    this.maxNeckHeight = `calc(100vh - ${this.controlsRef.nativeElement.clientHeight}px)`;
-    console.log(this.maxNeckHeight);
+    this.maxNeckHeight = `calc(100vh - ${this.controlsRef.nativeElement.clientHeight}px - 2.5em)`;
   }
 }
