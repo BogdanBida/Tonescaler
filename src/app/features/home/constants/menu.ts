@@ -30,9 +30,9 @@ export const MENU_ITEMS = [
     route: 'harmonicas',
   },
   {
-    name: 'lyre',
+    name: 'harps',
     iconUrl: 'assets/icons/lyre.svg',
-    route: 'lyre',
+    route: 'harps',
   },
   {
     name: 'flutes',
