@@ -76,6 +76,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'harmonicas',
+        loadChildren: (): any =>
+          import('./features/harmonicas/harmonicas.module').then(
+            (module) => module.HarmonicasModule
+          ),
+      },
+      {
         path: 'flutes',
         loadChildren: (): any =>
           import('./features/flutes/flutes.module').then(
