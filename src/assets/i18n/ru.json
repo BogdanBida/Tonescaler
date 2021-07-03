@@ -54,6 +54,7 @@
     "first": "Первая нота"
   },
   "stringed": {
+    "strings": "Струн",
     "tune": "Строй",
     "length": "Длинна грифа",
     "tunings": {

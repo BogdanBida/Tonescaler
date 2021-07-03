@@ -1,7 +1,10 @@
 <div class="group">
-  <button class="btn" (click)="removeString()">-</button>
-  <button class="btn" (click)="addString()">+</button>
-  <div class="number">{{ tuning.length }}</div>
+  <span class="label">{{ "stringed.strings" | translate }}</span>
+  <div class="horizontal-container">
+    <button class="btn" (click)="removeString()">-</button>
+    <button class="btn" (click)="addString()">+</button>
+    <div class="number">{{ tuning.length }}</div>
+  </div>
 </div>
 <div class="switchers-container">
   <div class="pin-wrapper" *ngFor="let pin of tuning; index as id">

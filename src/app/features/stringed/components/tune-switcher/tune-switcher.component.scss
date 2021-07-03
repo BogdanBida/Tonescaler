@@ -6,21 +6,35 @@
 
   .group {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     margin-bottom: 0.5em;
 
-    .btn {
-      width: 44px;
-      height: 44px;
-      font-size: 24px;
-      border-radius: 8px;
-      border: 2px solid var(--main-color);
-      margin-right: 8px;
+    .label {
+      width: 100%;
+      user-select: none;
+      margin-bottom: 0.25em;
     }
 
-    .number {
-      margin: 0 1em;
-      width: 1em;
+    .horizontal-container {
+      display: flex;
+      align-items: center;
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        border: 2px solid var(--main-color);
+        margin-right: 8px;
+        font-size: 44px;
+        font-weight: 600;
+      }
+
+      .number {
+        margin: 0 1em;
+        width: 1em;
+      }
     }
   }
 

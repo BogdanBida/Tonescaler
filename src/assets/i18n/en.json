@@ -57,6 +57,7 @@
     "first": "First note"
   },
   "stringed": {
+    "strings": "Strings",
     "tune": "Tune",
     "length": "Neck length",
     "tunings": {
