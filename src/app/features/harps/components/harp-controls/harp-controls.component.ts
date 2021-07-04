@@ -24,7 +24,6 @@ export class HarpControlsComponent implements OnInit, AfterViewInit {
 
   public ngOnInit(): void {
     this.form.valueChanges.subscribe((data) => {
-      console.log(data);
       this.selectType.emit(data.tuning);
     });
   }

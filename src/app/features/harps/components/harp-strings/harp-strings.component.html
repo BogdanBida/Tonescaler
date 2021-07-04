@@ -1,7 +1,6 @@
 <div
   class="string-wrapper"
-  *ngFor="let note of notes; index as i"
-  [style.padding-top]="(i * i) / 10 + 'vh'"
+  *ngFor="let note of notes; index as i; trackBy: trackByIdentity"
   (click)="play(note)"
 >
   <span class="stage">
@@ -16,5 +15,6 @@
   <div
     class="string"
     [style.background-color]="whoInScale(note) | stagecolor: 'silver'"
+    [style.height]="heightsOfNotes[i] + '%'"
   ></div>
 </div>
