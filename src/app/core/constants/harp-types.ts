@@ -13,4 +13,8 @@ export const HARP_TYPES: Tuning[] = [
     name: 'lyre_10e',
     value: [55, 56, 58, 60, 62, 63, 65, 67, 68, 70],
   },
+  {
+    name: 'lyre_7d',
+    value: [53, 55, 58, 60, 62, 65, 67],
+  },
 ];
