@@ -1,25 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { TunerInfo } from './../../core/models/tuner-info';
-import { AudioPlayerService } from './../../core/services';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  constructor(private readonly _audioPlayer: AudioPlayerService) {}
-
-  public info: TunerInfo | null = null;
-
-  public ngOnInit(): void {
-    this._audioPlayer.initInstrument('acoustic_grand_piano');
-    // this._tunerService.initTuner().subscribe((info) => {
-    // this.info = info;
-    // });
-  }
-
-  public play(note: number): void {
-    this._audioPlayer.play('acoustic_grand_piano', note);
-  }
-}
+export class HomeComponent {}
