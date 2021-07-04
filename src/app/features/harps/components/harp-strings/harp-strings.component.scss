@@ -2,6 +2,7 @@
   display: flex;
 
   .string-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,6 +36,37 @@
         rgba(black, 0.5) 2px,
         rgba(black, 0.5) 4px
       );
+    }
+
+    .pitch-switcher {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      bottom: 0;
+      width: 28px;
+
+      .tuning-offset {
+        background-color: rgba(black, 0.5);
+        text-align: center;
+      }
+
+      button {
+        width: 100%;
+        background-color: transparent;
+        margin: 1em 0;
+
+        &:focus {
+          outline: none;
+        }
+
+        .icon {
+          width: 100%;
+        }
+
+        .icon-down {
+          transform: scaleY(-1);
+        }
+      }
     }
 
     &:active {

@@ -17,4 +17,31 @@
     [style.background-color]="whoInScale(note) | stagecolor: 'silver'"
     [style.height]="heightsOfNotes[i] + '%'"
   ></div>
+  <div
+    class="pitch-switcher"
+    *ngIf="inEditMode"
+    appMouseWheel
+    (wheelUp)="upTune(i)"
+    (wheelDown)="downTune(i)"
+    [@InsertRemoveTrigger]="{
+      value: ':enter',
+      params: { delay: i * 10 + 'ms' }
+    }"
+  >
+    <button (click)="upTune(i)">
+      <img
+        class="monochrome-icon icon icon-up"
+        src="assets/icons/arrow.svg"
+        alt=""
+      />
+    </button>
+    <span class="tuning-offset"> {{ tuningChanges[i] }}</span>
+    <button (click)="downTune(i)">
+      <img
+        class="monochrome-icon icon icon-down"
+        src="assets/icons/arrow.svg"
+        alt=""
+      />
+    </button>
+  </div>
 </div>

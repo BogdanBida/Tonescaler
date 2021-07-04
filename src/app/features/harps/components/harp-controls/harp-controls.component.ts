@@ -16,15 +16,22 @@ import { HARP_TYPES } from 'src/app/core/constants/harp-types';
 export class HarpControlsComponent implements OnInit, AfterViewInit {
   @Output() public selectType = new EventEmitter<number[]>();
 
+  @Output() public inEditMode = new EventEmitter<boolean>();
+
   public form = new FormGroup({
     tuning: new FormControl(null),
+    inEdit: new FormControl(false),
   });
 
   public harpTypes = HARP_TYPES;
 
   public ngOnInit(): void {
-    this.form.valueChanges.subscribe((data) => {
-      this.selectType.emit(data.tuning);
+    this.form.controls.tuning.valueChanges.subscribe((tuning) => {
+      this.selectType.emit([...tuning]); // ! destructuring saved from mutations, service is required
+    });
+
+    this.form.controls.inEdit.valueChanges.subscribe((inEdit) => {
+      this.inEditMode.emit(inEdit);
     });
   }
 

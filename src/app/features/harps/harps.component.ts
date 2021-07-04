@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class HarpsComponent {
   public notes: number[] = [];
+
+  public inEditMode = false;
 }

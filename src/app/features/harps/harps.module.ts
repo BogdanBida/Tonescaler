@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HarpControlsComponent } from './components/harp-controls/harp-controls.component';
 import { HarpStringsComponent } from './components/harp-strings/harp-strings.component';
@@ -15,6 +16,7 @@ import { HarpsComponent } from './harps.component';
     HarpsRoutingModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatSlideToggleModule,
   ],
   declarations: [HarpsComponent, HarpStringsComponent, HarpControlsComponent],
 })
