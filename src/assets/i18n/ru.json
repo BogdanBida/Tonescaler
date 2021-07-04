@@ -76,6 +76,12 @@
   "saxophone": {},
   "trumpets": {},
   "harmonica": {},
-  "lyre": {},
+  "harps": {
+    "type": "Тип",
+    "types": {
+      "lyre_19f": "Лира 19х (F)",
+      "lyre_10e": "Лира 10х (E)"
+    }
+  },
   "flutes": {}
 }

@@ -1,0 +1,20 @@
+<div
+  class="string-wrapper"
+  *ngFor="let note of notes; index as i"
+  [style.padding-top]="(i * i) / 10 + 'vh'"
+  (click)="play(note)"
+>
+  <span class="stage">
+    {{ getStage(note) }}
+  </span>
+  <div class="note">
+    <span class="notename">
+      {{ note | notename }}
+    </span>
+  </div>
+  <div class="hole"></div>
+  <div
+    class="string"
+    [style.background-color]="whoInScale(note) | stagecolor: 'silver'"
+  ></div>
+</div>

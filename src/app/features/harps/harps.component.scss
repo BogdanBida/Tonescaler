@@ -1,0 +1,12 @@
+@import "mixins";
+
+:host {
+  @include flexHost;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 1em;
+
+  .harp-strings {
+    margin: 0 auto;
+  }
+}
