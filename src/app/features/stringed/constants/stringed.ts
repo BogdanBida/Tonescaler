@@ -1,4 +1,4 @@
-import { STRINGED_TUNINGS } from 'src/app/core/constants/stringed-tunings';
+import { STRINGED_TUNINGS } from './stringed-tunings';
 
 /* eslint-disable @typescript-eslint/no-magic-numbers */
 export const DEFAULT_NECK_LENGTH = 21;

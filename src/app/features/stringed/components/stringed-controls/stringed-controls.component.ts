@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { StringedTuning } from 'src/app/core/models/stringed-tuning';
-import { STRINGED_TUNINGS } from './../../../../core/constants/stringed-tunings';
+import { STRINGED_TUNINGS } from '../../constants/stringed-tunings';
+import { StringedTuning } from '../../models/stringed-tuning';
 import { DEFAULT_INSTRUMENT, NECK_LENGTHS } from './../../constants/stringed';
 import { StringedService } from './../../services/stringed.service';
 

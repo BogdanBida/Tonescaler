@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { HARP_TYPES } from 'src/app/core/constants/harp-types';
+import { HARP_TUNINGS } from 'src/app/features/harps/constants/harp-tunings';
 
 @UntilDestroy()
 @Component({
@@ -25,7 +25,7 @@ export class HarpControlsComponent implements OnInit, AfterViewInit {
     inEdit: new FormControl(false),
   });
 
-  public harpTypes = HARP_TYPES;
+  public harpTypes = HARP_TUNINGS;
 
   public ngOnInit(): void {
     this.form.controls.tuning.valueChanges
@@ -43,7 +43,7 @@ export class HarpControlsComponent implements OnInit, AfterViewInit {
 
   public ngAfterViewInit(): void {
     this.form.patchValue({
-      tuning: HARP_TYPES[0].value,
+      tuning: HARP_TUNINGS[0].value,
     });
   }
 }

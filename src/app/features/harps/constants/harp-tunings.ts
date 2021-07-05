@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-magic-numbers */
-import { Tuning } from '../models/tuning';
+import { Tuning } from '../../../core/models/tuning';
 
-export const HARP_TYPES: Tuning[] = [
+export const HARP_TUNINGS: Tuning[] = [
   {
     name: 'lyre_19f',
     value: [
