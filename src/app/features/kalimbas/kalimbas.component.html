@@ -1,2 +1,2 @@
 <app-kalimba class="kalimba" [tongues]="tuning"></app-kalimba>
-<app-kalimba-controls></app-kalimba-controls>
+<app-kalimba-controls (selectTuning)="tuning = $event"></app-kalimba-controls>

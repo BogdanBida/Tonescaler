@@ -21,8 +21,8 @@
   .nut {
     position: absolute;
     top: 2em;
-    left: 12.5%;
-    width: 75%;
+    left: 2em;
+    width: calc(100% - 4em);
     height: 1em;
     background-color: tan;
     z-index: 0;
@@ -32,21 +32,28 @@
     position: relative;
     display: flex;
     justify-content: center;
-    height: 75%;
-    margin: 0 1em;
+    min-height: 1em;
+    margin: 0 0.33em;
     z-index: 1;
+    cursor: pointer;
 
     .notename {
       position: absolute;
-      top: 2.5em;
+      bottom: 1em;
       text-align: center;
-      background-color: var(--bg-color);
-      padding: 0.1em 0.5em;
+
+      color: var(--bg-color);
+      padding: 0.1em 0.25em;
       border-radius: 1em;
+      transform: rotate(-45deg);
+
+      &.not-highlighted {
+        color: white;
+      }
     }
 
     .tongue {
-      width: 1em;
+      width: 1.25em;
       background-color: silver;
       border-radius: 0.33em;
     }
@@ -55,12 +62,11 @@
   &::before {
     position: absolute;
     top: 15%;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 2em;
     content: "";
     display: block;
-    width: 75%;
-    height: 2em;
+    width: calc(100% - 4em);
+    height: 1.5em;
     background-color: rgb(158, 158, 158);
     z-index: 2;
   }

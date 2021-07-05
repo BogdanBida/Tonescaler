@@ -1,1 +1,14 @@
 <app-scale-switcher></app-scale-switcher>
+<form class="form" [formGroup]="form">
+  <mat-form-field class="form-field" appearance="outline">
+    <mat-label>{{ "harps.type" | translate }}</mat-label>
+    <mat-select formControlName="tuning">
+      <mat-option *ngFor="let type of kalimbaTunings" [value]="type.value">
+        {{ type.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-slide-toggle formControlName="inEdit">{{
+    "harps.inedit" | translate
+  }}</mat-slide-toggle>
+</form>
