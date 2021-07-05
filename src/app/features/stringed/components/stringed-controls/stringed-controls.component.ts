@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { StringedTuning } from 'src/app/core/models/stringed-tuning';
 import { STRINGED_TUNINGS } from './../../../../core/constants/stringed-tunings';
 import { DEFAULT_INSTRUMENT, NECK_LENGTHS } from './../../constants/stringed';
 import { StringedService } from './../../services/stringed.service';
 
+@UntilDestroy()
 @Component({
   selector: 'app-stringed-controls',
   templateUrl: './stringed-controls.component.html',
@@ -42,23 +44,27 @@ export class StringedControlsComponent implements OnInit {
   public ngOnInit(): void {
     const lengthControl = this.form.controls.neckLength;
 
-    lengthControl.valueChanges.subscribe((length: number) => {
-      this._stringedService.neckLength$.next(length);
-    });
+    lengthControl.valueChanges
+      .pipe(untilDestroyed(this))
+      .subscribe((length: number) => {
+        this._stringedService.neckLength$.next(length);
+      });
 
     const tuningControl = this.form.controls.tuning;
 
-    tuningControl.valueChanges.subscribe((tuning: number[]) => {
-      this.customTune = null;
-      this._stringedService.selectedTuning$.next(tuning);
+    tuningControl.valueChanges
+      .pipe(untilDestroyed(this))
+      .subscribe((tuning: number[]) => {
+        this.customTune = null;
+        this._stringedService.selectedTuning$.next(tuning);
 
-      const tuningData = this.stringedTunings.find(
-        (data) => data.value === tuning
-      );
+        const tuningData = this.stringedTunings.find(
+          (data) => data.value === tuning
+        );
 
-      this._stringedService.selectedInstrument$.next(
-        (tuningData && tuningData.instrument) || DEFAULT_INSTRUMENT
-      );
-    });
+        this._stringedService.selectedInstrument$.next(
+          (tuningData && tuningData.instrument) || DEFAULT_INSTRUMENT
+        );
+      });
   }
 }

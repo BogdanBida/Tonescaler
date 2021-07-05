@@ -11,6 +11,7 @@ const FULL_TURN = 360;
   selector: 'app-circular-menu',
   templateUrl: './circular-menu.component.html',
   styleUrls: ['./circular-menu.component.scss'],
+  providers: [CircularMenuService],
 })
 export class CircularMenuComponent implements AfterViewInit {
   constructor(private readonly _menuService: CircularMenuService) {}

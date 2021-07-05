@@ -10,6 +10,7 @@ const FULL_TURN = 360;
   selector: 'app-wheel',
   templateUrl: './wheel.component.html',
   styleUrls: ['./wheel.component.scss'],
+  providers: [WheelService],
 })
 export class WheelComponent implements AfterViewInit {
   constructor(private readonly _wheelService: WheelService) {}
@@ -33,8 +34,7 @@ export class WheelComponent implements AfterViewInit {
 
   public getStyleFromItemPosition(
     position: Coordinates,
-    item: HTMLElement,
-    isInner = false
+    item: HTMLElement
   ): Position {
     return {
       top: `calc(${position.y}% - ${item.clientHeight / 2}px)`,

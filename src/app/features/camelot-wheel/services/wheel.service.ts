@@ -11,9 +11,7 @@ const CENTER = 50;
 
 const OFFSET_FROM_BOUNDARIES = 10;
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class WheelService {
   public currentItem$ = new BehaviorSubject<number>(0);
 

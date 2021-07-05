@@ -7,9 +7,7 @@ import {
   DEFAULT_TUNING,
 } from './../constants/stringed';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class StringedService {
   public selectedTuning$ = new BehaviorSubject<number[]>(DEFAULT_TUNING);
 
@@ -18,8 +16,4 @@ export class StringedService {
   );
 
   public neckLength$ = new BehaviorSubject<number>(DEFAULT_NECK_LENGTH);
-
-  public resetTuning(): void {
-    this.selectedTuning$.next(DEFAULT_TUNING);
-  }
 }

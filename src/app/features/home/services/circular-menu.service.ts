@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { UntilDestroy } from '@ngneat/until-destroy';
 import { BehaviorSubject } from 'rxjs';
 import { MenuItemModel } from '../models/menu-item-model';
 import {
@@ -12,16 +11,8 @@ import {
 } from './../constants/menu';
 
 @UntilDestroy()
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class CircularMenuService {
-  constructor(private readonly _router: Router) {
-    this._router.events.pipe(untilDestroyed(this)).subscribe(() => {
-      this.circularMenuIsOpened$.next(false);
-    });
-  }
-
   public circularMenuIsOpened$ = new BehaviorSubject<boolean>(false);
 
   public currentItem$ = new BehaviorSubject<number>(0);

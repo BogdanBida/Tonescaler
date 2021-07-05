@@ -5,9 +5,10 @@ import {
   OnChanges,
   OnInit,
   Output,
-  SimpleChanges,
+  SimpleChanges
 } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { range } from 'lodash-es';
 import { NOTES } from 'src/app/core/constants';
 
@@ -15,6 +16,7 @@ const KEYS_AMOUNT = 24;
 
 const DEFAULT_START_NOTE = 27; // C;
 
+@UntilDestroy()
 @Component({
   selector: 'app-piano-keyboard',
   templateUrl: './piano-keyboard.component.html',
@@ -48,7 +50,7 @@ export class PianoKeyboardComponent implements OnInit, OnChanges {
       this.keys.push(new FormControl(false));
     });
 
-    this.form.valueChanges.subscribe((formValues) => {
+    this.form.valueChanges.pipe(untilDestroyed(this)).subscribe((formValues) => {
       const data = formValues.keys
         .map((v, i) => (v ? i + this.startNote : false))
         .filter(Boolean);
