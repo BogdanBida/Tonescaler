@@ -1,0 +1,11 @@
+@import "mixins";
+
+:host {
+  @include flexHost;
+  justify-content: space-between;
+  padding: 0 1em;
+
+  .kalimba {
+    margin: 0 auto 1em;
+  }
+}
