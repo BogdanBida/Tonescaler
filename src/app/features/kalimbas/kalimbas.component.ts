@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { KALIMBA_TUNINGS } from './constants/kalimba-tunings';
 
 @Component({
   selector: 'app-kalimbas',
   templateUrl: './kalimbas.component.html',
-  styleUrls: ['./kalimbas.component.scss']
+  styleUrls: ['./kalimbas.component.scss'],
 })
-export class KalimbasComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class KalimbasComponent {
+  public tuning = KALIMBA_TUNINGS[0].value;
 }
