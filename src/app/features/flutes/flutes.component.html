@@ -1,3 +1,10 @@
-<p>
-  flutes works!
-</p>
+<div class="flute-container">
+  <app-block-flute-item
+    class="flute-item"
+    *ngFor="let note of getNotes()"
+    [note]="note"
+  ></app-block-flute-item>
+</div>
+<app-block-flute-controls
+  (typeChange)="selectedType = $event"
+></app-block-flute-controls>

@@ -1,0 +1,33 @@
+@import "mixins";
+
+:host {
+  @include flexHost;
+  padding: 0 2em;
+
+  .flute-container {
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    height: min-content;
+    margin: 0 auto;
+    padding: 1em 2em 0;
+    overflow-x: scroll;
+
+    @include scrollbarThin;
+    @include riffledBgr;
+
+    $sizeOfLeaving: 2.5em;
+
+    mask-image: linear-gradient(
+      to left,
+      transparent,
+      black $sizeOfLeaving,
+      black calc(100% - #{$sizeOfLeaving}),
+      transparent 100%
+    );
+
+    .flute-item {
+      height: 100%;
+    }
+  }
+}

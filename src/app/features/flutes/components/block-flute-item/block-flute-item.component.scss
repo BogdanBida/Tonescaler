@@ -1,0 +1,14 @@
+:host {
+  filter: drop-shadow(1px 2px 6px rgba(black, 0.15));
+
+  .notename,
+  .stagename {
+    fill: black;
+    font-weight: 500;
+    text-anchor: middle;
+  }
+
+  .stagename {
+    font-size: 1.25rem;
+  }
+}

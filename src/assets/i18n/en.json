@@ -1,6 +1,7 @@
 {
   "common": {
-    "welcome": "Select instrument"
+    "type": "Type",
+    "inedit": "Edit tuning"
   },
   "routes": {
     "settings": "Settings",
@@ -80,13 +81,20 @@
   "trumpets": {},
   "harmonica": {},
   "harps": {
-    "type": "Type",
-    "inedit": "Edit tuning",
     "types": {
       "lyre_19f": "Lyra 19x (F)",
       "lyre_10e": "Lyre 10x (E)",
       "lyre_7d": "Lyre 7х (D)"
     }
   },
-  "flutes": {}
+  "flutes": {
+    "types": {
+      "garklein": "Garklein",
+      "sopranino": "Sopranino",
+      "soprano": "Soprano",
+      "alt": "Alt",
+      "tenor": "Tenor",
+      "bass": "Bass"
+    }
+  }
 }

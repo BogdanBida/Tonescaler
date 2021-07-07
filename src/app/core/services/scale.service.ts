@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { range } from 'lodash-es';
 import { BehaviorSubject } from 'rxjs';
 import { STAGES } from '../constants';
 import { ScaleModel } from '../models';
@@ -31,5 +32,11 @@ export class ScaleService {
     }
 
     return STAGES[stageNumber - 1];
+  }
+
+  public getNotesInScaleByRange(from: number, to: number): number[] {
+    console.log(range(from, to).map((num) => this.whoInScale(num)));
+
+    return range(from, to).filter((num) => this.whoInScale(num) !== 0);
   }
 }

@@ -1,4 +1,8 @@
 {
+  "common": {
+    "type": "Тип",
+    "inedit": "Редактировать строй"
+  },
   "routes": {
     "settings": "Настройки",
     "tuner": "Тюнер",
@@ -77,13 +81,20 @@
   "trumpets": {},
   "harmonica": {},
   "harps": {
-    "type": "Тип",
-    "inedit": "Редактировать строй",
     "types": {
       "lyre_19f": "Лира 19х (F)",
       "lyre_10e": "Лира 10х (E)",
       "lyre_7d": "Лира 7х (D)"
     }
   },
-  "flutes": {}
+  "flutes": {
+    "types": {
+      "garklein": "Гарклейн",
+      "sopranino": "Сопранино",
+      "soprano": "Сопрано",
+      "alt": "Альт",
+      "tenor": "Тенор",
+      "bass": "Бас"
+    }
+  }
 }
