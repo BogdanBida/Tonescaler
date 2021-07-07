@@ -27,3 +27,13 @@
   width: 100%;
   flex-grow: 1;
 }
+
+@mixin riffledBgr {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(black, 0.15),
+    rgba(black, 0.15) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+}

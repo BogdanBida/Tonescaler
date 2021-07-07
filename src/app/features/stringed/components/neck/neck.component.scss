@@ -6,19 +6,13 @@ $note-bg-color: #141414;
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-image: repeating-linear-gradient(
-    90deg,
-    rgba(black, 0.15),
-    rgba(black, 0.15) 2px,
-    transparent 2px,
-    transparent 8px
-  );
   border-top: 2px solid rgba(black, 0.15);
   border-bottom: 2px solid rgba(black, 0.15);
   overflow-x: scroll;
   overflow-y: auto;
 
   @include scrollbarThin;
+  @include riffledBgr;
 
   counter-reset: stringCounter;
   .string {
