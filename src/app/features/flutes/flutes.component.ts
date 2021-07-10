@@ -16,7 +16,7 @@ export class FlutesComponent implements OnInit {
 
   public getNotes(): number[] {
     const root = this.selectedType.root;
-    const topNote = root + this.selectedType.range;
+    const topNote = root + this.selectedType.applicature.length;
 
     return this._scaleService.scale$.value
       ? this._scaleService.getNotesInScaleByRange(root, topNote)

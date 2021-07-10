@@ -8,6 +8,8 @@
   --successful-color: greenyellow;
   --glass: #2b2b3b;
   --tuner-bg: #22274f;
+  --contrast: #e8e8e8;
+  --inverted-contrast: #4b4b4b;
 }
 
 [data-theme="light"] {
@@ -20,6 +22,8 @@
   --successful-color: rgb(0, 190, 64);
   --glass: #e2e2e2;
   --tuner-bg: #d8daf8;
+  --contrast: #4b4b4b;
+  --inverted-contrast: #e8e8e8;
 
   .monochrome-icon {
     filter: invert(0.75);

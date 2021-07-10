@@ -3,6 +3,7 @@
     class="flute-item"
     *ngFor="let note of getNotes()"
     [note]="note"
+    [type]="selectedType"
   ></app-block-flute-item>
 </div>
 <app-block-flute-controls
