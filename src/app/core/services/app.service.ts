@@ -79,11 +79,20 @@ export class AppService {
   }
 
   private _initAnimations(): void {
-    this.isEnabledPageTransitions =
-      this._cookieService.getSetting(SettingTypes.IsEnabledPageTransitions) ===
-      'true';
-    this.isEnabledUiAnimations =
-      this._cookieService.getSetting(SettingTypes.IsEnabledUiAnimations) ===
-      'true';
+    const isEnabledPageTransitions = this._cookieService.getSetting(
+      SettingTypes.IsEnabledPageTransitions
+    );
+
+    this.isEnabledPageTransitions = isEnabledPageTransitions
+      ? isEnabledPageTransitions === 'true'
+      : this._isEnabledPageTransitions;
+
+    const isEnabledUiAnimations = this._cookieService.getSetting(
+      SettingTypes.IsEnabledUiAnimations
+    );
+
+    this.isEnabledUiAnimations = isEnabledUiAnimations
+      ? isEnabledUiAnimations === 'true'
+      : this._isEnabledUiAnimations;
   }
 }
