@@ -10,8 +10,73 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <style>
+      body {
+        background-color: #203040;
+      }
+
+      .app-loader-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 33vmin;
+      }
+      .app-loader-wrapepr .app-loader {
+        width: 100%;
+      }
+      .loader-note {
+        animation-name: loaderNoteAnimation;
+        animation-duration: 1.25s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: infinite;
+        animation-delay: 0s;
+        opacity: 0;
+      }
+      .loader-note:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .loader-note:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+      .loader-note:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .loader-note:nth-child(5) {
+        animation-delay: 0.4s;
+      }
+
+      @keyframes loaderNoteAnimation {
+        0% {
+          opacity: 0;
+          transform: translateY(-5%);
+        }
+        25% {
+          transform: translateY(0%);
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="loader" class="app-loader-wrapper">
+      <svg
+        version="1.1"
+        class="app-loader"
+        viewBox="0 0 64 64"
+        style="enable-background: new 0 0 64 64"
+      >
+        <g fill="#E8E8E8">
+          <rect class="loader-note" width="6" y="16" height="32" />
+          <rect class="loader-note" x="12" y="16" width="6" height="32" />
+          <rect class="loader-note" x="34" y="16" width="6" height="32" />
+          <rect class="loader-note" x="46" y="16" width="6" height="32" />
+          <rect class="loader-note" x="58" y="16" width="6" height="32" />
+        </g>
+      </svg>
+    </div>
     <app-root></app-root>
   </body>
 </html>
