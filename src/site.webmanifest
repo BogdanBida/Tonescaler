@@ -1,0 +1,47 @@
+{
+  "name": "Tonescaler",
+  "short_name": "Tonescaler",
+  "description": "The application is aimed at being used by musicians as a tool to help identify fingerings, find notes in key, as well as determine chords, pitch, etc. ",
+  "background_color": "#302840",
+  "theme_color": "#f0f0f0",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "lang": "en-US",
+  "screenshots": [],
+  "categories": [
+    "musicians",
+    "music",
+    "fingering",
+    "guitar neck",
+    "guitar",
+    "piano",
+    "keyboard",
+    "improvisation",
+    "applicature",
+    "chords",
+    "tuner",
+    "ukulele",
+    "violin",
+    "bass",
+    "lyre",
+    "harp",
+    "recorder",
+    "block flute",
+    "flute",
+    "trumpet",
+    "saxophone",
+    "kalimba",
+    "strings"
+  ]
+}
